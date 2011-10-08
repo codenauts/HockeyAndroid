@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HockeyApp</string>
+
+    <string name="main_view_signed_out_label">You are not signed in.</string>
+    
+    <string name="login_view_email_label">Email</string>
+    <string name="login_view_failed_toast">Sign in failed. Please check your email and password.</string>
+    <string name="login_view_password_label">Password</string>
+    
+</resources>
