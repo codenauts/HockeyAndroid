@@ -1,5 +1,7 @@
 package de.codenauts.hockeyapp;
 
+import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,23 +11,35 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnItemClickListener {
   final static int DIALOG_LOGIN = 1;
 
   private AlertDialog alert;
+  private AppsAdapter appsAdapter;
   private AppsTask appsTask;
+  private AppTask appTask;
   private LoginTask loginTask;
+  private int selectedAppIndex;
+  private View selectedAppView;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -34,8 +48,50 @@ public class MainActivity extends Activity {
     moveViewBelowOrBesideHeader(this, R.id.content_view, R.id.header_view, 5);
 
     System.setProperty("http.keepAlive", "false");
+
+    loadApps();
+  }
+
+  @Override 
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
+    
+    MenuInflater inflater = getMenuInflater(); 
+    inflater.inflate(R.menu.main_menu, menu);
+    
+    return true; 
+  } 
+  
+  @Override
+  public boolean onPrepareOptionsMenu(Menu menu) {
+    MenuItem refreshItem = menu.getItem(0);
+    MenuItem logoutItem = menu.getItem(1);
+    
+    if (appsAdapter == null) {
+      refreshItem.setEnabled(false);
+      logoutItem.setEnabled(false);
+    }
+    else {
+      refreshItem.setEnabled(true);
+      logoutItem.setEnabled(true);
+    }
+    
+    return true;
+  }
+
+  @Override 
+  public boolean onOptionsItemSelected(MenuItem item) {
+    if (item.getItemId() == R.id.menu_logout) {
+      setAPIToken(null);
+      setStatus(getResources().getString(R.string.main_view_signed_out_label));
+    }
+
+    ListView listView = (ListView)findViewById(R.id.list_view);
+    listView.setVisibility(View.INVISIBLE);
     
     loadApps();
+    
+    return true;
   }
 
   private void loadApps() {
@@ -51,7 +107,7 @@ public class MainActivity extends Activity {
   private void getApps(String token) {
     appsTask = new AppsTask(this, token);
     appsTask.execute();
-    
+
     setStatus("Searching for apps…");
   }
 
@@ -65,14 +121,29 @@ public class MainActivity extends Activity {
 
     return dialog;
   }
-  
+
   @Override
   public void onResume() {
     super.onResume();
-    
-    loginTask = (LoginTask)getLastNonConfigurationInstance();
-    if (loginTask != null) {
-      loginTask.attach(this);
+
+    Object instance = getLastNonConfigurationInstance();
+    if (instance instanceof LoginTask) {
+      loginTask = (LoginTask)instance;
+      if (loginTask != null) {
+        loginTask.attach(this);
+      }
+    }
+    else if (instance instanceof AppsTask) {
+      appsTask = (AppsTask)instance;
+      if (appsTask != null) {
+        appsTask.attach(this);
+      }
+    }
+    else if (instance instanceof AppTask) {
+      appTask = (AppTask)instance;
+      if (appTask != null) {
+        appTask.attach(this);
+      }
     }
   }
 
@@ -81,6 +152,14 @@ public class MainActivity extends Activity {
     if (loginTask != null) {
       loginTask.detach();
       return loginTask;
+    }
+    else if (appsTask != null) {
+      appsTask.detach();
+      return appsTask;
+    }
+    else if (appTask != null) {
+      appTask.detach();
+      return appTask;
     }
     else {
       return null;
@@ -128,24 +207,24 @@ public class MainActivity extends Activity {
 
     LayoutInflater inflater = alert.getLayoutInflater();
     View view = inflater.inflate(R.layout.login_view, null, false);
-    
+
     alert.setView(view);
-    
+
     return alert;
   }
-  
+
   private String getAPIToken() {
     SharedPreferences preferences = getSharedPreferences("HockeyApp", Context.MODE_PRIVATE);
     return preferences.getString("APIToken", null);
   }
-  
+
   private void setAPIToken(String token) {
     SharedPreferences preferences = getSharedPreferences("HockeyApp", Context.MODE_PRIVATE);
     SharedPreferences.Editor editor = preferences.edit();
     editor.putString("APIToken", token);
     editor.commit();
   }
-  
+
   private void setStatus(String status) {
     TextView statusLabel = (TextView)findViewById(R.id.status_label);
     statusLabel.setText(status);
@@ -173,23 +252,87 @@ public class MainActivity extends Activity {
       setStatus("No apps found.");
     }
     else {
+      ArrayList<JSONObject> androidApps = new ArrayList<JSONObject>();
+
       int count = 0;
       for (int index = 0; index < apps.length(); index++) {
         try {
           JSONObject app = apps.getJSONObject(index);
           if ((app.has("platform")) && (app.getString("platform").equals("Android"))) {
             count++;
+
+            androidApps.add(app);
           }
         }
         catch (JSONException e) {
         }
       }
 
+      ListView listView = (ListView)findViewById(R.id.list_view);
       if (count == 0) {
+        listView.setVisibility(View.INVISIBLE);
         setStatus("No apps found.");
       }
       else {
-        setStatus(count + " app(s) found.");
+        appsAdapter = new AppsAdapter(this, androidApps);
+
+        listView.setVisibility(View.VISIBLE);
+        listView.setAdapter(appsAdapter);
+        listView.setOnItemClickListener(this);
+        setStatus("");
+      }
+    }
+  }
+
+  @Override
+  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    if (selectedAppView != null) {
+      ProgressBar progressBar = (ProgressBar)selectedAppView.findViewById(R.id.progress_bar);
+      progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    if (appTask != null) {
+      appTask.cancel(true);
+      appTask = null;
+    }
+
+    selectedAppIndex = position;
+    selectedAppView = view;
+    
+    ProgressBar progressBar = (ProgressBar)selectedAppView.findViewById(R.id.progress_bar);
+    progressBar.setVisibility(View.VISIBLE);
+
+    JSONObject app = (JSONObject)appsAdapter.getItem(position);
+    try {
+      String identifier = app.getString("public_identifier");
+      appTask = new AppTask(this, "https://rink.hockeyapp.net/", identifier);
+      appTask.execute();
+    }
+    catch (JSONException e) {
+      progressBar.setVisibility(View.INVISIBLE);
+    }
+  }
+
+  public void didReceiveAppInfo(JSONArray updateInfo, String apkURL) {
+    if (selectedAppView != null) {
+      ProgressBar progressBar = (ProgressBar)selectedAppView.findViewById(R.id.progress_bar);
+      progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    if (updateInfo != null) {
+      JSONObject app = (JSONObject)appsAdapter.getItem(selectedAppIndex);
+      try {
+        String identifier = app.getString("public_identifier");
+        String title = app.getString("title");
+
+        Intent intent = new Intent(this, AppActivity.class);
+        intent.putExtra("identifier", identifier);
+        intent.putExtra("title", title);
+        intent.putExtra("json", updateInfo.toString());
+        intent.putExtra("url", apkURL);
+        startActivity(intent);
+      }
+      catch (JSONException e) {
       }
     }
   }

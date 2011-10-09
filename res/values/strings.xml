@@ -8,4 +8,6 @@
     <string name="login_view_failed_toast">Sign in failed. Please check your email and password.</string>
     <string name="login_view_password_label">Password</string>
     
+    <string name="menu_logout">Logout</string>
+    <string name="menu_refresh">Refresh</string>
 </resources>
