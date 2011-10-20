@@ -2,6 +2,10 @@ package de.codenauts.hockeyapp;
 
 import java.util.ArrayList;
 
+import net.hockeyapp.android.CheckUpdateTask;
+import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.UpdateActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,9 +41,12 @@ public class MainActivity extends Activity implements OnItemClickListener {
   private AppsAdapter appsAdapter;
   private AppsTask appsTask;
   private AppTask appTask;
+  private JSONArray apps;
   private LoginTask loginTask;
   private int selectedAppIndex;
   private View selectedAppView;
+
+  private CheckUpdateTask checkUpdateTask;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -49,7 +56,19 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     System.setProperty("http.keepAlive", "false");
 
-    loadApps();
+    UpdateActivity.iconDrawableId = R.drawable.icon;
+    UpdateActivity.packageName = this.getPackageName();
+    
+    if (savedInstanceState == null) {
+      checkForUpdates();
+    }
+
+    loadApps(savedInstanceState);
+  }
+
+  private void checkForUpdates() {
+    checkUpdateTask = new CheckUpdateTask(this, "https://rink.hockeyapp.net/", "0873e2b98ad046a92c170a243a8515f6");
+    checkUpdateTask.execute();
   }
 
   @Override 
@@ -67,7 +86,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     MenuItem refreshItem = menu.getItem(0);
     MenuItem logoutItem = menu.getItem(1);
     
-    if (appsAdapter == null) {
+    if (getAPIToken() == null) {
       refreshItem.setEnabled(false);
       logoutItem.setEnabled(false);
     }
@@ -89,18 +108,31 @@ public class MainActivity extends Activity implements OnItemClickListener {
     ListView listView = (ListView)findViewById(R.id.list_view);
     listView.setVisibility(View.INVISIBLE);
     
-    loadApps();
+    this.apps = null;
+    loadApps(null);
     
     return true;
   }
 
-  private void loadApps() {
-    String token = getAPIToken();
-    if (token == null) {
-      showDialog(DIALOG_LOGIN);
+  private void loadApps(Bundle savedInstanceState) {
+    if (savedInstanceState != null) {
+      String json = savedInstanceState.getString("apps");
+      try {
+        this.apps = new JSONArray(json);
+        didReceiveApps(this.apps);
+      }
+      catch (JSONException e) {
+      }
     }
-    else {
-      getApps(token);
+    
+    if (this.apps == null) {
+      String token = getAPIToken();
+      if (token == null) {
+        showDialog(DIALOG_LOGIN);
+      }
+      else {
+        getApps(token);
+      }
     }
   }
 
@@ -126,6 +158,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
   public void onResume() {
     super.onResume();
 
+    checkForCrashes();
+
     Object instance = getLastNonConfigurationInstance();
     if (instance instanceof LoginTask) {
       loginTask = (LoginTask)instance;
@@ -147,8 +181,19 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
   }
 
+  private void checkForCrashes() {
+    CrashManager.register(this, "https://rink.hockeyapp.net/", "0873e2b98ad046a92c170a243a8515f6");
+  }
+
+  @Override
+  protected void onSaveInstanceState (Bundle outState) {
+    outState.putString("apps", this.apps.toString())
+;  }
+
   @Override
   public Object onRetainNonConfigurationInstance() {
+    checkUpdateTask.detach();
+    
     if (loginTask != null) {
       loginTask.detach();
       return loginTask;
@@ -248,6 +293,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
   }
 
   public void didReceiveApps(JSONArray apps) {
+    this.apps = apps;
+    
     if (apps.length() == 0) {
       setStatus("No apps found.");
     }
@@ -258,7 +305,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
       for (int index = 0; index < apps.length(); index++) {
         try {
           JSONObject app = apps.getJSONObject(index);
-          if ((app.has("platform")) && (app.getString("platform").equals("Android"))) {
+          if (((app.has("platform")) && (app.getString("platform").equals("Android"))) &&
+              ((app.has("release_type")) && (app.getInt("release_type") == 0))) {
             count++;
 
             androidApps.add(app);

@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package de.codenauts.hockeyapp;
+package net.hockeyapp.android;
 
 public final class R {
     public static final class attr {

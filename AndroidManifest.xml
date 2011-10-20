@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.codenauts.hockeyapp"
     android:installLocation="auto" 
-    android:versionCode="1"
+    android:versionCode="4"
     android:versionName="1.0">
 
     <application 
@@ -23,7 +23,17 @@
 
         <activity android:name=".AppActivity" />
 
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+
     </application>
+
+    <supports-screens 
+        android:smallScreens="true" 
+        android:normalScreens="true" 
+        android:largeScreens="true" 
+        android:anyDensity="true" />
+                      
+    <uses-sdk android:minSdkVersion="7" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 

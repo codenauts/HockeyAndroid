@@ -36,4 +36,9 @@ public class AppActivity extends UpdateActivity {
     ImageButton downloadButton = (ImageButton)findViewById(resources.getItemId("hockey_update_button"));
     downloadButton.setImageDrawable(getResources().getDrawable(R.drawable.button_download));
   }
+
+  @Override
+  public int getCurrentVersionCode() {
+    return -1;
+  }
 }
