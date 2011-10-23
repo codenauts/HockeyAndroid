@@ -33,27 +33,28 @@ public final class R {
         public static final int progress_bar=0x7f02000e;
     }
     public static final class id {
-        public static final int content_view=0x7f07000e;
-        public static final int email_field=0x7f07000b;
-        public static final int email_label=0x7f07000a;
-        public static final int header_image_view=0x7f070012;
-        public static final int header_view=0x7f070011;
-        public static final int hockey_header_image_view=0x7f070004;
-        public static final int hockey_header_start=0x7f070009;
-        public static final int hockey_header_view=0x7f070003;
-        public static final int hockey_icon_view=0x7f070005;
-        public static final int hockey_name_label=0x7f070007;
-        public static final int hockey_update_button=0x7f070006;
-        public static final int hockey_version_label=0x7f070008;
+        public static final int content_view=0x7f07000f;
+        public static final int email_field=0x7f07000c;
+        public static final int email_label=0x7f07000b;
+        public static final int header_image_view=0x7f070013;
+        public static final int header_view=0x7f070012;
+        public static final int hockey_header_image_view=0x7f070005;
+        public static final int hockey_header_start=0x7f07000a;
+        public static final int hockey_header_view=0x7f070004;
+        public static final int hockey_icon_view=0x7f070006;
+        public static final int hockey_name_label=0x7f070008;
+        public static final int hockey_update_button=0x7f070007;
+        public static final int hockey_version_label=0x7f070009;
         public static final int icon_view=0x7f070000;
-        public static final int list_view=0x7f07000f;
-        public static final int logo_image_view=0x7f070013;
-        public static final int menu_logout=0x7f070015;
-        public static final int menu_refresh=0x7f070014;
-        public static final int password_field=0x7f07000d;
-        public static final int password_label=0x7f07000c;
-        public static final int progress_bar=0x7f070002;
-        public static final int status_label=0x7f070010;
+        public static final int list_view=0x7f070010;
+        public static final int logo_image_view=0x7f070014;
+        public static final int menu_logout=0x7f070016;
+        public static final int menu_refresh=0x7f070015;
+        public static final int owner_label=0x7f070002;
+        public static final int password_field=0x7f07000e;
+        public static final int password_label=0x7f07000d;
+        public static final int progress_bar=0x7f070003;
+        public static final int status_label=0x7f070011;
         public static final int title_label=0x7f070001;
     }
     public static final class layout {

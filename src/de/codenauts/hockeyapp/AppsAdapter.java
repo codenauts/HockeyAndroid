@@ -59,6 +59,24 @@ public class AppsAdapter extends BaseAdapter {
       titleLabel.setText("Unknown");
     }
 
+    TextView ownerLabel = (TextView)view.findViewById(R.id.owner_label);
+    try {
+      if (app.has("company")) {
+        ownerLabel.setText(app.getString("company"));
+      }
+      else {
+        if (app.has("owner")) {
+          ownerLabel.setText("owner");
+        }
+        else {
+          ownerLabel.setText("Unknown");
+        }
+      }
+    }
+    catch (Exception e) {
+      ownerLabel.setText("Unknown");
+    }
+
     ImageView iconView = (ImageView)view.findViewById(R.id.icon_view);
     try {
       if (app.has("public_identifier")) {
