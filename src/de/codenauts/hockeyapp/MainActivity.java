@@ -289,7 +289,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
   }
 
   public void didFailToReceiveApps() {
-    setStatus("Connection failed. Please try again or renew your credentials.");
+    setStatus("Connection failed. Please try again or check your credentials.");
   }
 
   public void didReceiveApps(JSONArray apps) {
