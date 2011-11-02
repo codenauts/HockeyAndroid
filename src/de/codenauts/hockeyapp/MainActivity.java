@@ -187,7 +187,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @Override
   protected void onSaveInstanceState (Bundle outState) {
-    outState.putString("apps", this.apps.toString())
+    if (this.apps != null) {
+      outState.putString("apps", this.apps.toString());
+    }
 ;  }
 
   @Override
