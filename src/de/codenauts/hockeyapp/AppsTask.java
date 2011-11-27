@@ -87,7 +87,7 @@ public class AppsTask extends AsyncTask<String, String, JSONArray> {
   @Override
   protected void onPostExecute(JSONArray apps) {
     this.apps = apps;
-    if (activity == null) {
+    if ((activity == null) || (activity.isFinishing())) {
       this.finished = true;
     }
     else {

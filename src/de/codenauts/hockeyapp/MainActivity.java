@@ -100,6 +100,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @Override 
   public boolean onOptionsItemSelected(MenuItem item) {
+    stopRunningTasks();
+    
     if (item.getItemId() == R.id.menu_logout) {
       setAPIToken(null);
       setStatus(getResources().getString(R.string.main_view_signed_out_label));
@@ -112,6 +114,20 @@ public class MainActivity extends Activity implements OnItemClickListener {
     loadApps(null);
     
     return true;
+  }
+
+  private void stopRunningTasks() {
+    if (appsTask != null) {
+      appsTask.cancel(true);
+      appsTask.detach();
+      appsTask = null;
+    }
+    
+    if (appTask != null) {
+      appTask.cancel(true);
+      appTask.detach();
+      appTask = null;
+    }
   }
 
   private void loadApps(Bundle savedInstanceState) {
@@ -194,7 +210,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @Override
   public Object onRetainNonConfigurationInstance() {
-    checkUpdateTask.detach();
+    if (checkUpdateTask != null) {
+      checkUpdateTask.detach();
+    }
     
     if (loginTask != null) {
       loginTask.detach();
@@ -237,7 +255,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
       public void onClick(DialogInterface dialog, int whichButton) {
         String email = ((EditText)alert.findViewById(R.id.email_field)).getText().toString();
         String password = ((EditText)alert.findViewById(R.id.password_field)).getText().toString();
-
+        
         loginTask = new LoginTask(MainActivity.this, email, password);
         loginTask.execute();
 

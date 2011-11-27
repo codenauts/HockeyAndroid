@@ -130,7 +130,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
   @Override
   protected void onPostExecute(String token) {
     this.token = token;
-    if (activity == null) {
+    if ((activity == null) || (activity.isFinishing())) {
       this.finished = true;
     }
     else {

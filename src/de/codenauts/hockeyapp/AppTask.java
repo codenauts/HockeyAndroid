@@ -26,7 +26,7 @@ public class AppTask extends CheckUpdateTask {
     StringBuilder builder = new StringBuilder();
     builder.append(this.urlString);
     builder.append("api/2/apps/");
-    builder.append((this.appIdentifier != null ? this.appIdentifier : this.context.getPackageName()));
+    builder.append((this.appIdentifier != null ? this.appIdentifier : this.activity.getPackageName()));
     builder.append("?format=" + format);
     
     return builder.toString();
