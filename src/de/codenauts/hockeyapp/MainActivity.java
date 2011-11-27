@@ -139,6 +139,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
       }
       catch (JSONException e) {
       }
+      catch (NullPointerException e) {
+      }
     }
     
     if (this.apps == null) {
