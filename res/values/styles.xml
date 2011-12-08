@@ -16,7 +16,7 @@
 
 <resources>
     <!-- Variation on the Light theme that turns off the title -->
-    <style name="Theme.HockeyApp" parent="android:style/Theme.Light">
+    <style name="Theme.HockeyApp" parent="android:style/Theme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
 
@@ -34,7 +34,7 @@
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">@dimen/actionbar_compat_height</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:background">@drawable/actionbar_compat_background</item>
+        <item name="android:background">@drawable/background_header</item>
     </style>
 
     <style name="ActionBarCompatButton">

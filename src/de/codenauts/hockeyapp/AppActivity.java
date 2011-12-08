@@ -22,12 +22,13 @@ public class AppActivity extends UpdateActivity {
 
     super.onCreate(savedInstanceState);
 
-    setTitle("App Info");
-    activityHelper.setupActionBar(getTitle(), Color.BLACK);
+    setTitle(null);
+    activityHelper.setupActionBar(null, Color.BLACK);
     
     if (UIUtils.isHoneycomb()) {
       ActionBar actionBar = getActionBar();
       actionBar.setDisplayHomeAsUpEnabled(true);
+      actionBar.setDisplayShowTitleEnabled(false);
     }
   }
 

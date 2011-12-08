@@ -51,8 +51,10 @@ containing a value of this type.
         public static final int trackAbstractMaxLines=0x7f010006;
     }
     public static final class color {
-        public static final int background_gray=0x7f060002;
+        public static final int background_gray=0x7f060003;
+        public static final int background_gray_alpha=0x7f060004;
         public static final int background_lightgray=0x7f060001;
+        public static final int background_lightgray_alpha=0x7f060002;
         public static final int background_white=0x7f060000;
     }
     public static final class dimen {
@@ -81,35 +83,37 @@ containing a value of this type.
         public static final int header_update_portrait=0x7f020010;
         public static final int icon=0x7f020011;
         public static final int list_selector=0x7f020012;
-        public static final int logo_header=0x7f020013;
-        public static final int progress_bar=0x7f020014;
+        public static final int logo=0x7f020013;
+        public static final int logo_header=0x7f020014;
+        public static final int progress_bar=0x7f020015;
+        public static final int shadow_top=0x7f020016;
     }
     public static final class id {
         public static final int actionbar_compat=0x7f080000;
         public static final int actionbar_compat_container=0x7f080001;
         public static final int actionbar_compat_logo=0x7f080002;
         public static final int actionbar_compat_text=0x7f080003;
-        public static final int colorstrip=0x7f08000f;
-        public static final int content_view=0x7f080014;
-        public static final int email_field=0x7f080011;
-        public static final int email_label=0x7f080010;
-        public static final int header_image_view=0x7f08000a;
-        public static final int header_start=0x7f08000e;
+        public static final int colorstrip=0x7f08000d;
+        public static final int content_view=0x7f080012;
+        public static final int email_field=0x7f08000f;
+        public static final int email_label=0x7f08000e;
+        public static final int header_image_view=0x7f080015;
+        public static final int header_start=0x7f080016;
         public static final int header_view=0x7f080009;
         public static final int icon_view=0x7f080005;
-        public static final int list_view=0x7f080015;
+        public static final int list_view=0x7f080013;
         public static final int menu_logout=0x7f080019;
         public static final int menu_refresh=0x7f080018;
         public static final int menu_refresh_progress=0x7f080004;
-        public static final int name_label=0x7f08000c;
+        public static final int name_label=0x7f08000b;
         public static final int owner_label=0x7f080007;
-        public static final int password_field=0x7f080013;
-        public static final int password_label=0x7f080012;
+        public static final int password_field=0x7f080011;
+        public static final int password_label=0x7f080010;
         public static final int progress_bar=0x7f080008;
-        public static final int status_label=0x7f080016;
+        public static final int status_label=0x7f080014;
         public static final int title_label=0x7f080006;
-        public static final int update_button=0x7f08000b;
-        public static final int version_label=0x7f08000d;
+        public static final int update_button=0x7f08000a;
+        public static final int version_label=0x7f08000c;
         public static final int web_view=0x7f080017;
     }
     public static final class layout {
@@ -152,6 +156,7 @@ containing a value of this type.
         public static final int update_mandatory_toast=0x7f050009;
     }
     public static final class style {
+        public static final int ActionBar_HockeyApp=0x7f090007;
         public static final int ActionBarCompat=0x7f090001;
         public static final int ActionBarCompatButton=0x7f090002;
         public static final int ActionBarCompatLogo=0x7f090005;

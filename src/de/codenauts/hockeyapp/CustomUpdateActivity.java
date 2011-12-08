@@ -10,8 +10,6 @@ public class CustomUpdateActivity extends UpdateActivity {
   final ActivityHelper activityHelper = ActivityHelper.createInstance(this);
 
   public void onCreate(Bundle savedInstanceState) {
-    iconDrawableId = R.drawable.icon;
-    
     super.onCreate(savedInstanceState);
 
     setTitle("Version Info");

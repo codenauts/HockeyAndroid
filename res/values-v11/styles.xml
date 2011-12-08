@@ -15,5 +15,11 @@
   -->
 
 <resources>
-    <style name="Theme.HockeyApp" parent="android:style/Theme.Holo.Light" />
+    <style name="Theme.HockeyApp" parent="android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.HockeyApp</item>
+     </style>
+    
+    <style name="ActionBar.HockeyApp" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/background_header</item>
+    </style>
 </resources>

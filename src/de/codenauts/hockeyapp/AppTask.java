@@ -31,4 +31,8 @@ public class AppTask extends CheckUpdateTask {
     
     return builder.toString();
   }
+
+  protected boolean getCachingEnabled() {
+    return false;
+  }
 }

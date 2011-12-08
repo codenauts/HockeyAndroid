@@ -124,28 +124,18 @@ public class ActivityHelper {
             }
         };
 
-        if (title != null) {
-            // Add Home button
-            addActionButtonCompat(R.drawable.icon, R.string.app_name, homeClickListener, true);
+        // Add Home button
+        addActionButtonCompat(R.drawable.logo, R.string.app_name, homeClickListener, true);
 
+        if (title != null) {
             // Add title text
             TextView titleText = new TextView(mActivity, null, R.attr.actionbarCompatTextStyle);
             titleText.setLayoutParams(springLayoutParams);
             titleText.setText(title);
             actionBarCompat.addView(titleText);
 
-        } else {
-            // Add logo
-            ImageButton logo = new ImageButton(mActivity, null, R.attr.actionbarCompatLogoStyle);
-            logo.setOnClickListener(homeClickListener);
-            actionBarCompat.addView(logo);
-
-            // Add spring (dummy view to align future children to the right)
-            View spring = new View(mActivity);
-            spring.setLayoutParams(springLayoutParams);
-            actionBarCompat.addView(spring);
         }
-
+        
         setActionBarColor(color);
     }
 
@@ -203,28 +193,19 @@ public class ActivityHelper {
         separator.setLayoutParams(
                 new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.FILL_PARENT));
 
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.FILL_PARENT);
+        layoutParams.setMargins(10, 0, 0, 0);
+        
         // Create the button
         ImageButton actionButton = new ImageButton(mActivity, null,
                 R.attr.actionbarCompatButtonStyle);
-        actionButton.setLayoutParams(new ViewGroup.LayoutParams(
-                (int) mActivity.getResources().getDimension(R.dimen.actionbar_compat_height),
-                ViewGroup.LayoutParams.FILL_PARENT));
+        actionButton.setLayoutParams(layoutParams);
         actionButton.setImageResource(iconResId);
         actionButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
         actionButton.setContentDescription(mActivity.getResources().getString(textResId));
         actionButton.setOnClickListener(clickListener);
 
-        // Add separator and button to the action bar in the desired order
-
-        if (!separatorAfter) {
-            actionBar.addView(separator);
-        }
-
         actionBar.addView(actionButton);
-
-        if (separatorAfter) {
-            actionBar.addView(separator);
-        }
 
         return actionButton;
     }

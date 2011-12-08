@@ -3,6 +3,7 @@ package de.codenauts.hockeyapp;
 import java.util.ArrayList;
 
 import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.R;
 import net.hockeyapp.android.UpdateManager;
 import net.hockeyapp.android.UpdateManagerListener;
 
@@ -10,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -32,6 +34,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.codenauts.hockeyapp.util.ActivityHelper;
+import de.codenauts.hockeyapp.util.UIUtils;
 
 public class MainActivity extends Activity implements OnItemClickListener {
   final static int DIALOG_LOGIN = 1;
@@ -52,10 +55,15 @@ public class MainActivity extends Activity implements OnItemClickListener {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.main_view);
-    activityHelper.setupActionBar(getResources().getString(R.string.app_name), Color.BLACK);
-
+    setTitle(null);
+    activityHelper.setupActionBar(null, Color.BLACK);
+    
+    if (UIUtils.isHoneycomb()) {
+      ActionBar actionBar = getActionBar();
+      actionBar.setDisplayShowTitleEnabled(false);
+    }
+    
     System.setProperty("http.keepAlive", "false");
-
     if (savedInstanceState == null) {
       checkForUpdates();
     }

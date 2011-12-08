@@ -43,7 +43,14 @@
             android:textSize="12sp"
             android:textStyle="bold"
         />        
-
+            
+        <ImageView
+            android:layout_height="4dip"
+            android:layout_width="fill_parent" 
+            android:scaleType="fitXY"
+            android:src="@drawable/shadow_top"
+        />
+        
     </RelativeLayout>
     
 </LinearLayout>
