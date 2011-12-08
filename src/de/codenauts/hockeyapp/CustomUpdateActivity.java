@@ -13,7 +13,7 @@ public class CustomUpdateActivity extends UpdateActivity {
     super.onCreate(savedInstanceState);
 
     setTitle("Version Info");
-    activityHelper.setupActionBar(getTitle(), Color.BLACK);
+    activityHelper.setupActionBar(null, Color.BLACK);
   }
   
   public int getLayout() {
