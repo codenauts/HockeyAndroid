@@ -10,7 +10,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
-import android.util.Base64;
 
 public class LoginTask extends AsyncTask<String, String, String> {
   private boolean finished;
@@ -20,7 +19,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
   
   public LoginTask(MainActivity activity, String email, String password) {
     this.activity = activity;
-    this.credentials = Base64.encodeToString((email + ":" + password).getBytes(), Base64.DEFAULT);
+    this.credentials = Base64.encodeBytes((email + ":" + password).getBytes());
     this.finished = false;
     this.token = null;
   }
