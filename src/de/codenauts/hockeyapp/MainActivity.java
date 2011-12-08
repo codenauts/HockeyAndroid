@@ -2,9 +2,9 @@ package de.codenauts.hockeyapp;
 
 import java.util.ArrayList;
 
-import net.hockeyapp.android.CheckUpdateTask;
 import net.hockeyapp.android.CrashManager;
-import net.hockeyapp.android.UpdateActivity;
+import net.hockeyapp.android.UpdateManager;
+import net.hockeyapp.android.UpdateManagerListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,25 +17,26 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.codenauts.hockeyapp.util.ActivityHelper;
 
 public class MainActivity extends Activity implements OnItemClickListener {
   final static int DIALOG_LOGIN = 1;
+
+  final ActivityHelper activityHelper = ActivityHelper.createInstance(this);
 
   private AlertDialog alert;
   private AppsAdapter appsAdapter;
@@ -46,13 +47,12 @@ public class MainActivity extends Activity implements OnItemClickListener {
   private int selectedAppIndex;
   private View selectedAppView;
 
-  private CheckUpdateTask checkUpdateTask;
-
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
     setContentView(R.layout.main_view);
-    moveViewBelowOrBesideHeader(this, R.id.content_view, R.id.header_view, 5);
+    activityHelper.setupActionBar(getResources().getString(R.string.app_name), Color.BLACK);
 
     System.setProperty("http.keepAlive", "false");
 
@@ -64,10 +64,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
   }
 
   private void checkForUpdates() {
-    UpdateActivity.iconDrawableId = R.drawable.icon;
-    
-    checkUpdateTask = new CheckUpdateTask(this, "https://rink.hockeyapp.net/", "0873e2b98ad046a92c170a243a8515f6");
-    checkUpdateTask.execute();
+    UpdateManager.register(this, "0873e2b98ad046a92c170a243a8515f6", new UpdateManagerListener() {
+      public Class getUpdateActivityClass() {
+        return CustomUpdateActivity.class;
+      }
+    });
   }
 
   @Override 
@@ -87,11 +88,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
     
     if (getAPIToken() == null) {
       refreshItem.setEnabled(false);
-      logoutItem.setEnabled(false);
+      logoutItem.setTitle("Sign in");
     }
     else {
       refreshItem.setEnabled(true);
-      logoutItem.setEnabled(true);
+      logoutItem.setTitle("Sign out");
     }
     
     return true;
@@ -214,10 +215,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @Override
   public Object onRetainNonConfigurationInstance() {
-    if (checkUpdateTask != null) {
-      checkUpdateTask.detach();
-    }
-    
     if (loginTask != null) {
       loginTask.detach();
       return loginTask;
@@ -233,22 +230,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
     else {
       return null;
     }
-  }
-
-  private static void moveViewBelowOrBesideHeader(Activity activity, int viewID, int headerID, float offset) {
-    ViewGroup headerView = (ViewGroup)activity.findViewById(headerID); 
-    View view = (View)activity.findViewById(viewID);
-    float density = activity.getResources().getDisplayMetrics().density; 
-    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, activity.getWindowManager().getDefaultDisplay().getHeight() - headerView.getHeight() + (int)(offset * density));
-    if (((String)view.getTag()).equalsIgnoreCase("right")) {
-      layoutParams.addRule(RelativeLayout.RIGHT_OF, headerID);
-      layoutParams.setMargins(-(int)(offset * density), 0, 0, (int)(10 * density));
-    }
-    else {
-      layoutParams.addRule(RelativeLayout.BELOW, headerID);
-      layoutParams.setMargins(0, -(int)(offset * density), 0, (int)(10 * density));
-    }
-    view.setLayoutParams(layoutParams);
   }
 
   private Dialog createLoginDialog() {

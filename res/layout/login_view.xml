@@ -21,8 +21,6 @@
                 android:paddingTop="10dip"
                 android:paddingRight="10dip"
                 android:text="@string/login_view_email_label"
-                android:textColor="#fff"
-                android:textSize="12sp"
                 />
                   
             <EditText 
@@ -32,8 +30,6 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="10dip"
                 android:singleLine="true"
-                android:textColor="#000"
-                android:textSize="12sp"
                 />
         
         </TableRow>
@@ -47,8 +43,6 @@
                 android:paddingTop="10dip"
                 android:paddingRight="10dip"
                 android:text="@string/login_view_password_label"
-                android:textColor="#fff"
-                android:textSize="12sp"
                 />
                   
             <EditText 
@@ -59,8 +53,6 @@
                 android:paddingTop="10dip"
                 android:password="true"
                 android:singleLine="true"
-                android:textColor="#000"
-                android:textSize="12sp"
                 />
         
         </TableRow>
