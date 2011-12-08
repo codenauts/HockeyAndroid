@@ -131,6 +131,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
   }
 
   private void loadApps(Bundle savedInstanceState) {
+    
     if (savedInstanceState != null) {
       String json = savedInstanceState.getString("apps");
       try {
@@ -146,7 +147,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
     if (this.apps == null) {
       String token = getAPIToken();
       if (token == null) {
-        showDialog(DIALOG_LOGIN);
+        if (savedInstanceState == null) {
+          showDialog(DIALOG_LOGIN);
+        }
       }
       else {
         getApps(token);
@@ -197,6 +200,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
         appTask.attach(this);
       }
     }
+  }
+
+  @Override
+  public void onPause() {
+    dismissDialog(DIALOG_LOGIN);
+    
+    super.onPause();
   }
 
   private void checkForCrashes() {
