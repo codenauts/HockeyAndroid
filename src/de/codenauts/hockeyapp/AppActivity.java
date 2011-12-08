@@ -20,7 +20,7 @@ public class AppActivity extends UpdateActivity {
   protected void configureView() {
     super.configureView();
     
-    ImageView iconView = (ImageView)findViewById(resources.getItemId("icon_view"));
+    ImageView iconView = (ImageView)findViewById(R.id.icon_view);
     try {
       String identifier = getIntent().getStringExtra("identifier");
       String url = "https://rink.hockeyapp.net/api/2/apps/" + identifier + "?format=png";
@@ -30,14 +30,13 @@ public class AppActivity extends UpdateActivity {
       iconView.setImageBitmap(null);
     }
 
-    TextView titleLabel = (TextView)findViewById(resources.getItemId("name_label"));
+    TextView titleLabel = (TextView)findViewById(R.id.name_label);
     titleLabel.setText(getIntent().getStringExtra("title"));
     
-    ImageButton downloadButton = (ImageButton)findViewById(resources.getItemId("hockey_update_button"));
+    ImageButton downloadButton = (ImageButton)findViewById(R.id.update_button);
     downloadButton.setImageDrawable(getResources().getDrawable(R.drawable.button_download));
   }
 
-  @Override
   public int getCurrentVersionCode() {
     return -1;
   }

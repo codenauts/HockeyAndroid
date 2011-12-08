@@ -56,9 +56,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     System.setProperty("http.keepAlive", "false");
 
-    UpdateActivity.iconDrawableId = R.drawable.icon;
-    UpdateActivity.packageName = this.getPackageName();
-    
     if (savedInstanceState == null) {
       checkForUpdates();
     }
@@ -67,6 +64,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
   }
 
   private void checkForUpdates() {
+    UpdateActivity.iconDrawableId = R.drawable.icon;
+    
     checkUpdateTask = new CheckUpdateTask(this, "https://rink.hockeyapp.net/", "0873e2b98ad046a92c170a243a8515f6");
     checkUpdateTask.execute();
   }
@@ -202,15 +201,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
   }
 
-  @Override
-  public void onPause() {
-    dismissDialog(DIALOG_LOGIN);
-    
-    super.onPause();
-  }
-
   private void checkForCrashes() {
-    CrashManager.register(this, "https://rink.hockeyapp.net/", "0873e2b98ad046a92c170a243a8515f6");
+    CrashManager.register(this, "0873e2b98ad046a92c170a243a8515f6");
   }
 
   @Override
