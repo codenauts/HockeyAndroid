@@ -17,7 +17,9 @@
 <resources>
     <style name="Theme.HockeyApp" parent="android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/ActionBar.HockeyApp</item>
-     </style>
+        <item name="android:actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="android:actionButtonStyle">@android:style/Widget.Holo.ActionButton</item>
+    </style>
     
     <style name="ActionBar.HockeyApp" parent="@android:style/Widget.Holo.ActionBar">
         <item name="android:background">@drawable/background_header</item>
