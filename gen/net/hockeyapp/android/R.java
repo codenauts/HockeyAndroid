@@ -91,15 +91,16 @@ containing a value of this type.
         public static final int actionbar_compat_container=0x7f080001;
         public static final int actionbar_compat_logo=0x7f080002;
         public static final int actionbar_compat_text=0x7f080003;
+        public static final int apps_view=0x7f080013;
         public static final int colorstrip=0x7f08000d;
         public static final int content_view=0x7f080012;
         public static final int email_field=0x7f08000f;
         public static final int email_label=0x7f08000e;
         public static final int header_view=0x7f080009;
         public static final int icon_view=0x7f080005;
-        public static final int list_view=0x7f080013;
-        public static final int menu_logout=0x7f080017;
-        public static final int menu_refresh=0x7f080016;
+        public static final int list_view=0x7f080015;
+        public static final int menu_logout=0x7f080018;
+        public static final int menu_refresh=0x7f080017;
         public static final int menu_refresh_progress=0x7f080004;
         public static final int name_label=0x7f08000b;
         public static final int owner_label=0x7f080007;
@@ -110,12 +111,12 @@ containing a value of this type.
         public static final int title_label=0x7f080006;
         public static final int update_button=0x7f08000a;
         public static final int version_label=0x7f08000c;
-        public static final int web_view=0x7f080015;
+        public static final int web_view=0x7f080016;
     }
     public static final class layout {
         public static final int actionbar=0x7f030000;
         public static final int actionbar_indeterminate_progress=0x7f030001;
-        public static final int app_list_item=0x7f030002;
+        public static final int app_item=0x7f030002;
         public static final int app_view=0x7f030003;
         public static final int colorstrip=0x7f030004;
         public static final int custom_update_view=0x7f030005;

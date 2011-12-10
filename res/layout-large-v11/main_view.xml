@@ -7,28 +7,29 @@
     android:orientation="vertical"
     >
     
-    <include layout="@layout/actionbar" />
-    
     <RelativeLayout 
         android:id="@+id/content_view"
-        android:background="#fff"
+        android:background="@color/background_lightgray_alpha"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:tag="bottom"
         android:layout_weight="1"
     >
 
-        <ListView
+        <GridView
             android:id="@+id/apps_view"
-            android:background="#fff"
             android:cacheColorHint="#fff"
             android:fastScrollEnabled="false"
             android:layout_marginTop="0dip"
             android:layout_height="fill_parent"
             android:layout_width="fill_parent"
+            android:horizontalSpacing="1dp"
+            android:numColumns="3"
             android:scrollingCache="false"
             android:scrollbars="vertical"
             android:scrollbarDefaultDelayBeforeFade="5000"
+            android:stretchMode="columnWidth"            
+            android:verticalSpacing="1dip"
         />
         
         <TextView

@@ -73,7 +73,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   private void checkForUpdates() {
     UpdateManager.register(this, "0873e2b98ad046a92c170a243a8515f6", new UpdateManagerListener() {
-      public Class getUpdateActivityClass() {
+      public Class<?> getUpdateActivityClass() {
         return CustomUpdateActivity.class;
       }
     });
@@ -305,6 +305,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     setStatus("Connection failed. Please try again or check your credentials.");
   }
 
+  @SuppressWarnings("unchecked")
   public void didReceiveApps(JSONArray apps) {
     this.apps = apps;
     
@@ -329,7 +330,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
         }
       }
 
-      ListView listView = (ListView)findViewById(R.id.list_view);
+      @SuppressWarnings("rawtypes")
+      AdapterView listView = (AdapterView)findViewById(R.id.apps_view);
       if (count == 0) {
         listView.setVisibility(View.INVISIBLE);
         setStatus("No apps found.");

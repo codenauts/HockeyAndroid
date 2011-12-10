@@ -42,7 +42,7 @@ public class AppsAdapter extends BaseAdapter {
   public View getView(int position, View convertView, ViewGroup parent) {
     View view = convertView;
     if (convertView == null) {
-      view = inflater.inflate(R.layout.app_list_item, null);
+      view = inflater.inflate(R.layout.app_item, null);
     }
 
     JSONObject app = (JSONObject)getItem(position);
