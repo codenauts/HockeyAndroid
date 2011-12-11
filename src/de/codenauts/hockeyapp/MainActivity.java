@@ -64,16 +64,24 @@ public class MainActivity extends Activity implements OnItemClickListener {
     
     System.setProperty("http.keepAlive", "false");
     if (savedInstanceState == null) {
-      checkForUpdates();
+      checkForUpdates(false);
     }
 
     loadApps(savedInstanceState);
   }
 
-  private void checkForUpdates() {
+  private void checkForUpdates(final Boolean notify) {
     UpdateManager.register(this, "0873e2b98ad046a92c170a243a8515f6", new UpdateManagerListener() {
+      @Override
       public Class<?> getUpdateActivityClass() {
         return CustomUpdateActivity.class;
+      }
+      
+      @Override
+      public void onNoUpdateAvailable() {
+        if ((!isFinishing()) && (notify)) {
+          Toast.makeText(MainActivity.this, "No update found.", Toast.LENGTH_SHORT).show();
+        }
       }
     });
   }
@@ -90,8 +98,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
   
   @Override
   public boolean onPrepareOptionsMenu(Menu menu) {
-    MenuItem refreshItem = menu.getItem(0);
-    MenuItem logoutItem = menu.getItem(1);
+    MenuItem refreshItem = menu.getItem(1);
+    MenuItem logoutItem = menu.getItem(2);
     
     if (getAPIToken() == null) {
       refreshItem.setEnabled(false);
@@ -107,18 +115,23 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @Override 
   public boolean onOptionsItemSelected(MenuItem item) {
-    stopRunningTasks();
-    
-    if (item.getItemId() == R.id.menu_logout) {
-      setAPIToken(null);
-      setStatus(getResources().getString(R.string.main_view_signed_out_label));
+    if (item.getItemId() == R.id.menu_update) {
+      checkForUpdates(true);
     }
-
-    View appsView = (View)findViewById(R.id.apps_view);
-    appsView.setVisibility(View.INVISIBLE);
-    
-    this.apps = null;
-    loadApps(null);
+    else {
+      stopRunningTasks();
+      
+      if (item.getItemId() == R.id.menu_logout) {
+        setAPIToken(null);
+        setStatus(getResources().getString(R.string.main_view_signed_out_label));
+      }
+  
+      View appsView = (View)findViewById(R.id.apps_view);
+      appsView.setVisibility(View.INVISIBLE);
+      
+      this.apps = null;
+      loadApps(null);
+    }
     
     return true;
   }

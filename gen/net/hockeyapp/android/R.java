@@ -99,9 +99,10 @@ containing a value of this type.
         public static final int header_view=0x7f080009;
         public static final int icon_view=0x7f080005;
         public static final int list_view=0x7f080015;
-        public static final int menu_logout=0x7f080018;
-        public static final int menu_refresh=0x7f080017;
+        public static final int menu_logout=0x7f080019;
+        public static final int menu_refresh=0x7f080018;
         public static final int menu_refresh_progress=0x7f080004;
+        public static final int menu_update=0x7f080017;
         public static final int name_label=0x7f08000b;
         public static final int owner_label=0x7f080007;
         public static final int password_field=0x7f080011;
@@ -146,6 +147,7 @@ containing a value of this type.
         public static final int main_view_signed_out_label=0x7f05000e;
         public static final int menu_logout=0x7f050012;
         public static final int menu_refresh=0x7f050013;
+        public static final int menu_update=0x7f050014;
         public static final int update_dialog_message=0x7f05000b;
         public static final int update_dialog_negative_button=0x7f05000c;
         public static final int update_dialog_positive_button=0x7f05000d;
