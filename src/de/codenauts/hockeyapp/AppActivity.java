@@ -1,7 +1,5 @@
 package de.codenauts.hockeyapp;
 
-import de.codenauts.hockeyapp.util.ActivityHelper;
-import de.codenauts.hockeyapp.util.UIUtils;
 import net.hockeyapp.android.UpdateActivity;
 import android.app.ActionBar;
 import android.content.Intent;
@@ -11,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import de.codenauts.hockeyapp.util.ActivityHelper;
+import de.codenauts.hockeyapp.util.UIUtils;
 
 public class AppActivity extends UpdateActivity {
   final ActivityHelper activityHelper = ActivityHelper.createInstance(this);

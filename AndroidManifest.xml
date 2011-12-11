@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.codenauts.hockeyapp"
     android:installLocation="auto" 
-    android:versionCode="74"
+    android:versionCode="96"
     android:versionName="1.0">
 
     <application 
+	    android:debuggable="false"
         android:theme="@style/Theme.HockeyApp"
         android:icon="@drawable/icon" 
         android:logo="@drawable/logo" 

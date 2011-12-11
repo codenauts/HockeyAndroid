@@ -29,7 +29,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -115,8 +114,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
       setStatus(getResources().getString(R.string.main_view_signed_out_label));
     }
 
-    ListView listView = (ListView)findViewById(R.id.list_view);
-    listView.setVisibility(View.INVISIBLE);
+    View appsView = (View)findViewById(R.id.apps_view);
+    appsView.setVisibility(View.INVISIBLE);
     
     this.apps = null;
     loadApps(null);

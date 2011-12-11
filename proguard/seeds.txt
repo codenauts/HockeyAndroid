@@ -1,0 +1,10 @@
+net.hockeyapp.android.UpdateActivity: void onClickUpdate(android.view.View)
+net.hockeyapp.android.UpdateActivity: void onClickUpdate(android.view.View)
+net.hockeyapp.android.UpdateActivity: void onClickUpdate(android.view.View)
+de.codenauts.hockeyapp.MainActivity
+net.hockeyapp.android.UpdateActivity
+de.codenauts.hockeyapp.AppActivity
+de.codenauts.hockeyapp.CustomUpdateActivity
+net.hockeyapp.android.UpdateActivity
+de.codenauts.hockeyapp.AppActivity
+de.codenauts.hockeyapp.CustomUpdateActivity

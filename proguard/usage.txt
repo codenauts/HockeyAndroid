@@ -1,0 +1,144 @@
+de.codenauts.hockeyapp.Base64:
+    public static final int NO_OPTIONS
+    public static final int ENCODE
+    public static final int DECODE
+    public static final int GZIP
+    public static final int DONT_GUNZIP
+    public static final int DO_BREAK_LINES
+    public static final int URL_SAFE
+    public static final int ORDERED
+    private static final int MAX_LINE_LENGTH
+    private static final byte EQUALS_SIGN
+    private static final byte NEW_LINE
+    private static final java.lang.String PREFERRED_ENCODING
+    private static final byte WHITE_SPACE_ENC
+    private static final byte EQUALS_SIGN_ENC
+    558:567:public static void encode(java.nio.ByteBuffer,java.nio.ByteBuffer)
+    582:593:public static void encode(java.nio.ByteBuffer,java.nio.CharBuffer)
+    618:618:public static java.lang.String encodeObject(java.io.Serializable)
+    655:698:public static java.lang.String encodeObject(java.io.Serializable,int)
+    760:760:public static java.lang.String encodeBytes(byte[],int)
+    786:793:public static java.lang.String encodeBytes(byte[],int,int)
+    858:864:public static byte[] encodeBytesToBytes(byte[])
+    1120:1126:public static byte[] decode(byte[])
+    1152:1208:public static byte[] decode(byte[],int,int,int)
+    1224:1224:public static byte[] decode(java.lang.String)
+    1242:1297:public static byte[] decode(java.lang.String,int)
+    1316:1316:public static java.lang.Object decodeToObject(java.lang.String)
+    1341:1386:public static java.lang.Object decodeToObject(java.lang.String,int,java.lang.ClassLoader)
+    1408:1425:public static void encodeToFile(byte[],java.lang.String)
+    1444:1457:public static void decodeToFile(java.lang.String,java.lang.String)
+    1479:1518:public static byte[] decodeFromFile(java.lang.String)
+    1540:1571:public static java.lang.String encodeFromFile(java.lang.String)
+    1585:1599:public static void encodeFileToFile(java.lang.String,java.lang.String)
+    1613:1627:public static void decodeFileToFile(java.lang.String,java.lang.String)
+    495:495:static byte[] access$1(byte[],int,int,byte[],int,int)
+de.codenauts.hockeyapp.Base64$1
+de.codenauts.hockeyapp.Base64$InputStream
+de.codenauts.hockeyapp.Base64$OutputStream:
+    2045:2047:public void suspendEncoding()
+    2058:2059:public void resumeEncoding()
+de.codenauts.hockeyapp.FileCache:
+    27:31:public void clear()
+de.codenauts.hockeyapp.ImageLoader:
+    private static final int REQUIRED_SIZE
+    private static final int STUB_ID
+    125:126:public void stopThread()
+    208:210:public void clearCache()
+de.codenauts.hockeyapp.MainActivity:
+    static final int DIALOG_LOGIN
+de.codenauts.hockeyapp.MemoryCache:
+    26:27:public void clear()
+de.codenauts.hockeyapp.OnlineHelper:
+    public static final java.lang.String BASE_URL
+    public static final java.lang.String AUTH_ACTION
+    public static final java.lang.String APPS_ACTION
+de.codenauts.hockeyapp.R
+de.codenauts.hockeyapp.R$anim
+de.codenauts.hockeyapp.R$attr
+de.codenauts.hockeyapp.R$color
+de.codenauts.hockeyapp.R$dimen
+de.codenauts.hockeyapp.R$drawable
+de.codenauts.hockeyapp.R$id
+de.codenauts.hockeyapp.R$layout
+de.codenauts.hockeyapp.R$menu
+de.codenauts.hockeyapp.R$string
+de.codenauts.hockeyapp.R$style
+de.codenauts.hockeyapp.R$styleable
+de.codenauts.hockeyapp.util.ActivityHelper:
+    59:66:public void onPostCreate(android.os.Bundle)
+    73:73:public void setupHomeActivity()
+    80:80:public void setupSubActivity()
+    103:104:public void goSearch()
+    162:171:public void setActionBarTitle(java.lang.CharSequence)
+    220:267:private android.view.View addActionButtonCompatFromMenuItem(android.view.MenuItem)
+    276:285:public void setRefreshActionButtonCompatState(boolean)
+de.codenauts.hockeyapp.util.ActivityHelper$2
+de.codenauts.hockeyapp.util.ActivityHelperHoneycomb:
+    private android.view.Menu mOptionsMenu
+    42:42:public void onPostCreate(android.os.Bundle)
+    47:59:public void setupHomeActivity()
+    64:76:public void setupSubActivity()
+    83:83:public void setActionBarTitle(java.lang.CharSequence)
+    100:112:public void setRefreshActionButtonCompatState(boolean)
+de.codenauts.hockeyapp.util.SimpleMenu
+de.codenauts.hockeyapp.util.SimpleMenuItem
+de.codenauts.hockeyapp.util.UIUtils:
+    40:40:public static boolean isHoneycombTablet(android.content.Context)
+net.hockeyapp.android.CheckUpdateTask:
+    37:43:public CheckUpdateTask(android.app.Activity,java.lang.String)
+net.hockeyapp.android.CrashManager:
+    62:63:public static void register(android.content.Context,java.lang.String,net.hockeyapp.android.CrashManagerListener)
+net.hockeyapp.android.R$anim
+net.hockeyapp.android.R$attr
+net.hockeyapp.android.R$color
+net.hockeyapp.android.R$dimen
+net.hockeyapp.android.R$drawable
+net.hockeyapp.android.R$id:
+    public static final int actionbar_compat
+    public static final int actionbar_compat_container
+    public static final int actionbar_compat_logo
+    public static final int actionbar_compat_text
+    public static final int apps_view
+    public static final int colorstrip
+    public static final int content_view
+    public static final int email_field
+    public static final int email_label
+    public static final int header_view
+    public static final int icon_view
+    public static final int menu_logout
+    public static final int menu_refresh
+    public static final int menu_refresh_progress
+    public static final int name_label
+    public static final int owner_label
+    public static final int password_field
+    public static final int password_label
+    public static final int progress_bar
+    public static final int status_label
+    public static final int title_label
+    public static final int web_view
+net.hockeyapp.android.R$layout:
+    public static final int actionbar
+    public static final int actionbar_indeterminate_progress
+    public static final int app_item
+    public static final int app_view
+    public static final int colorstrip
+    public static final int custom_update_view
+    public static final int login_view
+    public static final int main_view
+    public static final int separator
+    public static final int web_view_list_item
+net.hockeyapp.android.R$menu
+net.hockeyapp.android.R$string:
+    public static final int app_name
+    public static final int login_view_email_label
+    public static final int login_view_failed_toast
+    public static final int login_view_password_label
+    public static final int main_view_signed_out_label
+    public static final int menu_logout
+    public static final int menu_refresh
+net.hockeyapp.android.R$style
+net.hockeyapp.android.R$styleable
+net.hockeyapp.android.UpdateActivityInterface
+net.hockeyapp.android.UpdateManager:
+    26:27:public static void register(android.app.Activity,java.lang.String)
