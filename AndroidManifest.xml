@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.codenauts.hockeyapp"
     android:installLocation="auto" 
-    android:versionCode="102"
+    android:versionCode="103"
     android:versionName="1.0">
 
     <application 
