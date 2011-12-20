@@ -75,20 +75,20 @@ de.codenauts.hockeyapp.util.ActivityHelper:
     276:285:public void setRefreshActionButtonCompatState(boolean)
 de.codenauts.hockeyapp.util.ActivityHelper$2
 de.codenauts.hockeyapp.util.ActivityHelperHoneycomb:
-    private android.view.Menu mOptionsMenu
-    42:42:public void onPostCreate(android.os.Bundle)
-    47:59:public void setupHomeActivity()
-    64:76:public void setupSubActivity()
-    83:83:public void setActionBarTitle(java.lang.CharSequence)
-    100:112:public void setRefreshActionButtonCompatState(boolean)
+    36:36:public void onPostCreate(android.os.Bundle)
+    41:53:public void setupHomeActivity()
+    58:70:public void setupSubActivity()
+    77:77:public void setActionBarTitle(java.lang.CharSequence)
 de.codenauts.hockeyapp.util.SimpleMenu
 de.codenauts.hockeyapp.util.SimpleMenuItem
 de.codenauts.hockeyapp.util.UIUtils:
     40:40:public static boolean isHoneycombTablet(android.content.Context)
 net.hockeyapp.android.CheckUpdateTask:
-    37:43:public CheckUpdateTask(android.app.Activity,java.lang.String)
+    39:45:public CheckUpdateTask(android.app.Activity,java.lang.String)
 net.hockeyapp.android.CrashManager:
     62:63:public static void register(android.content.Context,java.lang.String,net.hockeyapp.android.CrashManagerListener)
+net.hockeyapp.android.DownloadFileListener:
+    public abstract void downloadSuccessful(net.hockeyapp.android.DownloadFileTask)
 net.hockeyapp.android.R$anim
 net.hockeyapp.android.R$attr
 net.hockeyapp.android.R$color
@@ -117,10 +117,8 @@ net.hockeyapp.android.R$id:
     public static final int progress_bar
     public static final int status_label
     public static final int title_label
-    public static final int web_view
 net.hockeyapp.android.R$layout:
     public static final int actionbar
-    public static final int actionbar_indeterminate_progress
     public static final int app_item
     public static final int app_view
     public static final int colorstrip
@@ -128,19 +126,30 @@ net.hockeyapp.android.R$layout:
     public static final int login_view
     public static final int main_view
     public static final int separator
-    public static final int web_view_list_item
 net.hockeyapp.android.R$menu
 net.hockeyapp.android.R$string:
+    public static final int accessibility_download_button
+    public static final int accessibility_style_view
+    public static final int accessibility_update_button
+    public static final int app_item_owner_label
     public static final int app_name
     public static final int login_view_email_label
     public static final int login_view_failed_toast
     public static final int login_view_password_label
+    public static final int main_view_no_app_info_label
+    public static final int main_view_no_update_label
+    public static final int main_view_searching_apps_label
     public static final int main_view_signed_out_label
+    public static final int main_view_signing_in_label
     public static final int menu_logout
     public static final int menu_refresh
     public static final int menu_update
 net.hockeyapp.android.R$style
 net.hockeyapp.android.R$styleable
+net.hockeyapp.android.UpdateActivity$1:
+    53:54:public void downloadSuccessful(net.hockeyapp.android.DownloadFileTask)
 net.hockeyapp.android.UpdateActivityInterface
+net.hockeyapp.android.UpdateFragment$1:
+    84:84:public void downloadSuccessful(net.hockeyapp.android.DownloadFileTask)
 net.hockeyapp.android.UpdateManager:
     26:27:public static void register(android.app.Activity,java.lang.String)

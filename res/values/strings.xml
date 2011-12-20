@@ -2,11 +2,12 @@
 <resources>
     <string name="app_name">HockeyApp</string>
     
-    <string name="accessibility_download_button">Download & Install App</string>
+    <string name="accessibility_download_button">Download and Install App</string>
     <string name="accessibility_style_view"></string>
     
     <string name="app_item_owner_label">Owner:</string>
     
+    <string name="main_view_no_app_info_label">The developer has not yet released a version for this app.</string>
     <string name="main_view_no_update_label">No update found.</string>
     <string name="main_view_signed_out_label">You are not signed in.</string>
     <string name="main_view_signing_in_label">Signing in…</string>

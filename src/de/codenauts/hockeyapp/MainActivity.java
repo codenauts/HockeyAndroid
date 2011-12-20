@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.R;
+import net.hockeyapp.android.UpdateActivity;
 import net.hockeyapp.android.UpdateManager;
 import net.hockeyapp.android.UpdateManagerListener;
 
@@ -73,7 +74,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
   private void checkForUpdates(final Boolean notify) {
     UpdateManager.register(this, "0873e2b98ad046a92c170a243a8515f6", new UpdateManagerListener() {
       @Override
-      public Class<?> getUpdateActivityClass() {
+      public Class<? extends UpdateActivity> getUpdateActivityClass() {
         return CustomUpdateActivity.class;
       }
       
@@ -412,6 +413,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
       }
       catch (JSONException e) {
       }
+    }
+    else {
+      Toast.makeText(this, R.string.main_view_no_app_info_label, Toast.LENGTH_LONG).show();
     }
   }
 }

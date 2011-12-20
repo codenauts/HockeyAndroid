@@ -4,8 +4,8 @@ de.codenauts.hockeyapp.AppActivity -> de.codenauts.hockeyapp.AppActivity:
     void onCreate(android.os.Bundle) -> onCreate
     void configureView() -> a
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    int getCurrentVersionCode() -> b
-    int getLayout() -> c
+    int getCurrentVersionCode() -> getCurrentVersionCode
+    int getLayout() -> b
 de.codenauts.hockeyapp.AppTask -> de.codenauts.hockeyapp.g:
     de.codenauts.hockeyapp.MainActivity activity -> c
     int getVersionCode() -> a
@@ -47,7 +47,7 @@ de.codenauts.hockeyapp.CustomUpdateActivity -> de.codenauts.hockeyapp.CustomUpda
     de.codenauts.hockeyapp.util.ActivityHelper activityHelper -> a
     void onCreate(android.os.Bundle) -> onCreate
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    int getLayout() -> c
+    int getLayout() -> b
 de.codenauts.hockeyapp.FileCache -> de.codenauts.hockeyapp.l:
     java.io.File cacheDir -> a
     java.io.File getFile(java.lang.String) -> a
@@ -121,6 +121,7 @@ de.codenauts.hockeyapp.MainActivity -> de.codenauts.hockeyapp.MainActivity:
     java.lang.String getAPIToken() -> c
     void setAPIToken(java.lang.String) -> c
     void setStatus(java.lang.String) -> d
+    void setStatus(int) -> a
     void loginWasSuccesful(java.lang.String) -> a
     void loginFailed() -> a
     void didFailToReceiveApps() -> b
@@ -130,7 +131,7 @@ de.codenauts.hockeyapp.MainActivity -> de.codenauts.hockeyapp.MainActivity:
     android.app.AlertDialog access$0(de.codenauts.hockeyapp.MainActivity) -> a
     void access$1(de.codenauts.hockeyapp.MainActivity,de.codenauts.hockeyapp.LoginTask) -> a
     de.codenauts.hockeyapp.LoginTask access$2(de.codenauts.hockeyapp.MainActivity) -> b
-    void access$3(de.codenauts.hockeyapp.MainActivity,java.lang.String) -> a
+    void access$3$28173559(de.codenauts.hockeyapp.MainActivity) -> c
 de.codenauts.hockeyapp.MainActivity$1 -> de.codenauts.hockeyapp.e:
     de.codenauts.hockeyapp.MainActivity this$0 -> a
     java.lang.Boolean val$notify -> b
@@ -291,24 +292,26 @@ net.hockeyapp.android.UpdateActivity -> net.hockeyapp.android.UpdateActivity:
     void configureView() -> a
     java.lang.Object onRetainNonConfigurationInstance() -> onRetainNonConfigurationInstance
     void onClickUpdate(android.view.View) -> onClickUpdate
-    void startDownloadTask() -> d
-    int getCurrentVersionCode() -> b
-    int getLayout() -> c
+    void startDownloadTask() -> c
+    int getCurrentVersionCode() -> getCurrentVersionCode
+    int getLayout() -> b
     void access$0(net.hockeyapp.android.UpdateActivity) -> a
 net.hockeyapp.android.UpdateActivity$1 -> net.hockeyapp.android.r:
     net.hockeyapp.android.UpdateActivity this$0 -> a
     void downloadFailed$261604cb(java.lang.Boolean) -> a
-net.hockeyapp.android.UpdateFragment -> net.hockeyapp.android.ab:
-    net.hockeyapp.android.DownloadFileTask downloadTask -> a
-    org.json.JSONArray versionInfo -> b
-    java.lang.String urlString -> c
-    net.hockeyapp.android.UpdateInfoAdapter adapter -> d
+net.hockeyapp.android.UpdateFragment -> net.hockeyapp.android.UpdateFragment:
+    net.hockeyapp.android.DownloadFileTask downloadTask -> downloadTask
+    org.json.JSONArray versionInfo -> versionInfo
+    java.lang.String urlString -> urlString
+    net.hockeyapp.android.UpdateInfoAdapter adapter -> adapter
+    net.hockeyapp.android.UpdateFragment newInstance(org.json.JSONArray,java.lang.String) -> newInstance
     void onCreate(android.os.Bundle) -> onCreate
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
     void onClick(android.view.View) -> onClick
-    void startDownloadTask(android.app.Activity) -> a
-    int getCurrentVersionCode() -> b
-    void access$0(net.hockeyapp.android.UpdateFragment,android.app.Activity) -> a
+    void startDownloadTask(android.app.Activity) -> startDownloadTask
+    int getCurrentVersionCode() -> getCurrentVersionCode
+    int getLayout() -> getLayout
+    void access$0(net.hockeyapp.android.UpdateFragment,android.app.Activity) -> access$0
 net.hockeyapp.android.UpdateFragment$1 -> net.hockeyapp.android.c:
     net.hockeyapp.android.UpdateFragment this$0 -> a
     android.app.Activity val$activity -> b
@@ -332,7 +335,7 @@ net.hockeyapp.android.UpdateInfoAdapter$1 -> net.hockeyapp.android.a:
     int compare(org.json.JSONObject,org.json.JSONObject) -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
 net.hockeyapp.android.UpdateInfoListener -> net.hockeyapp.android.i:
-    int getCurrentVersionCode() -> b
+    int getCurrentVersionCode() -> getCurrentVersionCode
 net.hockeyapp.android.UpdateManager -> net.hockeyapp.android.t:
     net.hockeyapp.android.CheckUpdateTask updateTask -> a
     void register(android.app.Activity,java.lang.String,net.hockeyapp.android.UpdateManagerListener) -> a

@@ -1,3 +1,16 @@
+net.hockeyapp.android.UpdateFragment: net.hockeyapp.android.DownloadFileTask downloadTask
+net.hockeyapp.android.UpdateFragment: org.json.JSONArray versionInfo
+net.hockeyapp.android.UpdateFragment: java.lang.String urlString
+net.hockeyapp.android.UpdateFragment: net.hockeyapp.android.UpdateInfoAdapter adapter
+net.hockeyapp.android.UpdateFragment: UpdateFragment()
+net.hockeyapp.android.UpdateFragment: net.hockeyapp.android.UpdateFragment newInstance(org.json.JSONArray,java.lang.String)
+net.hockeyapp.android.UpdateFragment: void onCreate(android.os.Bundle)
+net.hockeyapp.android.UpdateFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+net.hockeyapp.android.UpdateFragment: void onClick(android.view.View)
+net.hockeyapp.android.UpdateFragment: void startDownloadTask(android.app.Activity)
+net.hockeyapp.android.UpdateFragment: int getCurrentVersionCode()
+net.hockeyapp.android.UpdateFragment: int getLayout()
+net.hockeyapp.android.UpdateFragment: void access$0(net.hockeyapp.android.UpdateFragment,android.app.Activity)
 net.hockeyapp.android.UpdateActivity: void onClickUpdate(android.view.View)
 net.hockeyapp.android.UpdateActivity: void onClickUpdate(android.view.View)
 net.hockeyapp.android.UpdateActivity: void onClickUpdate(android.view.View)
@@ -5,6 +18,7 @@ de.codenauts.hockeyapp.MainActivity
 net.hockeyapp.android.UpdateActivity
 de.codenauts.hockeyapp.AppActivity
 de.codenauts.hockeyapp.CustomUpdateActivity
+net.hockeyapp.android.UpdateFragment
 net.hockeyapp.android.UpdateActivity
 de.codenauts.hockeyapp.AppActivity
 de.codenauts.hockeyapp.CustomUpdateActivity
