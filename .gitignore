@@ -15,6 +15,7 @@ profile
 
 # Java
 bin
+target
 
 # osx noise
 .DS_Store
