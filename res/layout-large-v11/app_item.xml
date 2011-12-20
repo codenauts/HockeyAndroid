@@ -6,13 +6,13 @@
     android:layout_height="wrap_content">
     
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="110dip"
         android:padding="10dip">
         
         <ImageView
             android:id="@+id/icon_view"
+	        android:contentDescription="@string/accessibility_style_view"
             android:layout_alignParentLeft="true"
             android:layout_height="48dip"
             android:layout_margin="10dip" 
@@ -27,7 +27,6 @@
             android:layout_toRightOf="@id/icon_view"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
-            android:layout_weight="1" 
             android:layout_width="fill_parent"
             android:maxLines="3"
             android:paddingRight="40dip"
@@ -44,12 +43,11 @@
             android:layout_gravity="left"
             android:layout_marginBottom="10dip"
             android:layout_toRightOf="@id/icon_view"
-            android:layout_weight="1" 
             android:layout_width="fill_parent"
             android:lines="1"
             android:paddingRight="40dip"
             android:paddingTop="3dip"
-            android:text="Owner:"
+            android:text="@string/app_item_owner_label"
             android:textColor="#000" 
             android:textSize="12dip"
             android:textStyle="italic" 

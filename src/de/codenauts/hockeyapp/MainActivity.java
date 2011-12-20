@@ -80,7 +80,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
       @Override
       public void onNoUpdateAvailable() {
         if ((!isFinishing()) && (notify)) {
-          Toast.makeText(MainActivity.this, "No update found.", Toast.LENGTH_SHORT).show();
+          Toast.makeText(MainActivity.this, R.string.main_view_no_update_label, Toast.LENGTH_SHORT).show();
         }
       }
     });
@@ -181,7 +181,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     appsTask = new AppsTask(this, token);
     appsTask.execute();
 
-    setStatus("Searching for apps…");
+    setStatus(R.string.main_view_searching_apps_label);
   }
 
   protected Dialog onCreateDialog(int id) {
@@ -264,7 +264,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         loginTask = new LoginTask(MainActivity.this, email, password);
         loginTask.execute();
 
-        setStatus("Signing in…");
+        setStatus(R.string.main_view_signing_in_label);
       }
     });
 
@@ -298,6 +298,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
   private void setStatus(String status) {
     TextView statusLabel = (TextView)findViewById(R.id.status_label);
     statusLabel.setText(status);
+  }
+
+  private void setStatus(int stringID) {
+    setStatus(getResources().getString(stringID));
   }
 
   public void loginWasSuccesful(String token) {
@@ -359,7 +363,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
   }
 
-  @Override
   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     if (selectedAppView != null) {
       ProgressBar progressBar = (ProgressBar)selectedAppView.findViewById(R.id.progress_bar);

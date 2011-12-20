@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#fff"
+    android:baselineAligned="false"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
@@ -11,7 +11,7 @@
         android:id="@+id/content_view"
         android:background="@color/background_lightgray_alpha"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dip"
         android:tag="bottom"
         android:layout_weight="1"
     >
@@ -46,6 +46,7 @@
         />        
             
         <ImageView
+	        android:contentDescription="@string/accessibility_style_view"
             android:layout_height="4dip"
             android:layout_width="fill_parent" 
             android:scaleType="fitXY"

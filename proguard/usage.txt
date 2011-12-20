@@ -109,6 +109,7 @@ net.hockeyapp.android.R$id:
     public static final int menu_logout
     public static final int menu_refresh
     public static final int menu_refresh_progress
+    public static final int menu_update
     public static final int name_label
     public static final int owner_label
     public static final int password_field
@@ -137,6 +138,7 @@ net.hockeyapp.android.R$string:
     public static final int main_view_signed_out_label
     public static final int menu_logout
     public static final int menu_refresh
+    public static final int menu_update
 net.hockeyapp.android.R$style
 net.hockeyapp.android.R$styleable
 net.hockeyapp.android.UpdateActivityInterface

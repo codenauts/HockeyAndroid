@@ -108,6 +108,7 @@ de.codenauts.hockeyapp.MainActivity -> de.codenauts.hockeyapp.MainActivity:
     int selectedAppIndex -> h
     android.view.View selectedAppView -> i
     void onCreate(android.os.Bundle) -> onCreate
+    void checkForUpdates(java.lang.Boolean) -> a
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onPrepareOptionsMenu(android.view.Menu) -> onPrepareOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
@@ -132,7 +133,9 @@ de.codenauts.hockeyapp.MainActivity -> de.codenauts.hockeyapp.MainActivity:
     void access$3(de.codenauts.hockeyapp.MainActivity,java.lang.String) -> a
 de.codenauts.hockeyapp.MainActivity$1 -> de.codenauts.hockeyapp.e:
     de.codenauts.hockeyapp.MainActivity this$0 -> a
+    java.lang.Boolean val$notify -> b
     java.lang.Class getUpdateActivityClass() -> a
+    void onNoUpdateAvailable() -> b
 de.codenauts.hockeyapp.MainActivity$2 -> de.codenauts.hockeyapp.c:
     de.codenauts.hockeyapp.MainActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
@@ -337,6 +340,7 @@ net.hockeyapp.android.UpdateManager -> net.hockeyapp.android.t:
     java.lang.Boolean runsOnTablet(android.app.Activity) -> a
 net.hockeyapp.android.UpdateManagerListener -> net.hockeyapp.android.w:
     java.lang.Class getUpdateActivityClass() -> a
+    void onNoUpdateAvailable() -> b
 net.hockeyapp.android.VersionCache -> net.hockeyapp.android.l:
     java.lang.String VERSION_INFO_KEY -> a
     void setVersionInfo(android.content.Context,java.lang.String) -> a

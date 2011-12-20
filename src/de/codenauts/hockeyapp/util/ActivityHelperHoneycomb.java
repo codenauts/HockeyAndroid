@@ -16,21 +16,15 @@
 
 package de.codenauts.hockeyapp.util;
 
-import de.codenauts.hockeyapp.R;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 /**
  * An extension of {@link ActivityHelper} that provides Android 3.0-specific functionality for
  * Honeycomb tablets. It thus requires API level 11.
  */
 public class ActivityHelperHoneycomb extends ActivityHelper {
-    private Menu mOptionsMenu;
-
     protected ActivityHelperHoneycomb(Activity activity) {
         super(activity);
     }
@@ -89,25 +83,6 @@ public class ActivityHelperHoneycomb extends ActivityHelper {
     public void setActionBarColor(int color) {
         if (!UIUtils.isTablet(mActivity)) {
             super.setActionBarColor(color);
-        }
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void setRefreshActionButtonCompatState(boolean refreshing) {
-        // On Honeycomb, we can set the state of the refresh button by giving it a custom
-        // action view.
-        if (mOptionsMenu == null) {
-            return;
-        }
-
-        final MenuItem refreshItem = mOptionsMenu.findItem(R.id.menu_refresh);
-        if (refreshItem != null) {
-            if (refreshing) {
-                refreshItem.setActionView(R.layout.actionbar_indeterminate_progress);
-            } else {
-                refreshItem.setActionView(null);
-            }
         }
     }
 }
