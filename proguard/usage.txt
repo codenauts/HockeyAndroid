@@ -86,9 +86,7 @@ de.codenauts.hockeyapp.util.UIUtils:
 net.hockeyapp.android.CheckUpdateTask:
     39:45:public CheckUpdateTask(android.app.Activity,java.lang.String)
 net.hockeyapp.android.CrashManager:
-    62:63:public static void register(android.content.Context,java.lang.String,net.hockeyapp.android.CrashManagerListener)
-net.hockeyapp.android.DownloadFileListener:
-    public abstract void downloadSuccessful(net.hockeyapp.android.DownloadFileTask)
+    59:60:public static void register(android.content.Context,java.lang.String,net.hockeyapp.android.CrashManagerListener)
 net.hockeyapp.android.R$anim
 net.hockeyapp.android.R$attr
 net.hockeyapp.android.R$color
@@ -146,10 +144,6 @@ net.hockeyapp.android.R$string:
     public static final int menu_update
 net.hockeyapp.android.R$style
 net.hockeyapp.android.R$styleable
-net.hockeyapp.android.UpdateActivity$1:
-    53:54:public void downloadSuccessful(net.hockeyapp.android.DownloadFileTask)
 net.hockeyapp.android.UpdateActivityInterface
-net.hockeyapp.android.UpdateFragment$1:
-    84:84:public void downloadSuccessful(net.hockeyapp.android.DownloadFileTask)
 net.hockeyapp.android.UpdateManager:
-    26:27:public static void register(android.app.Activity,java.lang.String)
+    21:22:public static void register(android.app.Activity,java.lang.String)

@@ -237,6 +237,7 @@ net.hockeyapp.android.CrashManager$4 -> net.hockeyapp.android.h:
 net.hockeyapp.android.CrashManagerListener -> net.hockeyapp.android.f:
 net.hockeyapp.android.DownloadFileListener -> net.hockeyapp.android.b:
     void downloadFailed$261604cb(java.lang.Boolean) -> a
+    void downloadSuccessful$218ccd18() -> a
 net.hockeyapp.android.DownloadFileTask -> net.hockeyapp.android.z:
     android.content.Context context -> a
     net.hockeyapp.android.DownloadFileListener notifier -> b
@@ -292,12 +293,14 @@ net.hockeyapp.android.UpdateActivity -> net.hockeyapp.android.UpdateActivity:
     void configureView() -> a
     java.lang.Object onRetainNonConfigurationInstance() -> onRetainNonConfigurationInstance
     void onClickUpdate(android.view.View) -> onClickUpdate
-    void startDownloadTask() -> c
+    void startDownloadTask() -> d
+    void enableUpdateButton() -> c
     int getCurrentVersionCode() -> getCurrentVersionCode
     int getLayout() -> b
     void access$0(net.hockeyapp.android.UpdateActivity) -> a
 net.hockeyapp.android.UpdateActivity$1 -> net.hockeyapp.android.r:
     net.hockeyapp.android.UpdateActivity this$0 -> a
+    void downloadSuccessful$218ccd18() -> a
     void downloadFailed$261604cb(java.lang.Boolean) -> a
 net.hockeyapp.android.UpdateFragment -> net.hockeyapp.android.UpdateFragment:
     net.hockeyapp.android.DownloadFileTask downloadTask -> downloadTask
@@ -316,6 +319,7 @@ net.hockeyapp.android.UpdateFragment$1 -> net.hockeyapp.android.c:
     net.hockeyapp.android.UpdateFragment this$0 -> a
     android.app.Activity val$activity -> b
     void downloadFailed$261604cb(java.lang.Boolean) -> a
+    void downloadSuccessful$218ccd18() -> a
 net.hockeyapp.android.UpdateInfoAdapter -> net.hockeyapp.android.m:
     android.app.Activity activity -> a
     java.util.ArrayList sortedVersions -> b

@@ -3153,9 +3153,10 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 7):
+Constant Pool (count = 8):
   - Class [java/lang/Object]
   - Class [net/hockeyapp/android/b]
+  + Utf8 [()V]
   + Utf8 [(Ljava/lang/Boolean;)V]
   + Utf8 [a]
   + Utf8 [java/lang/Object]
@@ -3163,10 +3164,13 @@ Constant Pool (count = 7):
 
 Fields (count = 0):
 
-Methods (count = 1):
+Methods (count = 2):
   + Method:       a(Ljava/lang/Boolean;)V
     Access flags: 0x401
       = public abstract void a(java.lang.Boolean)
+  + Method:       a()V
+    Access flags: 0x401
+      = public abstract void a()
 
 Class file attributes (count = 0):
 
@@ -3348,7 +3352,7 @@ Fields (count = 2):
     Access flags: 0x1012
       = private final android.app.Activity b
 
-Methods (count = 2):
+Methods (count = 3):
   - Method:       <init>(Lnet/hockeyapp/android/UpdateFragment;Landroid/app/Activity;)V
     Access flags: 0x0
       = c(net.hockeyapp.android.UpdateFragment,android.app.Activity)
@@ -3386,6 +3390,14 @@ Methods (count = 2):
       [15] invokestatic #10
         - Methodref [net/hockeyapp/android/UpdateFragment.access$0 (Lnet/hockeyapp/android/UpdateFragment;Landroid/app/Activity;)V]
       [18] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()V
+    Access flags: 0x11
+      = public final void a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 1, locals = 1, stack = 0):
+      [0] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
 
@@ -9184,57 +9196,44 @@ _____________________________________________________________________
 Interfaces (count = 1):
   - Class [net/hockeyapp/android/b]
 
-Constant Pool (count = 44):
-  - Class [android/view/View]
+Constant Pool (count = 31):
   - Class [java/lang/Boolean]
   - Class [java/lang/Object]
   - Class [net/hockeyapp/android/UpdateActivity]
   - Class [net/hockeyapp/android/b]
-  - Class [net/hockeyapp/android/q]
   - Class [net/hockeyapp/android/r]
-  - Fieldref [net/hockeyapp/android/q.b I]
   - Fieldref [net/hockeyapp/android/r.a Lnet/hockeyapp/android/UpdateActivity;]
-  - Methodref [android/view/View.setEnabled (Z)V]
   - Methodref [java/lang/Boolean.booleanValue ()Z]
   - Methodref [java/lang/Object.<init> ()V]
   - Methodref [net/hockeyapp/android/UpdateActivity.a (Lnet/hockeyapp/android/UpdateActivity;)V]
-  - Methodref [net/hockeyapp/android/UpdateActivity.findViewById (I)Landroid/view/View;]
+  - Methodref [net/hockeyapp/android/UpdateActivity.c ()V]
   + NameAndType [<init> ()V]
   + NameAndType [a (Lnet/hockeyapp/android/UpdateActivity;)V]
   + NameAndType [a Lnet/hockeyapp/android/UpdateActivity;]
-  + NameAndType [b I]
   + NameAndType [booleanValue ()Z]
-  + NameAndType [findViewById (I)Landroid/view/View;]
-  + NameAndType [setEnabled (Z)V]
+  + NameAndType [c ()V]
   + Utf8 [()V]
   + Utf8 [()Z]
-  + Utf8 [(I)Landroid/view/View;]
   + Utf8 [(Ljava/lang/Boolean;)V]
   + Utf8 [(Lnet/hockeyapp/android/UpdateActivity;)V]
-  + Utf8 [(Z)V]
   + Utf8 [<init>]
   + Utf8 [Code]
-  + Utf8 [I]
   + Utf8 [Lnet/hockeyapp/android/UpdateActivity;]
   + Utf8 [a]
-  + Utf8 [android/view/View]
-  + Utf8 [b]
   + Utf8 [booleanValue]
-  + Utf8 [findViewById]
+  + Utf8 [c]
   + Utf8 [java/lang/Boolean]
   + Utf8 [java/lang/Object]
   + Utf8 [net/hockeyapp/android/UpdateActivity]
   + Utf8 [net/hockeyapp/android/b]
-  + Utf8 [net/hockeyapp/android/q]
   + Utf8 [net/hockeyapp/android/r]
-  + Utf8 [setEnabled]
 
 Fields (count = 1):
   + Field:        a Lnet/hockeyapp/android/UpdateActivity;
     Access flags: 0x1002
       = private net.hockeyapp.android.UpdateActivity a
 
-Methods (count = 2):
+Methods (count = 3):
   - Method:       <init>(Lnet/hockeyapp/android/UpdateActivity;)V
     Access flags: 0x0
       = r(net.hockeyapp.android.UpdateActivity)
@@ -9242,40 +9241,48 @@ Methods (count = 2):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #9
+      [2] putfield #6
         - Fieldref [net/hockeyapp/android/r.a Lnet/hockeyapp/android/UpdateActivity;]
       [5] aload_0 v0
-      [6] invokespecial #12
+      [6] invokespecial #8
         - Methodref [java/lang/Object.<init> ()V]
       [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()V
+    Access flags: 0x11
+      = public final void a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 8, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #6
+        - Fieldref [net/hockeyapp/android/r.a Lnet/hockeyapp/android/UpdateActivity;]
+      [4] invokevirtual #10
+        - Methodref [net/hockeyapp/android/UpdateActivity.c ()V]
+      [7] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Ljava/lang/Boolean;)V
     Access flags: 0x11
       = public final void a(java.lang.Boolean)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 30, locals = 2, stack = 2):
+    + Code attribute instructions (code length = 23, locals = 2, stack = 1):
       [0] aload_1 v1
-      [1] invokevirtual #11
+      [1] invokevirtual #7
         - Methodref [java/lang/Boolean.booleanValue ()Z]
       [4] ifeq +11 (target=15)
       [7] aload_0 v0
-      [8] getfield #9
+      [8] getfield #6
         - Fieldref [net/hockeyapp/android/r.a Lnet/hockeyapp/android/UpdateActivity;]
-      [11] invokestatic #13
+      [11] invokestatic #9
         - Methodref [net/hockeyapp/android/UpdateActivity.a (Lnet/hockeyapp/android/UpdateActivity;)V]
       [14] return
       [15] aload_0 v0
-      [16] getfield #9
+      [16] getfield #6
         - Fieldref [net/hockeyapp/android/r.a Lnet/hockeyapp/android/UpdateActivity;]
-      [19] getstatic #8
-        - Fieldref [net/hockeyapp/android/q.b I]
-      [22] invokevirtual #14
-        - Methodref [net/hockeyapp/android/UpdateActivity.findViewById (I)Landroid/view/View;]
-      [25] iconst_1
-      [26] invokevirtual #10
-        - Methodref [android/view/View.setEnabled (Z)V]
-      [29] return
+      [19] invokevirtual #10
+        - Methodref [net/hockeyapp/android/UpdateActivity.c ()V]
+      [22] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
 
@@ -16113,7 +16120,7 @@ _____________________________________________________________________
 Interfaces (count = 1):
   - Class [net/hockeyapp/android/i]
 
-Constant Pool (count = 170):
+Constant Pool (count = 172):
   - String [
 ]
   - String [App Update]
@@ -16141,6 +16148,7 @@ Constant Pool (count = 170):
   - Fieldref [android/content/pm/PackageInfo.versionCode I]
   - Fieldref [net/hockeyapp/android/UpdateActivity.a Lnet/hockeyapp/android/z;]
   - Fieldref [net/hockeyapp/android/UpdateActivity.b Lnet/hockeyapp/android/m;]
+  - Fieldref [net/hockeyapp/android/q.b I]
   - Fieldref [net/hockeyapp/android/q.c I]
   - Fieldref [net/hockeyapp/android/x.b I]
   - Methodref [android/app/ListActivity.<init> ()V]
@@ -16155,7 +16163,7 @@ Constant Pool (count = 170):
   - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
   - Methodref [net/hockeyapp/android/UpdateActivity.a ()V]
   - Methodref [net/hockeyapp/android/UpdateActivity.b ()I]
-  - Methodref [net/hockeyapp/android/UpdateActivity.c ()V]
+  - Methodref [net/hockeyapp/android/UpdateActivity.d ()V]
   - Methodref [net/hockeyapp/android/UpdateActivity.findViewById (I)Landroid/view/View;]
   - Methodref [net/hockeyapp/android/UpdateActivity.getIntent ()Landroid/content/Intent;]
   - Methodref [net/hockeyapp/android/UpdateActivity.getLastNonConfigurationInstance ()Ljava/lang/Object;]
@@ -16187,8 +16195,8 @@ Constant Pool (count = 170):
   + NameAndType [b ()Ljava/lang/String;]
   + NameAndType [b I]
   + NameAndType [b Lnet/hockeyapp/android/m;]
-  + NameAndType [c ()V]
   + NameAndType [c I]
+  + NameAndType [d ()V]
   + NameAndType [execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
   + NameAndType [findViewById (I)Landroid/view/View;]
   + NameAndType [getIntent ()Landroid/content/Intent;]
@@ -16252,6 +16260,7 @@ Constant Pool (count = 170):
   + Utf8 [append]
   + Utf8 [b]
   + Utf8 [c]
+  + Utf8 [d]
   + Utf8 [execute]
   + Utf8 [findViewById]
   + Utf8 [getCurrentVersionCode]
@@ -16294,14 +16303,14 @@ Fields (count = 2):
     Access flags: 0x2
       = private net.hockeyapp.android.m b
 
-Methods (count = 9):
+Methods (count = 10):
   - Method:       <init>()V
     Access flags: 0x1
       = public UpdateActivity()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #29
+      [1] invokespecial #30
         - Methodref [android/app/ListActivity.<init> ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -16313,18 +16322,18 @@ Methods (count = 9):
     + Code attribute instructions (code length = 88, locals = 2, stack = 6):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #30
+      [2] invokespecial #31
         - Methodref [android/app/ListActivity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] ldc #2
         - String [App Update]
-      [8] invokevirtual #50
+      [8] invokevirtual #51
         - Methodref [net/hockeyapp/android/UpdateActivity.setTitle (Ljava/lang/CharSequence;)V]
       [11] aload_0 v0
       [12] aload_0 v0
-      [13] invokevirtual #40
+      [13] invokevirtual #41
         - Methodref [net/hockeyapp/android/UpdateActivity.b ()I]
-      [16] invokevirtual #48
+      [16] invokevirtual #49
         - Methodref [net/hockeyapp/android/UpdateActivity.setContentView (I)V]
       [19] aload_0 v0
       [20] new #18
@@ -16332,35 +16341,35 @@ Methods (count = 9):
       [23] dup
       [24] aload_0 v0
       [25] aload_0 v0
-      [26] invokevirtual #43
+      [26] invokevirtual #44
         - Methodref [net/hockeyapp/android/UpdateActivity.getIntent ()Landroid/content/Intent;]
       [29] ldc #4
         - String [json]
-      [31] invokevirtual #31
+      [31] invokevirtual #32
         - Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
       [34] aload_0 v0
-      [35] invokespecial #51
+      [35] invokespecial #52
         - Methodref [net/hockeyapp/android/m.<init> (Landroid/app/Activity;Ljava/lang/String;Lnet/hockeyapp/android/i;)V]
       [38] putfield #26
         - Fieldref [net/hockeyapp/android/UpdateActivity.b Lnet/hockeyapp/android/m;]
       [41] aload_0 v0
-      [42] invokevirtual #45
+      [42] invokevirtual #46
         - Methodref [net/hockeyapp/android/UpdateActivity.getListView ()Landroid/widget/ListView;]
       [45] aconst_null
-      [46] invokevirtual #34
+      [46] invokevirtual #35
         - Methodref [android/widget/ListView.setDivider (Landroid/graphics/drawable/Drawable;)V]
       [49] aload_0 v0
       [50] aload_0 v0
       [51] getfield #26
         - Fieldref [net/hockeyapp/android/UpdateActivity.b Lnet/hockeyapp/android/m;]
-      [54] invokevirtual #49
+      [54] invokevirtual #50
         - Methodref [net/hockeyapp/android/UpdateActivity.setListAdapter (Landroid/widget/ListAdapter;)V]
       [57] aload_0 v0
-      [58] invokevirtual #39
+      [58] invokevirtual #40
         - Methodref [net/hockeyapp/android/UpdateActivity.a ()V]
       [61] aload_0 v0
       [62] aload_0 v0
-      [63] invokevirtual #44
+      [63] invokevirtual #45
         - Methodref [net/hockeyapp/android/UpdateActivity.getLastNonConfigurationInstance ()Ljava/lang/Object;]
       [66] checkcast #23
         - Class [net/hockeyapp/android/z]
@@ -16374,7 +16383,7 @@ Methods (count = 9):
       [80] getfield #25
         - Fieldref [net/hockeyapp/android/UpdateActivity.a Lnet/hockeyapp/android/z;]
       [83] aload_0 v0
-      [84] invokevirtual #57
+      [84] invokevirtual #58
         - Methodref [net/hockeyapp/android/z.a (Landroid/content/Context;)V]
       [87] return
       Code attribute exceptions (count = 0):
@@ -16385,9 +16394,9 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 51, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] getstatic #27
+      [1] getstatic #28
         - Fieldref [net/hockeyapp/android/q.c I]
-      [4] invokevirtual #42
+      [4] invokevirtual #43
         - Methodref [net/hockeyapp/android/UpdateActivity.findViewById (I)Landroid/view/View;]
       [7] checkcast #13
         - Class [android/widget/TextView]
@@ -16396,30 +16405,30 @@ Methods (count = 9):
       [13] dup
       [14] ldc #3
         - String [Version ]
-      [16] invokespecial #36
+      [16] invokespecial #37
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [19] aload_0 v0
       [20] getfield #26
         - Fieldref [net/hockeyapp/android/UpdateActivity.b Lnet/hockeyapp/android/m;]
-      [23] invokevirtual #52
+      [23] invokevirtual #53
         - Methodref [net/hockeyapp/android/m.a ()Ljava/lang/String;]
-      [26] invokevirtual #37
+      [26] invokevirtual #38
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [29] ldc #1
         - String [
 ]
-      [31] invokevirtual #37
+      [31] invokevirtual #38
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [34] aload_0 v0
       [35] getfield #26
         - Fieldref [net/hockeyapp/android/UpdateActivity.b Lnet/hockeyapp/android/m;]
-      [38] invokevirtual #53
+      [38] invokevirtual #54
         - Methodref [net/hockeyapp/android/m.b ()Ljava/lang/String;]
-      [41] invokevirtual #37
+      [41] invokevirtual #38
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [44] invokevirtual #38
+      [44] invokevirtual #39
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [47] invokevirtual #35
+      [47] invokevirtual #36
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [50] return
       Code attribute exceptions (count = 0):
@@ -16436,7 +16445,7 @@ Methods (count = 9):
       [7] aload_0 v0
       [8] getfield #25
         - Fieldref [net/hockeyapp/android/UpdateActivity.a Lnet/hockeyapp/android/z;]
-      [11] invokevirtual #56
+      [11] invokevirtual #57
         - Methodref [net/hockeyapp/android/z.a ()V]
       [14] aload_0 v0
       [15] getfield #25
@@ -16450,26 +16459,26 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
-      [1] invokespecial #41
-        - Methodref [net/hockeyapp/android/UpdateActivity.c ()V]
+      [1] invokespecial #42
+        - Methodref [net/hockeyapp/android/UpdateActivity.d ()V]
       [4] aload_1 v1
       [5] iconst_0
-      [6] invokevirtual #33
+      [6] invokevirtual #34
         - Methodref [android/view/View.setEnabled (Z)V]
       [9] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       c()V
+  + Method:       d()V
     Access flags: 0x2
-      = private void c()
+      = private void d()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 44, locals = 2, stack = 8):
       [0] aload_0 v0
-      [1] invokevirtual #43
+      [1] invokevirtual #44
         - Methodref [net/hockeyapp/android/UpdateActivity.getIntent ()Landroid/content/Intent;]
       [4] ldc #5
         - String [url]
-      [6] invokevirtual #31
+      [6] invokevirtual #32
         - Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
       [9] astore_1 v1
       [10] aload_0 v0
@@ -16482,9 +16491,9 @@ Methods (count = 9):
         - Class [net/hockeyapp/android/r]
       [20] dup
       [21] aload_0 v0
-      [22] invokespecial #54
+      [22] invokespecial #55
         - Methodref [net/hockeyapp/android/r.<init> (Lnet/hockeyapp/android/UpdateActivity;)V]
-      [25] invokespecial #55
+      [25] invokespecial #56
         - Methodref [net/hockeyapp/android/z.<init> (Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/b;)V]
       [28] putfield #25
         - Fieldref [net/hockeyapp/android/UpdateActivity.a Lnet/hockeyapp/android/z;]
@@ -16494,10 +16503,26 @@ Methods (count = 9):
       [35] iconst_0
       [36] anewarray #14
         - Class [java/lang/String]
-      [39] invokevirtual #58
+      [39] invokevirtual #59
         - Methodref [net/hockeyapp/android/z.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [42] pop
       [43] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       c()V
+    Access flags: 0x11
+      = public final void c()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 12, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] getstatic #27
+        - Fieldref [net/hockeyapp/android/q.b I]
+      [4] invokevirtual #43
+        - Methodref [net/hockeyapp/android/UpdateActivity.findViewById (I)Landroid/view/View;]
+      [7] iconst_1
+      [8] invokevirtual #34
+        - Methodref [android/view/View.setEnabled (Z)V]
+      [11] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       getCurrentVersionCode()I
@@ -16508,13 +16533,13 @@ Methods (count = 9):
       [0] iconst_m1
       [1] istore_1 v1
       [2] aload_0 v0
-      [3] invokevirtual #46
+      [3] invokevirtual #47
         - Methodref [net/hockeyapp/android/UpdateActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
       [6] aload_0 v0
-      [7] invokevirtual #47
+      [7] invokevirtual #48
         - Methodref [net/hockeyapp/android/UpdateActivity.getPackageName ()Ljava/lang/String;]
       [10] sipush 128
-      [13] invokevirtual #32
+      [13] invokevirtual #33
         - Methodref [android/content/pm/PackageManager.getPackageInfo (Ljava/lang/String;I)Landroid/content/pm/PackageInfo;]
       [16] getfield #24
         - Fieldref [android/content/pm/PackageInfo.versionCode I]
@@ -16532,7 +16557,7 @@ Methods (count = 9):
       = public int b()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 4, locals = 1, stack = 1):
-      [0] getstatic #28
+      [0] getstatic #29
         - Fieldref [net/hockeyapp/android/x.b I]
       [3] ireturn
       Code attribute exceptions (count = 0):
@@ -16543,8 +16568,8 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #41
-        - Methodref [net/hockeyapp/android/UpdateActivity.c ()V]
+      [1] invokespecial #42
+        - Methodref [net/hockeyapp/android/UpdateActivity.d ()V]
       [4] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -16561,7 +16586,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 289):
+Constant Pool (count = 293):
   - Integer [268435456]
   - String [&type=apk]
   - String [.apk]
@@ -16595,6 +16620,7 @@ Constant Pool (count = 289):
   - Class [java/net/URL]
   - Class [java/net/URLConnection]
   - Class [java/util/UUID]
+  - Class [net/hockeyapp/android/b]
   - Class [net/hockeyapp/android/o]
   - Class [net/hockeyapp/android/s]
   - Class [net/hockeyapp/android/u]
@@ -16666,6 +16692,7 @@ Constant Pool (count = 289):
   - Methodref [net/hockeyapp/android/u.<init> (Lnet/hockeyapp/android/z;)V]
   - Methodref [net/hockeyapp/android/z.b ()Ljava/lang/Boolean;]
   - Methodref [net/hockeyapp/android/z.publishProgress ([Ljava/lang/Object;)V]
+  - InterfaceMethodref [net/hockeyapp/android/b.a ()V]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Landroid/content/Context;)V]
   + NameAndType [<init> (Ljava/io/File;)V]
@@ -16674,6 +16701,7 @@ Constant Pool (count = 289):
   + NameAndType [<init> (Ljava/lang/String;)V]
   + NameAndType [<init> (Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [<init> (Lnet/hockeyapp/android/z;)V]
+  + NameAndType [a ()V]
   + NameAndType [a Landroid/content/Context;]
   + NameAndType [append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
   + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
@@ -16822,6 +16850,7 @@ Constant Pool (count = 289):
   + Utf8 [java/net/URLConnection]
   + Utf8 [java/util/UUID]
   + Utf8 [mkdirs]
+  + Utf8 [net/hockeyapp/android/b]
   + Utf8 [net/hockeyapp/android/o]
   + Utf8 [net/hockeyapp/android/s]
   + Utf8 [net/hockeyapp/android/u]
@@ -16877,57 +16906,57 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 73, locals = 4, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #70
+      [1] invokespecial #71
         - Methodref [android/os/AsyncTask.<init> ()V]
       [4] aload_0 v0
       [5] aload_1 v1
-      [6] putfield #45
+      [6] putfield #46
         - Fieldref [net/hockeyapp/android/z.a Landroid/content/Context;]
       [9] aload_0 v0
       [10] aload_2 v2
-      [11] putfield #47
+      [11] putfield #48
         - Fieldref [net/hockeyapp/android/z.c Ljava/lang/String;]
       [14] aload_0 v0
       [15] new #30
         - Class [java/lang/StringBuilder]
       [18] dup
-      [19] invokespecial #90
+      [19] invokespecial #91
         - Methodref [java/lang/StringBuilder.<init> ()V]
-      [22] invokestatic #101
+      [22] invokestatic #102
         - Methodref [java/util/UUID.randomUUID ()Ljava/util/UUID;]
-      [25] invokevirtual #92
+      [25] invokevirtual #93
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
       [28] ldc #3
         - String [.apk]
-      [30] invokevirtual #93
+      [30] invokevirtual #94
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [33] invokevirtual #94
+      [33] invokevirtual #95
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [36] putfield #48
+      [36] putfield #49
         - Fieldref [net/hockeyapp/android/z.d Ljava/lang/String;]
       [39] aload_0 v0
       [40] new #30
         - Class [java/lang/StringBuilder]
       [43] dup
-      [44] invokestatic #71
+      [44] invokestatic #72
         - Methodref [android/os/Environment.getExternalStorageDirectory ()Ljava/io/File;]
-      [47] invokevirtual #76
+      [47] invokevirtual #77
         - Methodref [java/io/File.getAbsolutePath ()Ljava/lang/String;]
-      [50] invokestatic #89
+      [50] invokestatic #90
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [53] invokespecial #91
+      [53] invokespecial #92
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [56] ldc #4
         - String [/Download]
-      [58] invokevirtual #93
+      [58] invokevirtual #94
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [61] invokevirtual #94
+      [61] invokevirtual #95
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [64] putfield #49
+      [64] putfield #50
         - Fieldref [net/hockeyapp/android/z.e Ljava/lang/String;]
       [67] aload_0 v0
       [68] aload_3 v3
-      [69] putfield #46
+      [69] putfield #47
         - Fieldref [net/hockeyapp/android/z.b Lnet/hockeyapp/android/b;]
       [72] return
       Code attribute exceptions (count = 0):
@@ -16939,7 +16968,7 @@ Methods (count = 8):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #45
+      [2] putfield #46
         - Fieldref [net/hockeyapp/android/z.a Landroid/content/Context;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -16951,11 +16980,11 @@ Methods (count = 8):
     + Code attribute instructions (code length = 11, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] aconst_null
-      [2] putfield #45
+      [2] putfield #46
         - Fieldref [net/hockeyapp/android/z.a Landroid/content/Context;]
       [5] aload_0 v0
       [6] aconst_null
-      [7] putfield #50
+      [7] putfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [10] return
       Code attribute exceptions (count = 0):
@@ -16974,21 +17003,21 @@ Methods (count = 8):
         - Class [java/lang/StringBuilder]
       [9] dup
       [10] aload_1 v1
-      [11] getfield #47
+      [11] getfield #48
         - Fieldref [net/hockeyapp/android/z.c Ljava/lang/String;]
-      [14] invokestatic #89
+      [14] invokestatic #90
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [17] invokespecial #91
+      [17] invokespecial #92
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [20] ldc #2
         - String [&type=apk]
-      [22] invokevirtual #93
+      [22] invokevirtual #94
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [25] invokevirtual #94
+      [25] invokevirtual #95
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [28] invokespecial #95
+      [28] invokespecial #96
         - Methodref [java/net/URL.<init> (Ljava/lang/String;)V]
-      [31] invokevirtual #96
+      [31] invokevirtual #97
         - Methodref [java/net/URL.openConnection ()Ljava/net/URLConnection;]
       [34] dup
       [35] astore_1 v1
@@ -16996,26 +17025,26 @@ Methods (count = 8):
         - String [connection]
       [38] ldc #8
         - String [close]
-      [40] invokevirtual #100
+      [40] invokevirtual #101
         - Methodref [java/net/URLConnection.setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
       [43] aload_1 v1
-      [44] invokevirtual #97
+      [44] invokevirtual #98
         - Methodref [java/net/URLConnection.connect ()V]
       [47] aload_1 v1
-      [48] invokevirtual #98
+      [48] invokevirtual #99
         - Methodref [java/net/URLConnection.getContentLength ()I]
       [51] istore_2 v2
       [52] new #22
         - Class [java/io/File]
       [55] dup
       [56] aload_0 v0
-      [57] getfield #49
+      [57] getfield #50
         - Fieldref [net/hockeyapp/android/z.e Ljava/lang/String;]
-      [60] invokespecial #74
+      [60] invokespecial #75
         - Methodref [java/io/File.<init> (Ljava/lang/String;)V]
       [63] dup
       [64] astore_3 v3
-      [65] invokevirtual #77
+      [65] invokevirtual #78
         - Methodref [java/io/File.mkdirs ()Z]
       [68] pop
       [69] new #22
@@ -17023,25 +17052,25 @@ Methods (count = 8):
       [72] dup
       [73] aload_3 v3
       [74] aload_0 v0
-      [75] getfield #48
+      [75] getfield #49
         - Fieldref [net/hockeyapp/android/z.d Ljava/lang/String;]
-      [78] invokespecial #73
+      [78] invokespecial #74
         - Methodref [java/io/File.<init> (Ljava/io/File;Ljava/lang/String;)V]
       [81] astore_3 v3
       [82] new #21
         - Class [java/io/BufferedInputStream]
       [85] dup
       [86] aload_1 v1
-      [87] invokevirtual #99
+      [87] invokevirtual #100
         - Methodref [java/net/URLConnection.getInputStream ()Ljava/io/InputStream;]
-      [90] invokespecial #72
+      [90] invokespecial #73
         - Methodref [java/io/BufferedInputStream.<init> (Ljava/io/InputStream;)V]
       [93] astore_1 v1
       [94] new #23
         - Class [java/io/FileOutputStream]
       [97] dup
       [98] aload_3 v3
-      [99] invokespecial #78
+      [99] invokespecial #79
         - Methodref [java/io/FileOutputStream.<init> (Ljava/io/File;)V]
       [102] astore_3 v3
       [103] sipush 1024
@@ -17062,57 +17091,57 @@ Methods (count = 8):
       [129] dup
       [130] iconst_0
       [131] lload v6
-      [133] ldc2_w #39
+      [133] ldc2_w #40
         - Long [100]
       [136] lmul
       [137] iload_2 v2
       [138] i2l
       [139] ldiv
       [140] l2i
-      [141] invokestatic #88
+      [141] invokestatic #89
         - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
       [144] aastore
-      [145] invokevirtual #105
+      [145] invokevirtual #106
         - Methodref [net/hockeyapp/android/z.publishProgress ([Ljava/lang/Object;)V]
       [148] aload_3 v3
       [149] aload v4
       [151] iconst_0
       [152] iload v5
-      [154] invokevirtual #83
+      [154] invokevirtual #84
         - Methodref [java/io/OutputStream.write ([BII)V]
       [157] aload_1 v1
       [158] aload v4
-      [160] invokevirtual #80
+      [160] invokevirtual #81
         - Methodref [java/io/InputStream.read ([B)I]
       [163] dup
       [164] istore v5
       [166] iconst_m1
       [167] ificmpne -51 (target=116)
       [170] aload_3 v3
-      [171] invokevirtual #82
+      [171] invokevirtual #83
         - Methodref [java/io/OutputStream.flush ()V]
       [174] aload_3 v3
-      [175] invokevirtual #81
+      [175] invokevirtual #82
         - Methodref [java/io/OutputStream.close ()V]
       [178] aload_1 v1
-      [179] invokevirtual #79
+      [179] invokevirtual #80
         - Methodref [java/io/InputStream.close ()V]
       [182] lload v6
       [184] lconst_0
       [185] lcmp
       [186] ifle +8 (target=194)
       [189] iconst_1
-      [190] invokestatic #85
+      [190] invokestatic #86
         - Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
       [193] areturn
       [194] iconst_0
-      [195] invokestatic #85
+      [195] invokestatic #86
         - Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
       [198] areturn
-      [199] invokevirtual #86
+      [199] invokevirtual #87
         - Methodref [java/lang/Exception.printStackTrace ()V]
       [202] iconst_0
-      [203] invokestatic #85
+      [203] invokestatic #86
         - Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
       [206] areturn
       Code attribute exceptions (count = 1):
@@ -17123,7 +17152,7 @@ Methods (count = 8):
     Access flags: 0x1054
       = protected final void onPostExecute(java.lang.Object)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 149, locals = 3, stack = 5):
+    + Code attribute instructions (code length = 158, locals = 3, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] checkcast #26
@@ -17131,113 +17160,118 @@ Methods (count = 8):
       [5] astore_2 v2
       [6] dup
       [7] astore_1 v1
-      [8] getfield #50
+      [8] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [11] ifnull +10 (target=21)
       [14] aload_1 v1
-      [15] getfield #50
+      [15] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
-      [18] invokevirtual #59
+      [18] invokevirtual #60
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [21] aload_2 v2
-      [22] invokevirtual #84
+      [22] invokevirtual #85
         - Methodref [java/lang/Boolean.booleanValue ()Z]
-      [25] ifeq +54 (target=79)
-      [28] new #17
+      [25] ifeq +63 (target=88)
+      [28] aload_1 v1
+      [29] getfield #47
+        - Fieldref [net/hockeyapp/android/z.b Lnet/hockeyapp/android/b;]
+      [32] invokeinterface #107
+        - InterfaceMethodref [net/hockeyapp/android/b.a ()V]
+      [37] new #17
         - Class [android/content/Intent]
-      [31] dup
-      [32] ldc #6
+      [40] dup
+      [41] ldc #6
         - String [android.intent.action.VIEW]
-      [34] invokespecial #66
+      [43] invokespecial #67
         - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
-      [37] dup
-      [38] astore_2 v2
-      [39] new #22
+      [46] dup
+      [47] astore_2 v2
+      [48] new #22
         - Class [java/io/File]
-      [42] dup
-      [43] aload_1 v1
-      [44] getfield #49
+      [51] dup
+      [52] aload_1 v1
+      [53] getfield #50
         - Fieldref [net/hockeyapp/android/z.e Ljava/lang/String;]
-      [47] aload_1 v1
-      [48] getfield #48
+      [56] aload_1 v1
+      [57] getfield #49
         - Fieldref [net/hockeyapp/android/z.d Ljava/lang/String;]
-      [51] invokespecial #75
+      [60] invokespecial #76
         - Methodref [java/io/File.<init> (Ljava/lang/String;Ljava/lang/String;)V]
-      [54] invokestatic #69
+      [63] invokestatic #70
         - Methodref [android/net/Uri.fromFile (Ljava/io/File;)Landroid/net/Uri;]
-      [57] ldc #7
+      [66] ldc #7
         - String [application/vnd.android.package-archive]
-      [59] invokevirtual #67
+      [68] invokevirtual #68
         - Methodref [android/content/Intent.setDataAndType (Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;]
-      [62] pop
-      [63] aload_2 v2
-      [64] ldc #1
+      [71] pop
+      [72] aload_2 v2
+      [73] ldc #1
         - Integer [268435456]
-      [66] invokevirtual #68
+      [75] invokevirtual #69
         - Methodref [android/content/Intent.setFlags (I)Landroid/content/Intent;]
-      [69] pop
-      [70] aload_1 v1
-      [71] getfield #45
+      [78] pop
+      [79] aload_1 v1
+      [80] getfield #46
         - Fieldref [net/hockeyapp/android/z.a Landroid/content/Context;]
-      [74] aload_2 v2
-      [75] invokevirtual #65
+      [83] aload_2 v2
+      [84] invokevirtual #66
         - Methodref [android/content/Context.startActivity (Landroid/content/Intent;)V]
-      [78] return
-      [79] new #12
+      [87] return
+      [88] new #12
         - Class [android/app/AlertDialog$Builder]
-      [82] dup
-      [83] aload_1 v1
-      [84] getfield #45
+      [91] dup
+      [92] aload_1 v1
+      [93] getfield #46
         - Fieldref [net/hockeyapp/android/z.a Landroid/content/Context;]
-      [87] invokespecial #52
+      [96] invokespecial #53
         - Methodref [android/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V]
-      [90] dup
-      [91] astore_2 v2
-      [92] getstatic #44
+      [99] dup
+      [100] astore_2 v2
+      [101] getstatic #45
         - Fieldref [net/hockeyapp/android/y.h I]
-      [95] invokevirtual #57
+      [104] invokevirtual #58
         - Methodref [android/app/AlertDialog$Builder.setTitle (I)Landroid/app/AlertDialog$Builder;]
-      [98] pop
-      [99] aload_2 v2
-      [100] getstatic #41
+      [107] pop
+      [108] aload_2 v2
+      [109] getstatic #42
         - Fieldref [net/hockeyapp/android/y.e I]
-      [103] invokevirtual #54
+      [112] invokevirtual #55
         - Methodref [android/app/AlertDialog$Builder.setMessage (I)Landroid/app/AlertDialog$Builder;]
-      [106] pop
-      [107] aload_2 v2
-      [108] getstatic #42
+      [115] pop
+      [116] aload_2 v2
+      [117] getstatic #43
         - Fieldref [net/hockeyapp/android/y.f I]
-      [111] new #35
+      [120] new #36
         - Class [net/hockeyapp/android/s]
-      [114] dup
-      [115] aload_1 v1
-      [116] invokespecial #102
+      [123] dup
+      [124] aload_1 v1
+      [125] invokespecial #103
         - Methodref [net/hockeyapp/android/s.<init> (Lnet/hockeyapp/android/z;)V]
-      [119] invokevirtual #55
+      [128] invokevirtual #56
         - Methodref [android/app/AlertDialog$Builder.setNegativeButton (ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
-      [122] pop
-      [123] aload_2 v2
-      [124] getstatic #43
+      [131] pop
+      [132] aload_2 v2
+      [133] getstatic #44
         - Fieldref [net/hockeyapp/android/y.g I]
-      [127] new #36
+      [136] new #37
         - Class [net/hockeyapp/android/u]
-      [130] dup
-      [131] aload_1 v1
-      [132] invokespecial #103
+      [139] dup
+      [140] aload_1 v1
+      [141] invokespecial #104
         - Methodref [net/hockeyapp/android/u.<init> (Lnet/hockeyapp/android/z;)V]
-      [135] invokevirtual #56
+      [144] invokevirtual #57
         - Methodref [android/app/AlertDialog$Builder.setPositiveButton (ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
-      [138] pop
-      [139] aload_2 v2
-      [140] invokevirtual #53
-        - Methodref [android/app/AlertDialog$Builder.create ()Landroid/app/AlertDialog;]
-      [143] invokevirtual #51
-        - Methodref [android/app/AlertDialog.show ()V]
-      [146] return
       [147] pop
-      [148] return
+      [148] aload_2 v2
+      [149] invokevirtual #54
+        - Methodref [android/app/AlertDialog$Builder.create ()Landroid/app/AlertDialog;]
+      [152] invokevirtual #52
+        - Methodref [android/app/AlertDialog.show ()V]
+      [155] return
+      [156] pop
+      [157] return
       Code attribute exceptions (count = 1):
-      - ExceptionInfo (79 -> 146: 147):
+      - ExceptionInfo (88 -> 155: 156):
       - Class [java/lang/Exception]
       Code attribute attributes (attribute count = 0):
   + Method:       doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
@@ -17246,7 +17280,7 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 2, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #104
+      [1] invokespecial #105
         - Methodref [net/hockeyapp/android/z.b ()Ljava/lang/Boolean;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -17263,7 +17297,7 @@ Methods (count = 8):
       [5] astore_2 v2
       [6] dup
       [7] astore_1 v1
-      [8] getfield #50
+      [8] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [11] ifnonnull +50 (target=61)
       [14] aload_1 v1
@@ -17271,45 +17305,45 @@ Methods (count = 8):
         - Class [android/app/ProgressDialog]
       [18] dup
       [19] aload_1 v1
-      [20] getfield #45
+      [20] getfield #46
         - Fieldref [net/hockeyapp/android/z.a Landroid/content/Context;]
-      [23] invokespecial #58
+      [23] invokespecial #59
         - Methodref [android/app/ProgressDialog.<init> (Landroid/content/Context;)V]
-      [26] putfield #50
+      [26] putfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [29] aload_1 v1
-      [30] getfield #50
+      [30] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [33] iconst_1
-      [34] invokevirtual #63
+      [34] invokevirtual #64
         - Methodref [android/app/ProgressDialog.setProgressStyle (I)V]
       [37] aload_1 v1
-      [38] getfield #50
+      [38] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [41] ldc #5
         - String [Loading...]
-      [43] invokevirtual #61
+      [43] invokevirtual #62
         - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
       [46] aload_1 v1
-      [47] getfield #50
+      [47] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [50] iconst_0
-      [51] invokevirtual #60
+      [51] invokevirtual #61
         - Methodref [android/app/ProgressDialog.setCancelable (Z)V]
       [54] aload_1 v1
-      [55] getfield #50
+      [55] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
-      [58] invokevirtual #64
+      [58] invokevirtual #65
         - Methodref [android/app/ProgressDialog.show ()V]
       [61] aload_1 v1
-      [62] getfield #50
+      [62] getfield #51
         - Fieldref [net/hockeyapp/android/z.f Landroid/app/ProgressDialog;]
       [65] aload_2 v2
       [66] iconst_0
       [67] aaload
-      [68] invokevirtual #87
+      [68] invokevirtual #88
         - Methodref [java/lang/Integer.intValue ()I]
-      [71] invokevirtual #62
+      [71] invokevirtual #63
         - Methodref [android/app/ProgressDialog.setProgress (I)V]
       [74] return
       Code attribute exceptions (count = 0):
@@ -17320,7 +17354,7 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #46
+      [1] getfield #47
         - Fieldref [net/hockeyapp/android/z.b Lnet/hockeyapp/android/b;]
       [4] areturn
       Code attribute exceptions (count = 0):
