@@ -18,6 +18,14 @@ If you have a problem, a question or a suggestion, please let us know via email 
 
 ## RELEASE NOTES
 
+### Version 1.1 (195) - 23/Dec/2011
+
+* Added action bar with native support for Android 3.x and 4.0.
+* Added grid view on Android tablets.
+* Added "Check for Updates" to menu.
+* Changed layout of detail view.
+* Updated HockeySDK + various bug fixes
+
 ### Version 1.0 (35) - 27/Nov/2011
 
 * Fixed crash when rotating to landscape and Sign In dialog is open.
