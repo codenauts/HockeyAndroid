@@ -19,7 +19,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
   
   public LoginTask(MainActivity activity, String email, String password) {
     this.activity = activity;
-    this.credentials = Base64.encodeBytes((email + ":" + password).getBytes());
+    this.credentials = Base64.encodeBytes((email + ":" + password).getBytes()).trim();
     this.finished = false;
     this.token = null;
   }
@@ -122,7 +122,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
 
   private void addCredentialsToConnection(HttpURLConnection connection) {
     connection.addRequestProperty("User-Agent", "Hockey/Android");
-    connection.setRequestProperty("Authorization", "Basic " + this.credentials.substring(0, this.credentials.length() - 1));
+    connection.setRequestProperty("Authorization", "Basic " + this.credentials);
     connection.setRequestProperty("connection", "close");
   }
 
