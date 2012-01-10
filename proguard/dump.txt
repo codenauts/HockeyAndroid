@@ -7537,7 +7537,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 220):
+Constant Pool (count = 218):
   - String [:]
   - String [Authorization]
   - String [Basic ]
@@ -7593,8 +7593,7 @@ Constant Pool (count = 220):
   - Methodref [java/lang/Exception.printStackTrace ()V]
   - Methodref [java/lang/Object.equals (Ljava/lang/Object;)Z]
   - Methodref [java/lang/String.getBytes ()[B]
-  - Methodref [java/lang/String.length ()I]
-  - Methodref [java/lang/String.substring (II)Ljava/lang/String;]
+  - Methodref [java/lang/String.trim ()Ljava/lang/String;]
   - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
   - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
   - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
@@ -7655,8 +7654,8 @@ Constant Pool (count = 220):
   + NameAndType [setFixedLengthStreamingMode (I)V]
   + NameAndType [setRequestMethod (Ljava/lang/String;)V]
   + NameAndType [setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
-  + NameAndType [substring (II)Ljava/lang/String;]
   + NameAndType [toString ()Ljava/lang/String;]
+  + NameAndType [trim ()Ljava/lang/String;]
   + NameAndType [valueOf (Ljava/lang/Object;)Ljava/lang/String;]
   + Utf8 [()I]
   + Utf8 [()Ljava/io/OutputStream;]
@@ -7668,7 +7667,6 @@ Constant Pool (count = 220):
   + Utf8 [()[B]
   + Utf8 [(I)Lorg/json/JSONObject;]
   + Utf8 [(I)V]
-  + Utf8 [(II)Ljava/lang/String;]
   + Utf8 [(Lde/codenauts/hockeyapp/MainActivity;)V]
   + Utf8 [(Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;Ljava/lang/String;)V]
   + Utf8 [(Ljava/io/OutputStream;)V]
@@ -7751,11 +7749,11 @@ Constant Pool (count = 220):
   + Utf8 [setRequestMethod]
   + Utf8 [setRequestProperty]
   + Utf8 [status]
-  + Utf8 [substring]
   + Utf8 [success]
   + Utf8 [toString]
   + Utf8 [token]
   + Utf8 [tokens]
+  + Utf8 [trim]
   + Utf8 [valueOf]
 
 Fields (count = 4):
@@ -7777,7 +7775,7 @@ Methods (count = 11):
     Access flags: 0x1
       = public j(de.codenauts.hockeyapp.MainActivity,java.lang.String,java.lang.String)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 53, locals = 4, stack = 4):
+    + Code attribute instructions (code length = 56, locals = 4, stack = 4):
       [0] aload_0 v0
       [1] invokespecial #38
         - Methodref [android/os/AsyncTask.<init> ()V]
@@ -7790,34 +7788,36 @@ Methods (count = 11):
         - Class [java/lang/StringBuilder]
       [13] dup
       [14] aload_2 v2
-      [15] invokestatic #58
+      [15] invokestatic #57
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [18] invokespecial #59
+      [18] invokespecial #58
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [21] ldc #1
         - String [:]
-      [23] invokevirtual #60
+      [23] invokevirtual #59
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [26] aload_3 v3
-      [27] invokevirtual #60
+      [27] invokevirtual #59
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [30] invokevirtual #61
+      [30] invokevirtual #60
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [33] invokevirtual #55
         - Methodref [java/lang/String.getBytes ()[B]
       [36] invokestatic #48
         - Methodref [de/codenauts/hockeyapp/o.a ([B)Ljava/lang/String;]
-      [39] putfield #36
+      [39] invokevirtual #56
+        - Methodref [java/lang/String.trim ()Ljava/lang/String;]
+      [42] putfield #36
         - Fieldref [de/codenauts/hockeyapp/j.c Ljava/lang/String;]
-      [42] aload_0 v0
-      [43] iconst_0
-      [44] putfield #34
+      [45] aload_0 v0
+      [46] iconst_0
+      [47] putfield #34
         - Fieldref [de/codenauts/hockeyapp/j.a Z]
-      [47] aload_0 v0
-      [48] aconst_null
-      [49] putfield #37
+      [50] aload_0 v0
+      [51] aconst_null
+      [52] putfield #37
         - Fieldref [de/codenauts/hockeyapp/j.d Ljava/lang/String;]
-      [52] return
+      [55] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Lde/codenauts/hockeyapp/MainActivity;)V
@@ -7867,9 +7867,9 @@ Methods (count = 11):
       [5] dup
       [6] ldc #11
         - String [https://rink.hockeyapp.net/api/2/auth_tokens]
-      [8] invokespecial #70
+      [8] invokespecial #69
         - Methodref [java/net/URL.<init> (Ljava/lang/String;)V]
-      [11] invokevirtual #71
+      [11] invokevirtual #70
         - Methodref [java/net/URL.openConnection ()Ljava/net/URLConnection;]
       [14] checkcast #29
         - Class [java/net/HttpURLConnection]
@@ -7879,10 +7879,10 @@ Methods (count = 11):
       [20] invokespecial #43
         - Methodref [de/codenauts/hockeyapp/j.a (Ljava/net/HttpURLConnection;)V]
       [23] aload_2 v2
-      [24] invokevirtual #63
+      [24] invokevirtual #62
         - Methodref [java/net/HttpURLConnection.connect ()V]
       [27] aload_2 v2
-      [28] invokevirtual #65
+      [28] invokevirtual #64
         - Methodref [java/net/HttpURLConnection.getResponseCode ()I]
       [31] sipush 200
       [34] ificmpne +13 (target=47)
@@ -7918,7 +7918,7 @@ Methods (count = 11):
       [4] aconst_null
       [5] areturn
       [6] aload_1 v1
-      [7] invokevirtual #73
+      [7] invokevirtual #72
         - Methodref [org/json/JSONArray.length ()I]
       [10] ifne +19 (target=29)
       [13] iload_2 v2
@@ -7937,32 +7937,32 @@ Methods (count = 11):
       [31] goto +38 (target=69)
       [34] aload_1 v1
       [35] iload_2 v2
-      [36] invokevirtual #72
+      [36] invokevirtual #71
         - Methodref [org/json/JSONArray.getJSONObject (I)Lorg/json/JSONObject;]
       [39] dup
       [40] astore_3 v3
       [41] ldc #12
         - String [rights]
-      [43] invokevirtual #78
+      [43] invokevirtual #77
         - Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
       [46] ifeq +20 (target=66)
       [49] aload_3 v3
       [50] ldc #12
         - String [rights]
-      [52] invokevirtual #76
+      [52] invokevirtual #75
         - Methodref [org/json/JSONObject.getInt (Ljava/lang/String;)I]
       [55] iconst_2
       [56] ificmpne +10 (target=66)
       [59] aload_3 v3
       [60] ldc #16
         - String [token]
-      [62] invokevirtual #77
+      [62] invokevirtual #76
         - Methodref [org/json/JSONObject.getString (Ljava/lang/String;)Ljava/lang/String;]
       [65] areturn
       [66] iinc v2, 1
       [69] iload_2 v2
       [70] aload_1 v1
-      [71] invokevirtual #73
+      [71] invokevirtual #72
         - Methodref [org/json/JSONArray.length ()I]
       [74] ificmplt -40 (target=34)
       [77] aload_0 v0
@@ -7986,9 +7986,9 @@ Methods (count = 11):
       [3] dup
       [4] ldc #11
         - String [https://rink.hockeyapp.net/api/2/auth_tokens]
-      [6] invokespecial #70
+      [6] invokespecial #69
         - Methodref [java/net/URL.<init> (Ljava/lang/String;)V]
-      [9] invokevirtual #71
+      [9] invokevirtual #70
         - Methodref [java/net/URL.openConnection ()Ljava/net/URLConnection;]
       [12] checkcast #29
         - Class [java/net/HttpURLConnection]
@@ -7996,18 +7996,18 @@ Methods (count = 11):
       [16] astore_1 v1
       [17] ldc #6
         - String [POST]
-      [19] invokevirtual #68
+      [19] invokevirtual #67
         - Methodref [java/net/HttpURLConnection.setRequestMethod (Ljava/lang/String;)V]
       [22] aload_1 v1
       [23] ldc #4
         - String [Content-Type]
       [25] ldc #8
         - String [application/x-www-form-urlencoded]
-      [27] invokevirtual #69
+      [27] invokevirtual #68
         - Methodref [java/net/HttpURLConnection.setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
       [30] aload_1 v1
       [31] iconst_1
-      [32] invokevirtual #66
+      [32] invokevirtual #65
         - Methodref [java/net/HttpURLConnection.setDoOutput (Z)V]
       [35] aload_0 v0
       [36] aload_1 v1
@@ -8021,13 +8021,13 @@ Methods (count = 11):
       [45] invokevirtual #55
         - Methodref [java/lang/String.getBytes ()[B]
       [48] arraylength
-      [49] invokevirtual #67
+      [49] invokevirtual #66
         - Methodref [java/net/HttpURLConnection.setFixedLengthStreamingMode (I)V]
       [52] new #24
         - Class [java/io/PrintWriter]
       [55] dup
       [56] aload_1 v1
-      [57] invokevirtual #64
+      [57] invokevirtual #63
         - Methodref [java/net/HttpURLConnection.getOutputStream ()Ljava/io/OutputStream;]
       [60] invokespecial #50
         - Methodref [java/io/PrintWriter.<init> (Ljava/io/OutputStream;)V]
@@ -8040,7 +8040,7 @@ Methods (count = 11):
       [70] invokevirtual #51
         - Methodref [java/io/PrintWriter.close ()V]
       [73] aload_1 v1
-      [74] invokevirtual #65
+      [74] invokevirtual #64
         - Methodref [java/net/HttpURLConnection.getResponseCode ()I]
       [77] sipush 201
       [80] ificmpne +11 (target=91)
@@ -8063,19 +8063,19 @@ Methods (count = 11):
         - Class [org/json/JSONObject]
       [3] dup
       [4] aload_0 v0
-      [5] invokespecial #74
+      [5] invokespecial #73
         - Methodref [org/json/JSONObject.<init> (Ljava/lang/String;)V]
       [8] dup
       [9] astore_0 v0
       [10] ldc #14
         - String [status]
-      [12] invokevirtual #78
+      [12] invokevirtual #77
         - Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
       [15] ifeq +27 (target=42)
       [18] aload_0 v0
       [19] ldc #14
         - String [status]
-      [21] invokevirtual #75
+      [21] invokevirtual #74
         - Methodref [org/json/JSONObject.get (Ljava/lang/String;)Ljava/lang/Object;]
       [24] ldc #15
         - String [success]
@@ -8085,7 +8085,7 @@ Methods (count = 11):
       [32] aload_0 v0
       [33] ldc #17
         - String [tokens]
-      [35] invokevirtual #75
+      [35] invokevirtual #74
         - Methodref [org/json/JSONObject.get (Ljava/lang/String;)Ljava/lang/Object;]
       [38] checkcast #31
         - Class [org/json/JSONArray]
@@ -8098,13 +8098,13 @@ Methods (count = 11):
     Access flags: 0x2
       = private void a(java.net.HttpURLConnection)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 55, locals = 2, stack = 7):
+    + Code attribute instructions (code length = 42, locals = 2, stack = 5):
       [0] aload_1 v1
       [1] ldc #7
         - String [User-Agent]
       [3] ldc #5
         - String [Hockey/Android]
-      [5] invokevirtual #62
+      [5] invokevirtual #61
         - Methodref [java/net/HttpURLConnection.addRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
       [8] aload_1 v1
       [9] ldc #2
@@ -8114,35 +8114,25 @@ Methods (count = 11):
       [14] dup
       [15] ldc #3
         - String [Basic ]
-      [17] invokespecial #59
+      [17] invokespecial #58
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [20] aload_0 v0
       [21] getfield #36
         - Fieldref [de/codenauts/hockeyapp/j.c Ljava/lang/String;]
-      [24] iconst_0
-      [25] aload_0 v0
-      [26] getfield #36
-        - Fieldref [de/codenauts/hockeyapp/j.c Ljava/lang/String;]
-      [29] invokevirtual #56
-        - Methodref [java/lang/String.length ()I]
-      [32] iconst_1
-      [33] isub
-      [34] invokevirtual #57
-        - Methodref [java/lang/String.substring (II)Ljava/lang/String;]
-      [37] invokevirtual #60
+      [24] invokevirtual #59
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [40] invokevirtual #61
+      [27] invokevirtual #60
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [43] invokevirtual #69
+      [30] invokevirtual #68
         - Methodref [java/net/HttpURLConnection.setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
-      [46] aload_1 v1
-      [47] ldc #10
+      [33] aload_1 v1
+      [34] ldc #10
         - String [connection]
-      [49] ldc #9
+      [36] ldc #9
         - String [close]
-      [51] invokevirtual #69
+      [38] invokevirtual #68
         - Methodref [java/net/HttpURLConnection.setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
-      [54] return
+      [41] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       d()V
