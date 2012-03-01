@@ -337,7 +337,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         try {
           JSONObject app = apps.getJSONObject(index);
           if (((app.has("platform")) && (app.getString("platform").equals("Android"))) &&
-              ((app.has("release_type")) && (app.getInt("release_type") == 0))) {
+              ((app.has("release_type")) && ((app.getInt("release_type") == 0) || (app.getInt("release_type") == 2)))) {
             count++;
 
             androidApps.add(app);

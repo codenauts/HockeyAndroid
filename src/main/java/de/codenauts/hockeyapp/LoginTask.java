@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.ExceptionHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
