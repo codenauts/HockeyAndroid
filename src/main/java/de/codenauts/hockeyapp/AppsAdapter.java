@@ -78,6 +78,7 @@ public class AppsAdapter extends BaseAdapter {
     }
 
     ImageView iconView = (ImageView)view.findViewById(R.id.icon_view);
+    iconView.setImageDrawable(activity.getResources().getDrawable(R.drawable.dummy_icon));
     try {
       if (app.has("public_identifier")) {
         String identifier = app.getString("public_identifier");
@@ -86,7 +87,6 @@ public class AppsAdapter extends BaseAdapter {
       }
     }
     catch (Exception e) {
-      iconView.setImageBitmap(null);
     }
 
     return view;

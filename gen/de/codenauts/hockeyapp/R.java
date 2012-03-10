@@ -79,13 +79,14 @@ containing a value of this type.
         public static final int button_update_pressed=0x7f02000c;
         public static final int button_update_selected=0x7f02000d;
         public static final int colorstrip=0x7f02000e;
-        public static final int icon=0x7f02000f;
-        public static final int icon_internal=0x7f020010;
-        public static final int list_selector=0x7f020011;
-        public static final int logo=0x7f020012;
-        public static final int logo_header=0x7f020013;
-        public static final int progress_bar=0x7f020014;
-        public static final int shadow_top=0x7f020015;
+        public static final int dummy_icon=0x7f02000f;
+        public static final int icon=0x7f020010;
+        public static final int icon_internal=0x7f020011;
+        public static final int list_selector=0x7f020012;
+        public static final int logo=0x7f020013;
+        public static final int logo_header=0x7f020014;
+        public static final int progress_bar=0x7f020015;
+        public static final int shadow_top=0x7f020016;
     }
     public static final class id {
         public static final int actionbar_compat=0x7f080000;
