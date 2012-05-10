@@ -9,7 +9,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 public class AppsTask extends AsyncTask<String, String, JSONArray> {
   private boolean finished;
@@ -52,16 +51,11 @@ public class AppsTask extends AsyncTask<String, String, JSONArray> {
     URL url = new URL(OnlineHelper.BASE_URL + OnlineHelper.APPS_ACTION);
     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 
-    Log.i("HockeyApp", this.token);
-
     addCredentialsToConnection(connection);
     connection.connect();
 
-    Log.i("HockeyApp", "" + connection.getResponseCode());
     if (connection.getResponseCode() == 200) {
       String jsonString = OnlineHelper.getStringFromConnection(connection);
-
-      Log.i("HockeyApp", jsonString);
       return parseJSONFromString(jsonString);
     }
     else {
