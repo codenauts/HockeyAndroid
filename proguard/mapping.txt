@@ -201,12 +201,10 @@ net.hockeyapp.android.Constants -> net.hockeyapp.android.j:
     java.lang.String ANDROID_VERSION -> d
     java.lang.String PHONE_MODEL -> e
     java.lang.String PHONE_MANUFACTURER -> f
-    java.lang.String TAG -> g
     void loadFromContext(android.content.Context) -> a
 net.hockeyapp.android.CrashManager -> net.hockeyapp.android.k:
-    java.lang.String BASE_URL -> a
-    java.lang.String identifier -> b
-    java.lang.String urlString -> c
+    java.lang.String identifier -> a
+    java.lang.String urlString -> b
     void register(android.content.Context,java.lang.String) -> a
     void sendCrashes(android.content.Context,net.hockeyapp.android.CrashManagerListener,boolean) -> b
     void registerHandler$415a69f1(net.hockeyapp.android.CrashManagerListener,boolean) -> b

@@ -18,6 +18,12 @@ If you have a problem, a question or a suggestion, please let us know via email 
 
 ## RELEASE NOTES
 
+### Version 1.2 (226) - 10/May/2012
+
+* Added support for alpha apps
+* Added default image if app has no icon
+* Minor bugfixes and improvements
+
 ### Version 1.1 (195) - 23/Dec/2011
 
 * Added action bar with native support for Android 3.x and 4.0.

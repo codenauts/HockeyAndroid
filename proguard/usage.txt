@@ -85,8 +85,13 @@ de.codenauts.hockeyapp.util.UIUtils:
     40:40:public static boolean isHoneycombTablet(android.content.Context)
 net.hockeyapp.android.CheckUpdateTask:
     39:45:public CheckUpdateTask(android.app.Activity,java.lang.String)
+net.hockeyapp.android.Constants:
+    public static final java.lang.String TAG
+    public static final java.lang.String BASE_URL
+    public static final java.lang.String SDK_NAME
+    public static final java.lang.String SDK_VERSION
 net.hockeyapp.android.CrashManager:
-    59:60:public static void register(android.content.Context,java.lang.String,net.hockeyapp.android.CrashManagerListener)
+    57:58:public static void register(android.content.Context,java.lang.String,net.hockeyapp.android.CrashManagerListener)
 net.hockeyapp.android.R$anim
 net.hockeyapp.android.R$attr
 net.hockeyapp.android.R$color
