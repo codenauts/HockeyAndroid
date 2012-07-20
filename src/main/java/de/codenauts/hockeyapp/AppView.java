@@ -7,7 +7,6 @@ import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.RelativeLayout.LayoutParams;
 
 public class AppView extends UpdateView {
   public final static int ICON_VIEW_ID = 0x2001;
