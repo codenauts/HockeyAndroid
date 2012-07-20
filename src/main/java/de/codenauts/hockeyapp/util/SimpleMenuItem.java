@@ -18,6 +18,7 @@ package de.codenauts.hockeyapp.util;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.view.ActionProvider;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.SubMenu;
@@ -211,4 +212,31 @@ public class SimpleMenuItem implements MenuItem {
         return this;
     }
 
+    public boolean collapseActionView() {
+      return false;
+    }
+
+    public boolean expandActionView() {
+      return false;
+    }
+
+    public ActionProvider getActionProvider() {
+      return null;
+    }
+
+    public boolean isActionViewExpanded() {
+      return false;
+    }
+
+    public MenuItem setActionProvider(ActionProvider arg0) {
+      return null;
+    }
+
+    public MenuItem setOnActionExpandListener(OnActionExpandListener listener) {
+      return null;
+    }
+
+    public MenuItem setShowAsActionFlags(int actionEnum) {
+      return null;
+    }
 }

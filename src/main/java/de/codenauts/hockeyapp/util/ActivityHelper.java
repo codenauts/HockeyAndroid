@@ -115,7 +115,7 @@ public class ActivityHelper {
         }
 
         LinearLayout.LayoutParams springLayoutParams = new LinearLayout.LayoutParams(0,
-                ViewGroup.LayoutParams.FILL_PARENT);
+                ViewGroup.LayoutParams.MATCH_PARENT);
         springLayoutParams.weight = 1;
 
         View.OnClickListener homeClickListener = new View.OnClickListener() {
@@ -191,9 +191,9 @@ public class ActivityHelper {
         // Create the separator
         ImageView separator = new ImageView(mActivity, null, R.attr.actionbarCompatSeparatorStyle);
         separator.setLayoutParams(
-                new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.FILL_PARENT));
+                new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.FILL_PARENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutParams.setMargins(10, 0, 0, 0);
         
         // Create the button
@@ -225,7 +225,7 @@ public class ActivityHelper {
         // Create the separator
         ImageView separator = new ImageView(mActivity, null, R.attr.actionbarCompatSeparatorStyle);
         separator.setLayoutParams(
-                new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.FILL_PARENT));
+                new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.MATCH_PARENT));
 
         // Create the button
         ImageButton actionButton = new ImageButton(mActivity, null,
@@ -233,7 +233,7 @@ public class ActivityHelper {
         actionButton.setId(item.getItemId());
         actionButton.setLayoutParams(new ViewGroup.LayoutParams(
                 (int) mActivity.getResources().getDimension(R.dimen.actionbar_compat_height),
-                ViewGroup.LayoutParams.FILL_PARENT));
+                ViewGroup.LayoutParams.MATCH_PARENT));
         actionButton.setImageDrawable(item.getIcon());
         actionButton.setScaleType(ImageView.ScaleType.CENTER);
         actionButton.setContentDescription(item.getTitle());

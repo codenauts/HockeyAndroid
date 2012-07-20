@@ -151,6 +151,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
   }
 
+  @SuppressWarnings("deprecation")
   private void loadApps(Bundle savedInstanceState) {
     
     if (savedInstanceState != null) {
@@ -202,6 +203,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     checkForCrashes();
 
+    @SuppressWarnings("deprecation")
     Object instance = getLastNonConfigurationInstance();
     if (instance instanceof LoginTask) {
       loginTask = (LoginTask)instance;
@@ -311,6 +313,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     getApps(token);
   }
 
+  @SuppressWarnings("deprecation")
   public void loginFailed() {
     loginTask = null;
     Toast.makeText(this, R.string.login_view_failed_toast, Toast.LENGTH_LONG).show();
@@ -384,7 +387,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     JSONObject app = (JSONObject)appsAdapter.getItem(position);
     try {
       String identifier = app.getString("public_identifier");
-      appTask = new AppTask(this, "https://rink.hockeyapp.net/", identifier);
+      appTask = new AppTask(this, "https://rink.hockeyapp.net/", identifier, getAPIToken());
       appTask.execute();
     }
     catch (JSONException e) {

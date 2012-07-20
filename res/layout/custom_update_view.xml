@@ -8,6 +8,9 @@
     >
     
     <include layout="@layout/actionbar" />
-    <include layout="@layout/update_view" />
+    <net.hockeyapp.android.internal.UpdateView 
+	    android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+         />
     
  </LinearLayout>

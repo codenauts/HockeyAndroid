@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
-import net.hockeyapp.android.R;
+import android.view.ViewGroup;
 import net.hockeyapp.android.UpdateActivity;
 
 public class CustomUpdateActivity extends UpdateActivity {
@@ -38,8 +38,8 @@ public class CustomUpdateActivity extends UpdateActivity {
               return super.onOptionsItemSelected(item);
       }
   }
-  
-  public int getLayout() {
-    return R.layout.custom_update_view;
+
+  public ViewGroup getLayoutView() {
+    return (ViewGroup)getLayoutInflater().inflate(R.layout.custom_update_view, null);
   }
 }

@@ -1,16 +1,23 @@
 package de.codenauts.hockeyapp;
 
-import net.hockeyapp.android.CheckUpdateTask;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+
+import net.hockeyapp.android.internal.CheckUpdateTask;
 
 import org.json.JSONArray;
 
 public class AppTask extends CheckUpdateTask {
   private MainActivity activity;
+  private String token;
   
-  public AppTask(MainActivity activity, String urlString, String appIdentifier) {
+  public AppTask(MainActivity activity, String urlString, String appIdentifier, String token) {
     super(activity, urlString, appIdentifier);
     
     this.activity = activity;
+    this.token = token;
   }
 
   protected int getVersionCode() {
@@ -34,5 +41,16 @@ public class AppTask extends CheckUpdateTask {
 
   protected boolean getCachingEnabled() {
     return false;
+  }
+
+  protected URLConnection createConnection(URL url) throws IOException {
+    HttpURLConnection connection = (HttpURLConnection)super.createConnection(url);
+    addCredentialsToConnection(connection);
+    return connection;
+  }
+
+  private void addCredentialsToConnection(HttpURLConnection connection) {
+    connection.addRequestProperty("User-Agent", "Hockey/Android");
+    connection.addRequestProperty("X-HockeyAppToken", this.token);
   }
 }
