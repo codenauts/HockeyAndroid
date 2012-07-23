@@ -89,22 +89,23 @@ containing a value of this type.
         public static final int actionbar_compat_container=0x7f070001;
         public static final int actionbar_compat_logo=0x7f070002;
         public static final int actionbar_compat_text=0x7f070003;
-        public static final int apps_view=0x7f07000f;
+        public static final int apps_view=0x7f070010;
         public static final int colorstrip=0x7f070009;
-        public static final int content_view=0x7f07000e;
-        public static final int email_field=0x7f07000b;
-        public static final int email_label=0x7f07000a;
+        public static final int content_view=0x7f07000f;
+        public static final int email_field=0x7f07000c;
+        public static final int email_label=0x7f07000b;
         public static final int icon_view=0x7f070005;
-        public static final int menu_logout=0x7f070013;
-        public static final int menu_refresh=0x7f070012;
+        public static final int menu_logout=0x7f070014;
+        public static final int menu_refresh=0x7f070013;
         public static final int menu_refresh_progress=0x7f070004;
-        public static final int menu_update=0x7f070011;
+        public static final int menu_update=0x7f070012;
         public static final int owner_label=0x7f070007;
-        public static final int password_field=0x7f07000d;
-        public static final int password_label=0x7f07000c;
+        public static final int password_field=0x7f07000e;
+        public static final int password_label=0x7f07000d;
         public static final int progress_bar=0x7f070008;
-        public static final int status_label=0x7f070010;
+        public static final int status_label=0x7f070011;
         public static final int title_label=0x7f070006;
+        public static final int web_view=0x7f07000a;
     }
     public static final class layout {
         public static final int actionbar=0x7f030000;
@@ -112,9 +113,10 @@ containing a value of this type.
         public static final int app_view=0x7f030002;
         public static final int colorstrip=0x7f030003;
         public static final int custom_update_view=0x7f030004;
-        public static final int login_view=0x7f030005;
-        public static final int main_view=0x7f030006;
-        public static final int separator=0x7f030007;
+        public static final int debug_view=0x7f030005;
+        public static final int login_view=0x7f030006;
+        public static final int main_view=0x7f030007;
+        public static final int separator=0x7f030008;
     }
     public static final class menu {
         public static final int main_menu=0x7f0a0000;

@@ -1,6 +1,7 @@
 package de.codenauts.hockeyapp;
 
 import net.hockeyapp.android.UpdateActivity;
+import net.hockeyapp.android.internal.DownloadFileListener;
 import net.hockeyapp.android.internal.UpdateView;
 import android.app.ActionBar;
 import android.content.Intent;
@@ -73,5 +74,9 @@ public class AppActivity extends UpdateActivity {
 
   public ViewGroup getLayoutView() {
     return (ViewGroup)getLayoutInflater().inflate(R.layout.app_view, null);
+  }
+  
+  protected void createDownloadTask(String url, DownloadFileListener listener) {
+    downloadTask = new AppDownloadTask(this, url, getIntent().getStringExtra("token"), listener);
   }
 }

@@ -9,11 +9,11 @@ import net.hockeyapp.android.internal.CheckUpdateTask;
 
 import org.json.JSONArray;
 
-public class AppTask extends CheckUpdateTask {
+public class AppInfoTask extends CheckUpdateTask {
   private MainActivity activity;
   private String token;
   
-  public AppTask(MainActivity activity, String urlString, String appIdentifier, String token) {
+  public AppInfoTask(MainActivity activity, String urlString, String appIdentifier, String token) {
     super(activity, urlString, appIdentifier);
     
     this.activity = activity;

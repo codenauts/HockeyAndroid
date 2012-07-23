@@ -20,7 +20,8 @@
         </activity>
 
         <activity android:name=".AppActivity"/>
-
+        <activity android:name=".DebugActivity"/>
+        
         <activity android:name="de.codenauts.hockeyapp.CustomUpdateActivity"/>
 
     </application>

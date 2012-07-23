@@ -38,13 +38,14 @@ import de.codenauts.hockeyapp.util.UIUtils;
 
 public class MainActivity extends Activity implements OnItemClickListener {
   final static int DIALOG_LOGIN = 1;
+  final static int DEBUG_MENU_ID = 0x1001;
 
   final ActivityHelper activityHelper = ActivityHelper.createInstance(this);
 
   private AlertDialog alert;
   private AppsAdapter appsAdapter;
   private AppsTask appsTask;
-  private AppTask appTask;
+  private AppInfoTask appTask;
   private JSONArray apps;
   private LoginTask loginTask;
   private int selectedAppIndex;
@@ -94,6 +95,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
     MenuInflater inflater = getMenuInflater(); 
     inflater.inflate(R.menu.main_menu, menu);
     
+    if (Constants.DEBUG) {
+      menu.add(Menu.NONE, DEBUG_MENU_ID, Menu.NONE, "Debug");
+    }
+    
     return true; 
   } 
   
@@ -116,13 +121,17 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @Override 
   public boolean onOptionsItemSelected(MenuItem item) {
-    if (item.getItemId() == R.id.menu_update) {
+    int id = item.getItemId();
+    if (id == R.id.menu_update) {
       checkForUpdates(true);
+    }
+    else if (id == DEBUG_MENU_ID) {
+      startDebugActivity();
     }
     else {
       stopRunningTasks();
       
-      if (item.getItemId() == R.id.menu_logout) {
+      if (id == R.id.menu_logout) {
         setAPIToken(null);
         setStatus(getResources().getString(R.string.main_view_signed_out_label));
       }
@@ -135,6 +144,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
     
     return true;
+  }
+
+  private void startDebugActivity() {
+    Intent intent = new Intent(this, DebugActivity.class);
+    startActivity(intent);
   }
 
   private void stopRunningTasks() {
@@ -217,8 +231,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
         appsTask.attach(this);
       }
     }
-    else if (instance instanceof AppTask) {
-      appTask = (AppTask)instance;
+    else if (instance instanceof AppInfoTask) {
+      appTask = (AppInfoTask)instance;
       if (appTask != null) {
         appTask.attach(this);
       }
@@ -387,7 +401,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     JSONObject app = (JSONObject)appsAdapter.getItem(position);
     try {
       String identifier = app.getString("public_identifier");
-      appTask = new AppTask(this, "https://rink.hockeyapp.net/", identifier, getAPIToken());
+      appTask = new AppInfoTask(this, "https://rink.hockeyapp.net/", identifier, getAPIToken());
       appTask.execute();
     }
     catch (JSONException e) {
@@ -412,6 +426,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         intent.putExtra("title", title);
         intent.putExtra("json", updateInfo.toString());
         intent.putExtra("url", apkURL);
+        intent.putExtra("token", getAPIToken());
         startActivity(intent);
       }
       catch (JSONException e) {
