@@ -1,13 +1,11 @@
 package de.codenauts.hockeyapp;
 
-import net.hockeyapp.android.Constants;
 import net.hockeyapp.android.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import de.codenauts.hockeyapp.util.ActivityHelper;
