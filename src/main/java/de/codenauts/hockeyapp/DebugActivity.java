@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -23,6 +24,7 @@ public class DebugActivity extends Activity {
     setContentView(R.layout.web_view);
     setTitle(null);
     
+    activityHelper.setupActionBar(null, Color.BLACK);
     activityHelper.setupHomeAsUp();
     activityHelper.hideTitle();
     

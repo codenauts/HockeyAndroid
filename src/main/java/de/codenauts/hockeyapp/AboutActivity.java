@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -20,6 +21,7 @@ public class AboutActivity extends Activity {
     setContentView(R.layout.web_view);
     setTitle(null);
     
+    activityHelper.setupActionBar(null, Color.BLACK);
     activityHelper.setupHomeAsUp();
     activityHelper.hideTitle();
     
@@ -52,7 +54,7 @@ public class AboutActivity extends Activity {
     builder.append("</p>");
 
     WebView webView = (WebView)findViewById(R.id.web_view);
-    webView.loadData(builder.toString(), "text/html", "UTF-8");
+    webView.loadDataWithBaseURL("https://rink.hockeyapp.net/", builder.toString(), "text/html", "UTF-8", null);
   }
 
   @Override
