@@ -1,19 +1,18 @@
 package de.codenauts.hockeyapp;
 
-import java.util.List;
-
-import de.codenauts.hockeyapp.util.ActivityHelper;
-
+import net.hockeyapp.android.Constants;
 import net.hockeyapp.android.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import de.codenauts.hockeyapp.util.ActivityHelper;
 
-public class DebugActivity extends Activity {
+public class AboutActivity extends Activity {
   final ActivityHelper activityHelper = ActivityHelper.createInstance(this);
   
   @Override
@@ -26,27 +25,34 @@ public class DebugActivity extends Activity {
     activityHelper.setupHomeAsUp();
     activityHelper.hideTitle();
     
-    loadListOfApps();
+    loadAppInfo();
   }
 
-  private void loadListOfApps() {
+  private void loadAppInfo() {
     StringBuilder builder = new StringBuilder();
-    builder.append("<html><head><style type='text/css'>h1 { font-size: 110%; }\nh2 { font-size: 100% };</style></head></body>");
+    builder.append("<html><head><style type='text/css'>h1 { font-size: 110%; }\ndd { padding-bottom: 10px; }\nbody { padding: 10px }</style></head></body>");
+    
+    builder.append("<h1>About</h1>");
+    builder.append("<dl>");
+    builder.append("<dt>Package:</dt>");
+    builder.append("<dd>" + getPackageName() + "</dd>");
     
     PackageManager packageManager = getPackageManager();
-    List<PackageInfo> packages = packageManager.getInstalledPackages(0);
-    for (PackageInfo packageInfo : packages) {
-      builder.append("<h2>" + packageInfo.packageName + "</h2>");
-      builder.append("<dl>");
+    try {
+      PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
       builder.append("<dt>Version Name:</dt>");
       builder.append("<dd>" + packageInfo.versionName + "</dd>");
       builder.append("<dt>Version Code:</dt>");
       builder.append("<dd>" + packageInfo.versionCode + "</dd>");
-      builder.append("</dl>");
+    } 
+    catch (Exception e) {
     }
 
-    builder.append("</body></html>");
-    
+    builder.append("<h1>License</h1>");
+    builder.append("<p>");
+    builder.append(getResources().getString(R.string.license).replaceAll("\n", "<br>"));
+    builder.append("</p>");
+
     WebView webView = (WebView)findViewById(R.id.web_view);
     webView.loadData(builder.toString(), "text/html", "UTF-8");
   }

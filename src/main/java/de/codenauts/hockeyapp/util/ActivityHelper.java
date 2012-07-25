@@ -16,6 +16,7 @@
 
 package de.codenauts.hockeyapp.util;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,250 +38,265 @@ import de.codenauts.hockeyapp.R;
  * not require any Android 3.0-specific features.
  */
 public class ActivityHelper {
-    protected Activity mActivity;
+  protected Activity activity;
 
-    /**
-     * Factory method for creating {@link ActivityHelper} objects for a given activity. Depending
-     * on which device the app is running, either a basic helper or Honeycomb-specific helper will
-     * be returned.
-     */
-    public static ActivityHelper createInstance(Activity activity) {
-        return UIUtils.isHoneycomb() ?
-                new ActivityHelperHoneycomb(activity) :
-                new ActivityHelper(activity);
+  /**
+   * Factory method for creating {@link ActivityHelper} objects for a given activity. Depending
+   * on which device the app is running, either a basic helper or Honeycomb-specific helper will
+   * be returned.
+   */
+  public static ActivityHelper createInstance(Activity activity) {
+    return UIUtils.isHoneycomb() ?
+        new ActivityHelperHoneycomb(activity) :
+          new ActivityHelper(activity);
+  }
+
+  protected ActivityHelper(Activity activity) {
+    this.activity = activity;
+  }
+
+  public void onPostCreate(Bundle savedInstanceState) {
+    // Create the action bar
+    SimpleMenu menu = new SimpleMenu(activity);
+    activity.onCreatePanelMenu(Window.FEATURE_OPTIONS_PANEL, menu);
+    // TODO: call onPreparePanelMenu here as well
+    for (int i = 0; i < menu.size(); i++) {
+      MenuItem item = menu.getItem(i);
+      addActionButtonCompatFromMenuItem(item);
+    }
+  }
+
+  /**
+   * Method, to be called in <code>onPostCreate</code>, that sets up this activity as the
+   * home activity for the app.
+   */
+  public void setupHomeActivity() {
+  }
+
+  /**
+   * Method, to be called in <code>onPostCreate</code>, that sets up this activity as a
+   * sub-activity in the app.
+   */
+  public void setupSubActivity() {
+  }
+
+  /**
+   * Invoke "home" action, returning to {@link com.google.android.apps.iosched.ui.HomeActivity}.
+   */
+  public void goHome() {
+    if (activity instanceof MainActivity) {
+      return;
     }
 
-    protected ActivityHelper(Activity activity) {
-        mActivity = activity;
+    final Intent intent = new Intent(activity, MainActivity.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    activity.startActivity(intent);
+
+    if (!UIUtils.isHoneycomb()) {
+      activity.overridePendingTransition(R.anim.home_enter, R.anim.home_exit);
+    }
+  }
+
+  /**
+   * Invoke "search" action, triggering a default search.
+   */
+  public void goSearch() {
+    activity.startSearch(null, false, Bundle.EMPTY, false);
+  }
+
+  /**
+   * Sets up the action bar with the given title and accent color. If title is null, then
+   * the app logo will be shown instead of a title. Otherwise, a home button and title are
+   * visible. If color is null, then the default colorstrip is visible.
+   */
+  public void setupActionBar(CharSequence title, int color) {
+    final ViewGroup actionBarCompat = getActionBarCompat();
+    if (actionBarCompat == null) {
+      return;
     }
 
-    public void onPostCreate(Bundle savedInstanceState) {
-        // Create the action bar
-        SimpleMenu menu = new SimpleMenu(mActivity);
-        mActivity.onCreatePanelMenu(Window.FEATURE_OPTIONS_PANEL, menu);
-        // TODO: call onPreparePanelMenu here as well
-        for (int i = 0; i < menu.size(); i++) {
-            MenuItem item = menu.getItem(i);
-            addActionButtonCompatFromMenuItem(item);
-        }
+    LinearLayout.LayoutParams springLayoutParams = new LinearLayout.LayoutParams(0,
+        ViewGroup.LayoutParams.MATCH_PARENT);
+    springLayoutParams.weight = 1;
+
+    View.OnClickListener homeClickListener = new View.OnClickListener() {
+      public void onClick(View view) {
+        goHome();
+      }
+    };
+
+    // Add Home button
+    addActionButtonCompat(R.drawable.logo, R.string.app_name, homeClickListener, true);
+
+    if (title != null) {
+      // Add title text
+      TextView titleText = new TextView(activity, null, R.attr.actionbarCompatTextStyle);
+      titleText.setLayoutParams(springLayoutParams);
+      titleText.setText(title);
+      actionBarCompat.addView(titleText);
+
     }
 
-    /**
-     * Method, to be called in <code>onPostCreate</code>, that sets up this activity as the
-     * home activity for the app.
-     */
-    public void setupHomeActivity() {
+    setActionBarColor(color);
+  }
+  
+  public void setupHomeAsUp() {
+    if (UIUtils.isHoneycomb()) {
+      ActionBar actionBar = activity.getActionBar();
+      actionBar.setDisplayHomeAsUpEnabled(true);
+      actionBar.setDisplayShowTitleEnabled(false);
+    }
+  }
+  
+  public void hideTitle() {
+    if (UIUtils.isHoneycomb()) {
+      ActionBar actionBar = activity.getActionBar();
+      actionBar.setDisplayShowTitleEnabled(false);
+    }
+  }
+
+  /**
+   * Sets the action bar color to the given color.
+   */
+  public void setActionBarColor(int color) {
+    if (color == 0) {
+      return;
     }
 
-    /**
-     * Method, to be called in <code>onPostCreate</code>, that sets up this activity as a
-     * sub-activity in the app.
-     */
-    public void setupSubActivity() {
+    final View colorstrip = activity.findViewById(R.id.colorstrip);
+    if (colorstrip == null) {
+      return;
     }
 
-    /**
-     * Invoke "home" action, returning to {@link com.google.android.apps.iosched.ui.HomeActivity}.
-     */
-    public void goHome() {
-        if (mActivity instanceof MainActivity) {
-            return;
-        }
+    colorstrip.setBackgroundColor(color);
+  }
 
-        final Intent intent = new Intent(mActivity, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        mActivity.startActivity(intent);
-
-        if (!UIUtils.isHoneycomb()) {
-            mActivity.overridePendingTransition(R.anim.home_enter, R.anim.home_exit);
-        }
+  /**
+   * Sets the action bar title to the given string.
+   */
+  public void setActionBarTitle(CharSequence title) {
+    ViewGroup actionBar = getActionBarCompat();
+    if (actionBar == null) {
+      return;
     }
 
-    /**
-     * Invoke "search" action, triggering a default search.
-     */
-    public void goSearch() {
-        mActivity.startSearch(null, false, Bundle.EMPTY, false);
+    TextView titleText = (TextView) actionBar.findViewById(R.id.actionbar_compat_text);
+    if (titleText != null) {
+      titleText.setText(title);
+    }
+  }
+
+  /**
+   * Returns the {@link ViewGroup} for the action bar on phones (compatibility action bar).
+   * Can return null, and will return null on Honeycomb.
+   */
+  public ViewGroup getActionBarCompat() {
+    return (ViewGroup) activity.findViewById(R.id.actionbar_compat);
+  }
+
+  /**
+   * Adds an action bar button to the compatibility action bar (on phones).
+   */
+  private View addActionButtonCompat(int iconResId, int textResId,
+      View.OnClickListener clickListener, boolean separatorAfter) {
+    final ViewGroup actionBar = getActionBarCompat();
+    if (actionBar == null) {
+      return null;
     }
 
-    /**
-     * Sets up the action bar with the given title and accent color. If title is null, then
-     * the app logo will be shown instead of a title. Otherwise, a home button and title are
-     * visible. If color is null, then the default colorstrip is visible.
-     */
-    public void setupActionBar(CharSequence title, int color) {
-        final ViewGroup actionBarCompat = getActionBarCompat();
-        if (actionBarCompat == null) {
-            return;
-        }
+    // Create the separator
+    ImageView separator = new ImageView(activity, null, R.attr.actionbarCompatSeparatorStyle);
+    separator.setLayoutParams(
+        new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        LinearLayout.LayoutParams springLayoutParams = new LinearLayout.LayoutParams(0,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-        springLayoutParams.weight = 1;
+    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+    layoutParams.setMargins(10, 0, 0, 0);
 
-        View.OnClickListener homeClickListener = new View.OnClickListener() {
-            public void onClick(View view) {
-                goHome();
-            }
-        };
+    // Create the button
+    ImageButton actionButton = new ImageButton(activity, null,
+        R.attr.actionbarCompatButtonStyle);
+    actionButton.setLayoutParams(layoutParams);
+    actionButton.setImageResource(iconResId);
+    actionButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
+    actionButton.setContentDescription(activity.getResources().getString(textResId));
+    actionButton.setOnClickListener(clickListener);
 
-        // Add Home button
-        addActionButtonCompat(R.drawable.logo, R.string.app_name, homeClickListener, true);
+    actionBar.addView(actionButton);
 
-        if (title != null) {
-            // Add title text
-            TextView titleText = new TextView(mActivity, null, R.attr.actionbarCompatTextStyle);
-            titleText.setLayoutParams(springLayoutParams);
-            titleText.setText(title);
-            actionBarCompat.addView(titleText);
+    return actionButton;
+  }
 
-        }
-        
-        setActionBarColor(color);
+  /**
+   * Adds an action button to the compatibility action bar, using menu information from a
+   * {@link MenuItem}. If the menu item ID is <code>menu_refresh</code>, the menu item's state
+   * can be changed to show a loading spinner using
+   * {@link ActivityHelper#setRefreshActionButtonCompatState(boolean)}.
+   */
+  private View addActionButtonCompatFromMenuItem(final MenuItem item) {
+    final ViewGroup actionBar = getActionBarCompat();
+    if (actionBar == null) {
+      return null;
     }
 
-    /**
-     * Sets the action bar color to the given color.
-     */
-    public void setActionBarColor(int color) {
-        if (color == 0) {
-            return;
-        }
+    // Create the separator
+    ImageView separator = new ImageView(activity, null, R.attr.actionbarCompatSeparatorStyle);
+    separator.setLayoutParams(
+        new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        final View colorstrip = mActivity.findViewById(R.id.colorstrip);
-        if (colorstrip == null) {
-            return;
-        }
+    // Create the button
+    ImageButton actionButton = new ImageButton(activity, null,
+        R.attr.actionbarCompatButtonStyle);
+    actionButton.setId(item.getItemId());
+    actionButton.setLayoutParams(new ViewGroup.LayoutParams(
+        (int) activity.getResources().getDimension(R.dimen.actionbar_compat_height),
+        ViewGroup.LayoutParams.MATCH_PARENT));
+    actionButton.setImageDrawable(item.getIcon());
+    actionButton.setScaleType(ImageView.ScaleType.CENTER);
+    actionButton.setContentDescription(item.getTitle());
+    actionButton.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        activity.onMenuItemSelected(Window.FEATURE_OPTIONS_PANEL, item);
+      }
+    });
 
-        colorstrip.setBackgroundColor(color);
+    actionBar.addView(separator);
+    actionBar.addView(actionButton);
+
+    if (item.getItemId() == R.id.menu_refresh) {
+      // Refresh buttons should be stateful, and allow for indeterminate progress indicators,
+      // so add those.
+      int buttonWidth = activity.getResources()
+          .getDimensionPixelSize(R.dimen.actionbar_compat_height);
+      int buttonWidthDiv3 = buttonWidth / 3;
+      ProgressBar indicator = new ProgressBar(activity, null,
+          R.attr.actionbarCompatProgressIndicatorStyle);
+      LinearLayout.LayoutParams indicatorLayoutParams = new LinearLayout.LayoutParams(
+          buttonWidthDiv3, buttonWidthDiv3);
+      indicatorLayoutParams.setMargins(buttonWidthDiv3, buttonWidthDiv3,
+          buttonWidth - 2 * buttonWidthDiv3, 0);
+      indicator.setLayoutParams(indicatorLayoutParams);
+      indicator.setVisibility(View.GONE);
+      indicator.setId(R.id.menu_refresh_progress);
+      actionBar.addView(indicator);
     }
 
-    /**
-     * Sets the action bar title to the given string.
-     */
-    public void setActionBarTitle(CharSequence title) {
-        ViewGroup actionBar = getActionBarCompat();
-        if (actionBar == null) {
-            return;
-        }
+    return actionButton;
+  }
 
-        TextView titleText = (TextView) actionBar.findViewById(R.id.actionbar_compat_text);
-        if (titleText != null) {
-            titleText.setText(title);
-        }
+  /**
+   * Sets the indeterminate loading state of a refresh button added with
+   * {@link ActivityHelper#addActionButtonCompatFromMenuItem(android.view.MenuItem)}
+   * (where the item ID was menu_refresh).
+   */
+  public void setRefreshActionButtonCompatState(boolean refreshing) {
+    View refreshButton = activity.findViewById(R.id.menu_refresh);
+    View refreshIndicator = activity.findViewById(R.id.menu_refresh_progress);
+
+    if (refreshButton != null) {
+      refreshButton.setVisibility(refreshing ? View.GONE : View.VISIBLE);
     }
-
-    /**
-     * Returns the {@link ViewGroup} for the action bar on phones (compatibility action bar).
-     * Can return null, and will return null on Honeycomb.
-     */
-    public ViewGroup getActionBarCompat() {
-        return (ViewGroup) mActivity.findViewById(R.id.actionbar_compat);
+    if (refreshIndicator != null) {
+      refreshIndicator.setVisibility(refreshing ? View.VISIBLE : View.GONE);
     }
-
-    /**
-     * Adds an action bar button to the compatibility action bar (on phones).
-     */
-    private View addActionButtonCompat(int iconResId, int textResId,
-            View.OnClickListener clickListener, boolean separatorAfter) {
-        final ViewGroup actionBar = getActionBarCompat();
-        if (actionBar == null) {
-            return null;
-        }
-
-        // Create the separator
-        ImageView separator = new ImageView(mActivity, null, R.attr.actionbarCompatSeparatorStyle);
-        separator.setLayoutParams(
-                new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.MATCH_PARENT));
-
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        layoutParams.setMargins(10, 0, 0, 0);
-        
-        // Create the button
-        ImageButton actionButton = new ImageButton(mActivity, null,
-                R.attr.actionbarCompatButtonStyle);
-        actionButton.setLayoutParams(layoutParams);
-        actionButton.setImageResource(iconResId);
-        actionButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        actionButton.setContentDescription(mActivity.getResources().getString(textResId));
-        actionButton.setOnClickListener(clickListener);
-
-        actionBar.addView(actionButton);
-
-        return actionButton;
-    }
-
-    /**
-     * Adds an action button to the compatibility action bar, using menu information from a
-     * {@link MenuItem}. If the menu item ID is <code>menu_refresh</code>, the menu item's state
-     * can be changed to show a loading spinner using
-     * {@link ActivityHelper#setRefreshActionButtonCompatState(boolean)}.
-     */
-    private View addActionButtonCompatFromMenuItem(final MenuItem item) {
-        final ViewGroup actionBar = getActionBarCompat();
-        if (actionBar == null) {
-            return null;
-        }
-
-        // Create the separator
-        ImageView separator = new ImageView(mActivity, null, R.attr.actionbarCompatSeparatorStyle);
-        separator.setLayoutParams(
-                new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.MATCH_PARENT));
-
-        // Create the button
-        ImageButton actionButton = new ImageButton(mActivity, null,
-                R.attr.actionbarCompatButtonStyle);
-        actionButton.setId(item.getItemId());
-        actionButton.setLayoutParams(new ViewGroup.LayoutParams(
-                (int) mActivity.getResources().getDimension(R.dimen.actionbar_compat_height),
-                ViewGroup.LayoutParams.MATCH_PARENT));
-        actionButton.setImageDrawable(item.getIcon());
-        actionButton.setScaleType(ImageView.ScaleType.CENTER);
-        actionButton.setContentDescription(item.getTitle());
-        actionButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                mActivity.onMenuItemSelected(Window.FEATURE_OPTIONS_PANEL, item);
-            }
-        });
-
-        actionBar.addView(separator);
-        actionBar.addView(actionButton);
-
-        if (item.getItemId() == R.id.menu_refresh) {
-            // Refresh buttons should be stateful, and allow for indeterminate progress indicators,
-            // so add those.
-            int buttonWidth = mActivity.getResources()
-                    .getDimensionPixelSize(R.dimen.actionbar_compat_height);
-            int buttonWidthDiv3 = buttonWidth / 3;
-            ProgressBar indicator = new ProgressBar(mActivity, null,
-                    R.attr.actionbarCompatProgressIndicatorStyle);
-            LinearLayout.LayoutParams indicatorLayoutParams = new LinearLayout.LayoutParams(
-                    buttonWidthDiv3, buttonWidthDiv3);
-            indicatorLayoutParams.setMargins(buttonWidthDiv3, buttonWidthDiv3,
-                    buttonWidth - 2 * buttonWidthDiv3, 0);
-            indicator.setLayoutParams(indicatorLayoutParams);
-            indicator.setVisibility(View.GONE);
-            indicator.setId(R.id.menu_refresh_progress);
-            actionBar.addView(indicator);
-        }
-
-        return actionButton;
-    }
-
-    /**
-     * Sets the indeterminate loading state of a refresh button added with
-     * {@link ActivityHelper#addActionButtonCompatFromMenuItem(android.view.MenuItem)}
-     * (where the item ID was menu_refresh).
-     */
-    public void setRefreshActionButtonCompatState(boolean refreshing) {
-        View refreshButton = mActivity.findViewById(R.id.menu_refresh);
-        View refreshIndicator = mActivity.findViewById(R.id.menu_refresh_progress);
-
-        if (refreshButton != null) {
-            refreshButton.setVisibility(refreshing ? View.GONE : View.VISIBLE);
-        }
-        if (refreshIndicator != null) {
-            refreshIndicator.setVisibility(refreshing ? View.VISIBLE : View.GONE);
-        }
-    }
+  }
 }

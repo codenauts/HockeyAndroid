@@ -12,7 +12,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -34,7 +33,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.codenauts.hockeyapp.util.ActivityHelper;
-import de.codenauts.hockeyapp.util.UIUtils;
 
 public class MainActivity extends Activity implements OnItemClickListener {
   final static int DIALOG_LOGIN = 1;
@@ -57,12 +55,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     setContentView(R.layout.main_view);
     setTitle(null);
-    activityHelper.setupActionBar(null, Color.BLACK);
     
-    if (UIUtils.isHoneycomb()) {
-      ActionBar actionBar = getActionBar();
-      actionBar.setDisplayShowTitleEnabled(false);
-    }
+    activityHelper.setupActionBar(null, Color.BLACK);
+    activityHelper.hideTitle();
     
     System.setProperty("http.keepAlive", "false");
     if (savedInstanceState == null) {
@@ -125,6 +120,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
     if (id == R.id.menu_update) {
       checkForUpdates(true);
     }
+    else if (id == R.id.menu_about) {
+      startAboutActivity();
+    }
     else if (id == DEBUG_MENU_ID) {
       startDebugActivity();
     }
@@ -144,6 +142,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
     
     return true;
+  }
+
+  private void startAboutActivity() {
+    Intent intent = new Intent(this, AboutActivity.class);
+    startActivity(intent);
   }
 
   private void startDebugActivity() {

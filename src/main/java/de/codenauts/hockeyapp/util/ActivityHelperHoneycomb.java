@@ -41,12 +41,12 @@ public class ActivityHelperHoneycomb extends ActivityHelper {
         super.setupHomeActivity();
         // NOTE: there needs to be a content view set before this is called, so this method
         // should be called in onPostCreate.
-        if (UIUtils.isTablet(mActivity)) {
-            mActivity.getActionBar().setDisplayOptions(
+        if (UIUtils.isTablet(activity)) {
+            activity.getActionBar().setDisplayOptions(
                     0,
                     ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
         } else {
-            mActivity.getActionBar().setDisplayOptions(
+            activity.getActionBar().setDisplayOptions(
                     ActionBar.DISPLAY_USE_LOGO,
                     ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
         }
@@ -58,12 +58,12 @@ public class ActivityHelperHoneycomb extends ActivityHelper {
         super.setupSubActivity();
         // NOTE: there needs to be a content view set before this is called, so this method
         // should be called in onPostCreate.
-        if (UIUtils.isTablet(mActivity)) {
-            mActivity.getActionBar().setDisplayOptions(
+        if (UIUtils.isTablet(activity)) {
+            activity.getActionBar().setDisplayOptions(
                     ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_USE_LOGO,
                     ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_USE_LOGO);
         } else {
-            mActivity.getActionBar().setDisplayOptions(
+            activity.getActionBar().setDisplayOptions(
                     0,
                     ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_USE_LOGO);
         }
@@ -81,7 +81,7 @@ public class ActivityHelperHoneycomb extends ActivityHelper {
      */
     @Override
     public void setActionBarColor(int color) {
-        if (!UIUtils.isTablet(mActivity)) {
+        if (!UIUtils.isTablet(activity)) {
             super.setActionBarColor(color);
         }
     }
