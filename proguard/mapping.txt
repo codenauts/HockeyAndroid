@@ -34,9 +34,10 @@ de.codenauts.hockeyapp.AppsAdapter -> de.codenauts.hockeyapp.c:
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 de.codenauts.hockeyapp.AppsTask -> de.codenauts.hockeyapp.d:
     boolean finished -> a
-    org.json.JSONArray apps -> b
-    de.codenauts.hockeyapp.MainActivity activity -> c
-    java.lang.String token -> d
+    int status -> b
+    org.json.JSONArray apps -> c
+    de.codenauts.hockeyapp.MainActivity activity -> d
+    java.lang.String token -> e
     void attach(de.codenauts.hockeyapp.MainActivity) -> a
     void detach() -> a
     org.json.JSONArray doInBackground$4d6d4ee6() -> b
@@ -99,9 +100,10 @@ de.codenauts.hockeyapp.ImageLoader$ImageToLoad -> de.codenauts.hockeyapp.k:
     de.codenauts.hockeyapp.ImageLoader this$0 -> c
 de.codenauts.hockeyapp.LoginTask -> de.codenauts.hockeyapp.l:
     boolean finished -> a
-    de.codenauts.hockeyapp.MainActivity activity -> b
-    java.lang.String credentials -> c
-    java.lang.String token -> d
+    int status -> b
+    de.codenauts.hockeyapp.MainActivity activity -> c
+    java.lang.String credentials -> d
+    java.lang.String token -> e
     void attach(de.codenauts.hockeyapp.MainActivity) -> a
     void detach() -> a
     java.lang.String doInBackground$4af589aa() -> b
@@ -133,13 +135,14 @@ de.codenauts.hockeyapp.MainActivity -> de.codenauts.hockeyapp.MainActivity:
     void onResume() -> onResume
     void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     java.lang.Object onRetainNonConfigurationInstance() -> onRetainNonConfigurationInstance
-    java.lang.String getAPIToken() -> c
+    java.lang.String getAPIToken() -> a
     void setAPIToken(java.lang.String) -> c
     void setStatus(java.lang.String) -> d
-    void setStatus(int) -> a
+    void setStatus(int) -> c
     void loginWasSuccesful(java.lang.String) -> a
-    void loginFailed() -> a
-    void didFailToReceiveApps() -> b
+    void loginFailed(int) -> a
+    void didFailToReceiveApps(int) -> b
+    java.lang.String getMessageForStatus(int) -> d
     void didReceiveApps(org.json.JSONArray) -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
     void didReceiveAppInfo(org.json.JSONArray,java.lang.String) -> a

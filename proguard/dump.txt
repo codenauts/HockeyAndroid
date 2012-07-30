@@ -2162,7 +2162,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 114):
+Constant Pool (count = 118):
   + String [Hockey/Android]
   + String [User-Agent]
   + String [X-HockeyAppToken]
@@ -2174,6 +2174,7 @@ Constant Pool (count = 114):
   + Class [de/codenauts/hockeyapp/MainActivity]
   + Class [de/codenauts/hockeyapp/d]
   + Class [de/codenauts/hockeyapp/q]
+  + Class [java/io/IOException]
   + Class [java/lang/Exception]
   + Class [java/lang/Object]
   + Class [java/net/HttpURLConnection]
@@ -2181,17 +2182,17 @@ Constant Pool (count = 114):
   + Class [org/json/JSONArray]
   + Class [org/json/JSONObject]
   + Fieldref [de/codenauts/hockeyapp/d.a Z]
-  + Fieldref [de/codenauts/hockeyapp/d.b Lorg/json/JSONArray;]
-  + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
-  + Fieldref [de/codenauts/hockeyapp/d.d Ljava/lang/String;]
+  + Fieldref [de/codenauts/hockeyapp/d.b I]
+  + Fieldref [de/codenauts/hockeyapp/d.c Lorg/json/JSONArray;]
+  + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
+  + Fieldref [de/codenauts/hockeyapp/d.e Ljava/lang/String;]
   + Methodref [android/os/AsyncTask.<init> ()V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.a (Lorg/json/JSONArray;)V]
-  + Methodref [de/codenauts/hockeyapp/MainActivity.b ()V]
+  + Methodref [de/codenauts/hockeyapp/MainActivity.b (I)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.isFinishing ()Z]
   + Methodref [de/codenauts/hockeyapp/d.b ()Lorg/json/JSONArray;]
   + Methodref [de/codenauts/hockeyapp/d.c ()V]
   + Methodref [de/codenauts/hockeyapp/q.a (Ljava/net/HttpURLConnection;)Ljava/lang/String;]
-  + Methodref [java/lang/Exception.printStackTrace ()V]
   + Methodref [java/lang/Object.equals (Ljava/lang/Object;)Z]
   + Methodref [java/net/HttpURLConnection.addRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
   + Methodref [java/net/HttpURLConnection.connect ()V]
@@ -2208,24 +2209,25 @@ Constant Pool (count = 114):
   + NameAndType [a Z]
   + NameAndType [addRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [b ()Lorg/json/JSONArray;]
-  + NameAndType [b ()V]
-  + NameAndType [b Lorg/json/JSONArray;]
+  + NameAndType [b (I)V]
+  + NameAndType [b I]
   + NameAndType [c ()V]
-  + NameAndType [c Lde/codenauts/hockeyapp/MainActivity;]
+  + NameAndType [c Lorg/json/JSONArray;]
   + NameAndType [connect ()V]
-  + NameAndType [d Ljava/lang/String;]
+  + NameAndType [d Lde/codenauts/hockeyapp/MainActivity;]
+  + NameAndType [e Ljava/lang/String;]
   + NameAndType [equals (Ljava/lang/Object;)Z]
   + NameAndType [get (Ljava/lang/String;)Ljava/lang/Object;]
   + NameAndType [getResponseCode ()I]
   + NameAndType [has (Ljava/lang/String;)Z]
   + NameAndType [isFinishing ()Z]
   + NameAndType [openConnection ()Ljava/net/URLConnection;]
-  + NameAndType [printStackTrace ()V]
   + Utf8 [()I]
   + Utf8 [()Ljava/net/URLConnection;]
   + Utf8 [()Lorg/json/JSONArray;]
   + Utf8 [()V]
   + Utf8 [()Z]
+  + Utf8 [(I)V]
   + Utf8 [(Lde/codenauts/hockeyapp/MainActivity;)V]
   + Utf8 [(Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;)V]
   + Utf8 [(Ljava/lang/Object;)V]
@@ -2240,6 +2242,7 @@ Constant Pool (count = 114):
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [Hockey/Android]
+  + Utf8 [I]
   + Utf8 [Lde/codenauts/hockeyapp/MainActivity;]
   + Utf8 [Ljava/lang/String;]
   + Utf8 [Lorg/json/JSONArray;]
@@ -2259,12 +2262,14 @@ Constant Pool (count = 114):
   + Utf8 [de/codenauts/hockeyapp/d]
   + Utf8 [de/codenauts/hockeyapp/q]
   + Utf8 [doInBackground]
+  + Utf8 [e]
   + Utf8 [equals]
   + Utf8 [get]
   + Utf8 [getResponseCode]
   + Utf8 [has]
   + Utf8 [https://rink.hockeyapp.net/api/2/apps?format=json]
   + Utf8 [isFinishing]
+  + Utf8 [java/io/IOException]
   + Utf8 [java/lang/Exception]
   + Utf8 [java/lang/Object]
   + Utf8 [java/net/HttpURLConnection]
@@ -2273,50 +2278,56 @@ Constant Pool (count = 114):
   + Utf8 [openConnection]
   + Utf8 [org/json/JSONArray]
   + Utf8 [org/json/JSONObject]
-  + Utf8 [printStackTrace]
   + Utf8 [status]
   + Utf8 [success]
 
-Fields (count = 4):
+Fields (count = 5):
   + Field:        a Z
     Access flags: 0x2
       = private boolean a
-  + Field:        b Lorg/json/JSONArray;
+  + Field:        b I
     Access flags: 0x2
-      = private org.json.JSONArray b
-  + Field:        c Lde/codenauts/hockeyapp/MainActivity;
+      = private int b
+  + Field:        c Lorg/json/JSONArray;
     Access flags: 0x2
-      = private de.codenauts.hockeyapp.MainActivity c
-  + Field:        d Ljava/lang/String;
+      = private org.json.JSONArray c
+  + Field:        d Lde/codenauts/hockeyapp/MainActivity;
     Access flags: 0x2
-      = private java.lang.String d
+      = private de.codenauts.hockeyapp.MainActivity d
+  + Field:        e Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String e
 
 Methods (count = 7):
   - Method:       <init>(Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;)V
     Access flags: 0x1
       = public d(de.codenauts.hockeyapp.MainActivity,java.lang.String)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 25, locals = 3, stack = 2):
+    + Code attribute instructions (code length = 30, locals = 3, stack = 2):
       [0] aload_0 v0
-      [1] invokespecial #22
+      [1] invokespecial #24
         + Methodref [android/os/AsyncTask.<init> ()V]
       [4] aload_0 v0
-      [5] aload_1 v1
+      [5] iconst_3
       [6] putfield #20
-        + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
+        + Fieldref [de/codenauts/hockeyapp/d.b I]
       [9] aload_0 v0
-      [10] aload_2 v2
-      [11] putfield #21
-        + Fieldref [de/codenauts/hockeyapp/d.d Ljava/lang/String;]
+      [10] aload_1 v1
+      [11] putfield #22
+        + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
       [14] aload_0 v0
-      [15] iconst_0
-      [16] putfield #18
-        + Fieldref [de/codenauts/hockeyapp/d.a Z]
+      [15] aload_2 v2
+      [16] putfield #23
+        + Fieldref [de/codenauts/hockeyapp/d.e Ljava/lang/String;]
       [19] aload_0 v0
-      [20] aconst_null
+      [20] iconst_0
       [21] putfield #19
-        + Fieldref [de/codenauts/hockeyapp/d.b Lorg/json/JSONArray;]
-      [24] return
+        + Fieldref [de/codenauts/hockeyapp/d.a Z]
+      [24] aload_0 v0
+      [25] aconst_null
+      [26] putfield #21
+        + Fieldref [de/codenauts/hockeyapp/d.c Lorg/json/JSONArray;]
+      [29] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Lde/codenauts/hockeyapp/MainActivity;)V
@@ -2326,18 +2337,18 @@ Methods (count = 7):
     + Code attribute instructions (code length = 22, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #20
-        + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
+      [2] putfield #22
+        + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
       [5] aload_0 v0
-      [6] getfield #18
+      [6] getfield #19
         + Fieldref [de/codenauts/hockeyapp/d.a Z]
       [9] ifeq +12 (target=21)
       [12] aload_0 v0
       [13] iconst_0
-      [14] putfield #18
+      [14] putfield #19
         + Fieldref [de/codenauts/hockeyapp/d.a Z]
       [17] aload_0 v0
-      [18] invokespecial #27
+      [18] invokespecial #29
         + Methodref [de/codenauts/hockeyapp/d.c ()V]
       [21] return
       Code attribute exceptions (count = 0):
@@ -2351,8 +2362,8 @@ Methods (count = 7):
     + Code attribute instructions (code length = 6, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] aconst_null
-      [2] putfield #20
-        + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
+      [2] putfield #22
+        + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
       [5] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -2360,126 +2371,150 @@ Methods (count = 7):
     Access flags: 0x82
       = private varargs org.json.JSONArray b()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 110, locals = 4, stack = 3):
+    + Code attribute instructions (code length = 136, locals = 5, stack = 3):
       [0] aload_0 v0
       [1] astore_1 v1
-      [2] new #15
+      [2] new #16
         + Class [java/net/URL]
       [5] dup
       [6] ldc #5
         + String [https://rink.hockeyapp.net/api/2/apps?format=json]
-      [8] invokespecial #34
+      [8] invokespecial #35
         + Methodref [java/net/URL.<init> (Ljava/lang/String;)V]
-      [11] invokevirtual #35
+      [11] invokevirtual #36
         + Methodref [java/net/URL.openConnection ()Ljava/net/URLConnection;]
-      [14] checkcast #14
+      [14] checkcast #15
         + Class [java/net/HttpURLConnection]
       [17] astore_2 v2
       [18] aload_1 v1
       [19] aload_2 v2
-      [20] astore_3 v3
-      [21] astore_1 v1
-      [22] aload_3 v3
-      [23] ldc #2
+      [20] astore v4
+      [22] astore_3 v3
+      [23] aload v4
+      [25] ldc #2
         + String [User-Agent]
-      [25] ldc #1
+      [27] ldc #1
         + String [Hockey/Android]
-      [27] invokevirtual #31
+      [29] invokevirtual #32
         + Methodref [java/net/HttpURLConnection.addRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
-      [30] aload_3 v3
-      [31] ldc #3
+      [32] aload v4
+      [34] ldc #3
         + String [X-HockeyAppToken]
-      [33] aload_1 v1
-      [34] getfield #21
-        + Fieldref [de/codenauts/hockeyapp/d.d Ljava/lang/String;]
-      [37] invokevirtual #31
+      [36] aload_3 v3
+      [37] getfield #23
+        + Fieldref [de/codenauts/hockeyapp/d.e Ljava/lang/String;]
+      [40] invokevirtual #32
         + Methodref [java/net/HttpURLConnection.addRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
-      [40] aload_2 v2
-      [41] invokevirtual #32
+      [43] aload_2 v2
+      [44] invokevirtual #33
         + Methodref [java/net/HttpURLConnection.connect ()V]
-      [44] aload_2 v2
-      [45] invokevirtual #33
+      [47] aload_2 v2
+      [48] invokevirtual #34
         + Methodref [java/net/HttpURLConnection.getResponseCode ()I]
-      [48] sipush 200
-      [51] ificmpne +52 (target=103)
-      [54] aload_2 v2
-      [55] invokestatic #28
+      [51] sipush 200
+      [54] ificmpne +63 (target=117)
+      [57] aload_2 v2
+      [58] invokestatic #30
         + Methodref [de/codenauts/hockeyapp/q.a (Ljava/net/HttpURLConnection;)Ljava/lang/String;]
-      [58] astore_1 v1
-      [59] new #17
+      [61] astore_2 v2
+      [62] aload_1 v1
+      [63] aload_2 v2
+      [64] astore v4
+      [66] astore_3 v3
+      [67] new #18
         + Class [org/json/JSONObject]
-      [62] dup
-      [63] aload_1 v1
-      [64] invokespecial #36
+      [70] dup
+      [71] aload v4
+      [73] invokespecial #37
         + Methodref [org/json/JSONObject.<init> (Ljava/lang/String;)V]
-      [67] dup
-      [68] astore_1 v1
-      [69] ldc #6
-        + String [status]
-      [71] invokevirtual #38
-        + Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
-      [74] ifeq +27 (target=101)
-      [77] aload_1 v1
+      [76] dup
+      [77] astore_1 v1
       [78] ldc #6
         + String [status]
-      [80] invokevirtual #37
+      [80] invokevirtual #39
+        + Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
+      [83] ifeq +27 (target=110)
+      [86] aload_1 v1
+      [87] ldc #6
+        + String [status]
+      [89] invokevirtual #38
         + Methodref [org/json/JSONObject.get (Ljava/lang/String;)Ljava/lang/Object;]
-      [83] ldc #7
+      [92] ldc #7
         + String [success]
-      [85] invokevirtual #30
+      [94] invokevirtual #31
         + Methodref [java/lang/Object.equals (Ljava/lang/Object;)Z]
-      [88] ifeq +13 (target=101)
-      [91] aload_1 v1
-      [92] ldc #4
+      [97] ifeq +13 (target=110)
+      [100] aload_1 v1
+      [101] ldc #4
         + String [apps]
-      [94] invokevirtual #37
+      [103] invokevirtual #38
         + Methodref [org/json/JSONObject.get (Ljava/lang/String;)Ljava/lang/Object;]
-      [97] checkcast #16
+      [106] checkcast #17
         + Class [org/json/JSONArray]
-      [100] areturn
-      [101] aconst_null
-      [102] areturn
-      [103] aconst_null
-      [104] areturn
-      [105] invokevirtual #29
-        + Methodref [java/lang/Exception.printStackTrace ()V]
-      [108] aconst_null
       [109] areturn
-      Code attribute exceptions (count = 1):
-      - ExceptionInfo (0 -> 104: 105):
+      [110] aload_3 v3
+      [111] iconst_1
+      [112] putfield #20
+        + Fieldref [de/codenauts/hockeyapp/d.b I]
+      [115] aconst_null
+      [116] areturn
+      [117] aload_1 v1
+      [118] iconst_1
+      [119] putfield #20
+        + Fieldref [de/codenauts/hockeyapp/d.b I]
+      [122] aconst_null
+      [123] areturn
+      [124] pop
+      [125] aload_0 v0
+      [126] iconst_2
+      [127] putfield #20
+        + Fieldref [de/codenauts/hockeyapp/d.b I]
+      [130] goto +4 (target=134)
+      [133] pop
+      [134] aconst_null
+      [135] areturn
+      Code attribute exceptions (count = 2):
+      - ExceptionInfo (0 -> 123: 124):
+      + Class [java/io/IOException]
+      - ExceptionInfo (0 -> 123: 133):
       + Class [java/lang/Exception]
       Code attribute attributes (attribute count = 1):
-      + Stack map table attribute (count = 1):
-        - [105] Var: ..., Stack: [a:java/lang/Exception]
+      + Stack map table attribute (count = 3):
+        - [124] Var: ..., Stack: [a:java/io/IOException]
+        - [133] Var: ..., Stack: [a:java/lang/Exception]
+        - [134] Var: ..., Stack: (empty)
   + Method:       c()V
     Access flags: 0x2
       = private void c()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 27, locals = 1, stack = 2):
+    + Code attribute instructions (code length = 31, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #19
-        + Fieldref [de/codenauts/hockeyapp/d.b Lorg/json/JSONArray;]
-      [4] ifnonnull +11 (target=15)
+      [1] getfield #21
+        + Fieldref [de/codenauts/hockeyapp/d.c Lorg/json/JSONArray;]
+      [4] ifnonnull +15 (target=19)
       [7] aload_0 v0
-      [8] getfield #20
-        + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
-      [11] invokevirtual #24
-        + Methodref [de/codenauts/hockeyapp/MainActivity.b ()V]
-      [14] return
-      [15] aload_0 v0
-      [16] getfield #20
-        + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
+      [8] getfield #22
+        + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
+      [11] aload_0 v0
+      [12] getfield #20
+        + Fieldref [de/codenauts/hockeyapp/d.b I]
+      [15] invokevirtual #26
+        + Methodref [de/codenauts/hockeyapp/MainActivity.b (I)V]
+      [18] return
       [19] aload_0 v0
-      [20] getfield #19
-        + Fieldref [de/codenauts/hockeyapp/d.b Lorg/json/JSONArray;]
-      [23] invokevirtual #23
+      [20] getfield #22
+        + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
+      [23] aload_0 v0
+      [24] getfield #21
+        + Fieldref [de/codenauts/hockeyapp/d.c Lorg/json/JSONArray;]
+      [27] invokevirtual #25
         + Methodref [de/codenauts/hockeyapp/MainActivity.a (Lorg/json/JSONArray;)V]
-      [26] return
+      [30] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):
-        - [15] Var: ..., Stack: (empty)
-        - [26] Var: ..., Stack: (empty)
+        - [19] Var: ..., Stack: (empty)
+        - [30] Var: ..., Stack: (empty)
   + Method:       onPostExecute(Ljava/lang/Object;)V
     Access flags: 0x1014
       = protected final synthetic void onPostExecute(java.lang.Object)
@@ -2487,31 +2522,31 @@ Methods (count = 7):
     + Code attribute instructions (code length = 40, locals = 3, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] checkcast #16
+      [2] checkcast #17
         + Class [org/json/JSONArray]
       [5] astore_2 v2
       [6] dup
       [7] astore_1 v1
       [8] aload_2 v2
-      [9] putfield #19
-        + Fieldref [de/codenauts/hockeyapp/d.b Lorg/json/JSONArray;]
+      [9] putfield #21
+        + Fieldref [de/codenauts/hockeyapp/d.c Lorg/json/JSONArray;]
       [12] aload_1 v1
-      [13] getfield #20
-        + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
+      [13] getfield #22
+        + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
       [16] ifnull +13 (target=29)
       [19] aload_1 v1
-      [20] getfield #20
-        + Fieldref [de/codenauts/hockeyapp/d.c Lde/codenauts/hockeyapp/MainActivity;]
-      [23] invokevirtual #25
+      [20] getfield #22
+        + Fieldref [de/codenauts/hockeyapp/d.d Lde/codenauts/hockeyapp/MainActivity;]
+      [23] invokevirtual #27
         + Methodref [de/codenauts/hockeyapp/MainActivity.isFinishing ()Z]
       [26] ifeq +9 (target=35)
       [29] aload_1 v1
       [30] iconst_1
-      [31] putfield #18
+      [31] putfield #19
         + Fieldref [de/codenauts/hockeyapp/d.a Z]
       [34] return
       [35] aload_1 v1
-      [36] invokespecial #27
+      [36] invokespecial #29
         + Methodref [de/codenauts/hockeyapp/d.c ()V]
       [39] return
       Code attribute exceptions (count = 0):
@@ -2522,7 +2557,7 @@ Methods (count = 7):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 2, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #26
+      [1] invokespecial #28
         + Methodref [de/codenauts/hockeyapp/d.b ()Lorg/json/JSONArray;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -9055,7 +9090,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 215):
+Constant Pool (count = 221):
   + String [:]
   + String [Authorization]
   + String [Basic ]
@@ -9066,7 +9101,7 @@ Constant Pool (count = 215):
   + String [application/x-www-form-urlencoded]
   + String [close]
   + String [connection]
-  + String [https://rink.hockeyapp.net/api/2/auth_tokens]
+  + String [https://rink.hockeyapp.net/api/2/auth_tokens?format=json]
   + String [rights]
   + String [rights=2]
   + String [status]
@@ -9078,6 +9113,7 @@ Constant Pool (count = 215):
   + Class [de/codenauts/hockeyapp/e]
   + Class [de/codenauts/hockeyapp/l]
   + Class [de/codenauts/hockeyapp/q]
+  + Class [java/io/IOException]
   + Class [java/io/PrintWriter]
   + Class [java/lang/Exception]
   + Class [java/lang/Object]
@@ -9088,11 +9124,12 @@ Constant Pool (count = 215):
   + Class [org/json/JSONArray]
   + Class [org/json/JSONObject]
   + Fieldref [de/codenauts/hockeyapp/l.a Z]
-  + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
-  + Fieldref [de/codenauts/hockeyapp/l.c Ljava/lang/String;]
+  + Fieldref [de/codenauts/hockeyapp/l.b I]
+  + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
   + Fieldref [de/codenauts/hockeyapp/l.d Ljava/lang/String;]
+  + Fieldref [de/codenauts/hockeyapp/l.e Ljava/lang/String;]
   + Methodref [android/os/AsyncTask.<init> ()V]
-  + Methodref [de/codenauts/hockeyapp/MainActivity.a ()V]
+  + Methodref [de/codenauts/hockeyapp/MainActivity.a (I)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.a (Ljava/lang/String;)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.isFinishing ()Z]
   + Methodref [de/codenauts/hockeyapp/e.a ([B)Ljava/lang/String;]
@@ -9134,7 +9171,7 @@ Constant Pool (count = 215):
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Ljava/io/OutputStream;)V]
   + NameAndType [<init> (Ljava/lang/String;)V]
-  + NameAndType [a ()V]
+  + NameAndType [a (I)V]
   + NameAndType [a (Ljava/lang/String;)Lorg/json/JSONArray;]
   + NameAndType [a (Ljava/lang/String;)V]
   + NameAndType [a (Ljava/net/HttpURLConnection;)Ljava/lang/String;]
@@ -9145,13 +9182,14 @@ Constant Pool (count = 215):
   + NameAndType [addRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + NameAndType [b ()Ljava/lang/String;]
-  + NameAndType [b Lde/codenauts/hockeyapp/MainActivity;]
+  + NameAndType [b I]
   + NameAndType [c ()Lorg/json/JSONArray;]
-  + NameAndType [c Ljava/lang/String;]
+  + NameAndType [c Lde/codenauts/hockeyapp/MainActivity;]
   + NameAndType [close ()V]
   + NameAndType [connect ()V]
   + NameAndType [d ()V]
   + NameAndType [d Ljava/lang/String;]
+  + NameAndType [e Ljava/lang/String;]
   + NameAndType [equals (Ljava/lang/Object;)Z]
   + NameAndType [get (Ljava/lang/String;)Ljava/lang/Object;]
   + NameAndType [getBytes ()[B]
@@ -9210,6 +9248,7 @@ Constant Pool (count = 215):
   + Utf8 [Code]
   + Utf8 [Content-Type]
   + Utf8 [Hockey/Android]
+  + Utf8 [I]
   + Utf8 [Lde/codenauts/hockeyapp/MainActivity;]
   + Utf8 [Ljava/lang/String;]
   + Utf8 [POST]
@@ -9232,6 +9271,7 @@ Constant Pool (count = 215):
   + Utf8 [de/codenauts/hockeyapp/l]
   + Utf8 [de/codenauts/hockeyapp/q]
   + Utf8 [doInBackground]
+  + Utf8 [e]
   + Utf8 [equals]
   + Utf8 [get]
   + Utf8 [getBytes]
@@ -9241,8 +9281,9 @@ Constant Pool (count = 215):
   + Utf8 [getResponseCode]
   + Utf8 [getString]
   + Utf8 [has]
-  + Utf8 [https://rink.hockeyapp.net/api/2/auth_tokens]
+  + Utf8 [https://rink.hockeyapp.net/api/2/auth_tokens?format=json]
   + Utf8 [isFinishing]
+  + Utf8 [java/io/IOException]
   + Utf8 [java/io/PrintWriter]
   + Utf8 [java/lang/Exception]
   + Utf8 [java/lang/Object]
@@ -9271,68 +9312,75 @@ Constant Pool (count = 215):
   + Utf8 [trim]
   + Utf8 [valueOf]
 
-Fields (count = 4):
+Fields (count = 5):
   + Field:        a Z
     Access flags: 0x2
       = private boolean a
-  + Field:        b Lde/codenauts/hockeyapp/MainActivity;
+  + Field:        b I
     Access flags: 0x2
-      = private de.codenauts.hockeyapp.MainActivity b
-  + Field:        c Ljava/lang/String;
+      = private int b
+  + Field:        c Lde/codenauts/hockeyapp/MainActivity;
     Access flags: 0x2
-      = private java.lang.String c
+      = private de.codenauts.hockeyapp.MainActivity c
   + Field:        d Ljava/lang/String;
     Access flags: 0x2
       = private java.lang.String d
+  + Field:        e Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String e
 
 Methods (count = 11):
   - Method:       <init>(Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;Ljava/lang/String;)V
     Access flags: 0x1
       = public l(de.codenauts.hockeyapp.MainActivity,java.lang.String,java.lang.String)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 56, locals = 4, stack = 4):
+    + Code attribute instructions (code length = 61, locals = 4, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #36
+      [1] invokespecial #38
         + Methodref [android/os/AsyncTask.<init> ()V]
       [4] aload_0 v0
-      [5] aload_1 v1
-      [6] putfield #33
-        + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
+      [5] iconst_3
+      [6] putfield #34
+        + Fieldref [de/codenauts/hockeyapp/l.b I]
       [9] aload_0 v0
-      [10] new #27
+      [10] aload_1 v1
+      [11] putfield #35
+        + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
+      [14] aload_0 v0
+      [15] new #28
         + Class [java/lang/StringBuilder]
-      [13] dup
-      [14] aload_2 v2
-      [15] invokestatic #55
+      [18] dup
+      [19] aload_2 v2
+      [20] invokestatic #57
         + Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [18] invokespecial #56
+      [23] invokespecial #58
         + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [21] ldc #1
+      [26] ldc #1
         + String [:]
-      [23] invokevirtual #57
+      [28] invokevirtual #59
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [26] aload_3 v3
-      [27] invokevirtual #57
+      [31] aload_3 v3
+      [32] invokevirtual #59
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [30] invokevirtual #58
+      [35] invokevirtual #60
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [33] invokevirtual #53
+      [38] invokevirtual #55
         + Methodref [java/lang/String.getBytes ()[B]
-      [36] invokestatic #40
+      [41] invokestatic #42
         + Methodref [de/codenauts/hockeyapp/e.a ([B)Ljava/lang/String;]
-      [39] invokevirtual #54
+      [44] invokevirtual #56
         + Methodref [java/lang/String.trim ()Ljava/lang/String;]
-      [42] putfield #34
-        + Fieldref [de/codenauts/hockeyapp/l.c Ljava/lang/String;]
-      [45] aload_0 v0
-      [46] iconst_0
-      [47] putfield #32
-        + Fieldref [de/codenauts/hockeyapp/l.a Z]
-      [50] aload_0 v0
-      [51] aconst_null
-      [52] putfield #35
+      [47] putfield #36
         + Fieldref [de/codenauts/hockeyapp/l.d Ljava/lang/String;]
-      [55] return
+      [50] aload_0 v0
+      [51] iconst_0
+      [52] putfield #33
+        + Fieldref [de/codenauts/hockeyapp/l.a Z]
+      [55] aload_0 v0
+      [56] aconst_null
+      [57] putfield #37
+        + Fieldref [de/codenauts/hockeyapp/l.e Ljava/lang/String;]
+      [60] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Lde/codenauts/hockeyapp/MainActivity;)V
@@ -9342,18 +9390,18 @@ Methods (count = 11):
     + Code attribute instructions (code length = 22, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #33
-        + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
+      [2] putfield #35
+        + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
       [5] aload_0 v0
-      [6] getfield #32
+      [6] getfield #33
         + Fieldref [de/codenauts/hockeyapp/l.a Z]
       [9] ifeq +12 (target=21)
       [12] aload_0 v0
       [13] iconst_0
-      [14] putfield #32
+      [14] putfield #33
         + Fieldref [de/codenauts/hockeyapp/l.a Z]
       [17] aload_0 v0
-      [18] invokespecial #46
+      [18] invokespecial #48
         + Methodref [de/codenauts/hockeyapp/l.d ()V]
       [21] return
       Code attribute exceptions (count = 0):
@@ -9367,8 +9415,8 @@ Methods (count = 11):
     + Code attribute instructions (code length = 6, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] aconst_null
-      [2] putfield #33
-        + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
+      [2] putfield #35
+        + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
       [5] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -9376,57 +9424,74 @@ Methods (count = 11):
     Access flags: 0x82
       = private varargs java.lang.String b()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 61, locals = 3, stack = 3):
+    + Code attribute instructions (code length = 78, locals = 3, stack = 3):
       [0] aload_0 v0
       [1] astore_1 v1
-      [2] new #29
+      [2] new #30
         + Class [java/net/URL]
       [5] dup
       [6] ldc #11
-        + String [https://rink.hockeyapp.net/api/2/auth_tokens]
-      [8] invokespecial #67
+        + String [https://rink.hockeyapp.net/api/2/auth_tokens?format=json]
+      [8] invokespecial #69
         + Methodref [java/net/URL.<init> (Ljava/lang/String;)V]
-      [11] invokevirtual #68
+      [11] invokevirtual #70
         + Methodref [java/net/URL.openConnection ()Ljava/net/URLConnection;]
-      [14] checkcast #28
+      [14] checkcast #29
         + Class [java/net/HttpURLConnection]
       [17] astore_2 v2
       [18] aload_1 v1
       [19] aload_2 v2
-      [20] invokespecial #42
+      [20] invokespecial #44
         + Methodref [de/codenauts/hockeyapp/l.a (Ljava/net/HttpURLConnection;)V]
       [23] aload_2 v2
-      [24] invokevirtual #60
+      [24] invokevirtual #62
         + Methodref [java/net/HttpURLConnection.connect ()V]
       [27] aload_2 v2
-      [28] invokevirtual #62
+      [28] invokevirtual #64
         + Methodref [java/net/HttpURLConnection.getResponseCode ()I]
       [31] sipush 200
-      [34] ificmpne +13 (target=47)
+      [34] ificmpne +16 (target=50)
       [37] aload_2 v2
-      [38] invokestatic #47
+      [38] invokestatic #49
         + Methodref [de/codenauts/hockeyapp/q.a (Ljava/net/HttpURLConnection;)Ljava/lang/String;]
-      [41] invokestatic #41
+      [41] astore_2 v2
+      [42] aload_1 v1
+      [43] aload_2 v2
+      [44] invokespecial #43
         + Methodref [de/codenauts/hockeyapp/l.a (Ljava/lang/String;)Lorg/json/JSONArray;]
-      [44] goto +4 (target=48)
-      [47] aconst_null
-      [48] astore_1 v1
-      [49] aload_0 v0
+      [47] goto +9 (target=56)
       [50] aload_1 v1
       [51] iconst_1
-      [52] invokespecial #43
+      [52] putfield #34
+        + Fieldref [de/codenauts/hockeyapp/l.b I]
+      [55] aconst_null
+      [56] astore_1 v1
+      [57] aload_0 v0
+      [58] aload_1 v1
+      [59] iconst_1
+      [60] invokespecial #45
         + Methodref [de/codenauts/hockeyapp/l.a (Lorg/json/JSONArray;Z)Ljava/lang/String;]
-      [55] areturn
-      [56] invokevirtual #51
+      [63] areturn
+      [64] pop
+      [65] aload_0 v0
+      [66] iconst_2
+      [67] putfield #34
+        + Fieldref [de/codenauts/hockeyapp/l.b I]
+      [70] goto +6 (target=76)
+      [73] invokevirtual #53
         + Methodref [java/lang/Exception.printStackTrace ()V]
-      [59] aconst_null
-      [60] areturn
-      Code attribute exceptions (count = 1):
-      - ExceptionInfo (0 -> 55: 56):
+      [76] aconst_null
+      [77] areturn
+      Code attribute exceptions (count = 2):
+      - ExceptionInfo (0 -> 63: 64):
+      + Class [java/io/IOException]
+      - ExceptionInfo (0 -> 63: 73):
       + Class [java/lang/Exception]
       Code attribute attributes (attribute count = 1):
-      + Stack map table attribute (count = 1):
-        - [56] Var: ..., Stack: [a:java/lang/Exception]
+      + Stack map table attribute (count = 3):
+        - [64] Var: ..., Stack: [a:java/io/IOException]
+        - [73] Var: ..., Stack: [a:java/lang/Exception]
+        - [76] Var: ..., Stack: (empty)
   + Method:       a(Lorg/json/JSONArray;Z)Ljava/lang/String;
     Access flags: 0x2
       = private java.lang.String a(org.json.JSONArray,boolean)
@@ -9437,14 +9502,14 @@ Methods (count = 11):
       [4] aconst_null
       [5] areturn
       [6] aload_1 v1
-      [7] invokevirtual #70
+      [7] invokevirtual #72
         + Methodref [org/json/JSONArray.length ()I]
       [10] ifne +19 (target=29)
       [13] iload_2 v2
       [14] ifeq +15 (target=29)
       [17] aload_0 v0
       [18] aload_0 v0
-      [19] invokespecial #45
+      [19] invokespecial #47
         + Methodref [de/codenauts/hockeyapp/l.c ()Lorg/json/JSONArray;]
       [22] iconst_0
       [23] istore_2 v2
@@ -9456,37 +9521,37 @@ Methods (count = 11):
       [31] goto +38 (target=69)
       [34] aload_1 v1
       [35] iload_2 v2
-      [36] invokevirtual #69
+      [36] invokevirtual #71
         + Methodref [org/json/JSONArray.getJSONObject (I)Lorg/json/JSONObject;]
       [39] dup
       [40] astore_3 v3
       [41] ldc #12
         + String [rights]
-      [43] invokevirtual #75
+      [43] invokevirtual #77
         + Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
       [46] ifeq +20 (target=66)
       [49] aload_3 v3
       [50] ldc #12
         + String [rights]
-      [52] invokevirtual #73
+      [52] invokevirtual #75
         + Methodref [org/json/JSONObject.getInt (Ljava/lang/String;)I]
       [55] iconst_2
       [56] ificmpne +10 (target=66)
       [59] aload_3 v3
       [60] ldc #16
         + String [token]
-      [62] invokevirtual #74
+      [62] invokevirtual #76
         + Methodref [org/json/JSONObject.getString (Ljava/lang/String;)Ljava/lang/String;]
       [65] areturn
       [66] iinc v2, 1
       [69] iload_2 v2
       [70] aload_1 v1
-      [71] invokevirtual #70
+      [71] invokevirtual #72
         + Methodref [org/json/JSONArray.length ()I]
       [74] ificmplt -40 (target=34)
       [77] aload_0 v0
       [78] aload_0 v0
-      [79] invokespecial #45
+      [79] invokespecial #47
         + Methodref [de/codenauts/hockeyapp/l.c ()Lorg/json/JSONArray;]
       [82] iconst_0
       [83] istore_2 v2
@@ -9505,120 +9570,127 @@ Methods (count = 11):
     Access flags: 0x2
       = private org.json.JSONArray c()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 93, locals = 4, stack = 3):
-      [0] new #29
+    + Code attribute instructions (code length = 96, locals = 4, stack = 3):
+      [0] new #30
         + Class [java/net/URL]
       [3] dup
       [4] ldc #11
-        + String [https://rink.hockeyapp.net/api/2/auth_tokens]
-      [6] invokespecial #67
+        + String [https://rink.hockeyapp.net/api/2/auth_tokens?format=json]
+      [6] invokespecial #69
         + Methodref [java/net/URL.<init> (Ljava/lang/String;)V]
-      [9] invokevirtual #68
+      [9] invokevirtual #70
         + Methodref [java/net/URL.openConnection ()Ljava/net/URLConnection;]
-      [12] checkcast #28
+      [12] checkcast #29
         + Class [java/net/HttpURLConnection]
       [15] dup
       [16] astore_1 v1
       [17] ldc #6
         + String [POST]
-      [19] invokevirtual #65
+      [19] invokevirtual #67
         + Methodref [java/net/HttpURLConnection.setRequestMethod (Ljava/lang/String;)V]
       [22] aload_1 v1
       [23] ldc #4
         + String [Content-Type]
       [25] ldc #8
         + String [application/x-www-form-urlencoded]
-      [27] invokevirtual #66
+      [27] invokevirtual #68
         + Methodref [java/net/HttpURLConnection.setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
       [30] aload_1 v1
       [31] iconst_1
-      [32] invokevirtual #63
+      [32] invokevirtual #65
         + Methodref [java/net/HttpURLConnection.setDoOutput (Z)V]
       [35] aload_0 v0
       [36] aload_1 v1
-      [37] invokespecial #42
+      [37] invokespecial #44
         + Methodref [de/codenauts/hockeyapp/l.a (Ljava/net/HttpURLConnection;)V]
       [40] ldc #13
         + String [rights=2]
       [42] astore_2 v2
       [43] aload_1 v1
       [44] aload_2 v2
-      [45] invokevirtual #53
+      [45] invokevirtual #55
         + Methodref [java/lang/String.getBytes ()[B]
       [48] arraylength
-      [49] invokevirtual #64
+      [49] invokevirtual #66
         + Methodref [java/net/HttpURLConnection.setFixedLengthStreamingMode (I)V]
-      [52] new #23
+      [52] new #24
         + Class [java/io/PrintWriter]
       [55] dup
       [56] aload_1 v1
-      [57] invokevirtual #61
+      [57] invokevirtual #63
         + Methodref [java/net/HttpURLConnection.getOutputStream ()Ljava/io/OutputStream;]
-      [60] invokespecial #48
+      [60] invokespecial #50
         + Methodref [java/io/PrintWriter.<init> (Ljava/io/OutputStream;)V]
       [63] dup
       [64] astore_3 v3
       [65] aload_2 v2
-      [66] invokevirtual #50
+      [66] invokevirtual #52
         + Methodref [java/io/PrintWriter.print (Ljava/lang/String;)V]
       [69] aload_3 v3
-      [70] invokevirtual #49
+      [70] invokevirtual #51
         + Methodref [java/io/PrintWriter.close ()V]
       [73] aload_1 v1
-      [74] invokevirtual #62
+      [74] invokevirtual #64
         + Methodref [java/net/HttpURLConnection.getResponseCode ()I]
       [77] sipush 201
-      [80] ificmpne +11 (target=91)
+      [80] ificmpne +14 (target=94)
       [83] aload_1 v1
-      [84] invokestatic #47
+      [84] invokestatic #49
         + Methodref [de/codenauts/hockeyapp/q.a (Ljava/net/HttpURLConnection;)Ljava/lang/String;]
-      [87] invokestatic #41
+      [87] astore_1 v1
+      [88] aload_0 v0
+      [89] aload_1 v1
+      [90] invokespecial #43
         + Methodref [de/codenauts/hockeyapp/l.a (Ljava/lang/String;)Lorg/json/JSONArray;]
-      [90] areturn
-      [91] aconst_null
-      [92] areturn
+      [93] areturn
+      [94] aconst_null
+      [95] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 1):
-        - [91] Var: [a:de/codenauts/hockeyapp/l][a:java/net/URL][a:java/net/HttpURLConnection][a:java/lang/String][a:java/io/PrintWriter], Stack: 
+        - [94] Var: [a:de/codenauts/hockeyapp/l][a:java/net/URL][a:java/net/HttpURLConnection][a:java/lang/String][a:java/io/PrintWriter], Stack: 
   + Method:       a(Ljava/lang/String;)Lorg/json/JSONArray;
-    Access flags: 0xa
-      = private static org.json.JSONArray a(java.lang.String)
+    Access flags: 0x2
+      = private org.json.JSONArray a(java.lang.String)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 44, locals = 1, stack = 3):
-      [0] new #31
+    + Code attribute instructions (code length = 49, locals = 2, stack = 3):
+      [0] new #32
         + Class [org/json/JSONObject]
       [3] dup
-      [4] aload_0 v0
-      [5] invokespecial #71
+      [4] aload_1 v1
+      [5] invokespecial #73
         + Methodref [org/json/JSONObject.<init> (Ljava/lang/String;)V]
       [8] dup
-      [9] astore_0 v0
+      [9] astore_1 v1
       [10] ldc #14
         + String [status]
-      [12] invokevirtual #75
+      [12] invokevirtual #77
         + Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
       [15] ifeq +27 (target=42)
-      [18] aload_0 v0
+      [18] aload_1 v1
       [19] ldc #14
         + String [status]
-      [21] invokevirtual #72
+      [21] invokevirtual #74
         + Methodref [org/json/JSONObject.get (Ljava/lang/String;)Ljava/lang/Object;]
       [24] ldc #15
         + String [success]
-      [26] invokevirtual #52
+      [26] invokevirtual #54
         + Methodref [java/lang/Object.equals (Ljava/lang/Object;)Z]
       [29] ifeq +13 (target=42)
-      [32] aload_0 v0
+      [32] aload_1 v1
       [33] ldc #17
         + String [tokens]
-      [35] invokevirtual #72
+      [35] invokevirtual #74
         + Methodref [org/json/JSONObject.get (Ljava/lang/String;)Ljava/lang/Object;]
-      [38] checkcast #30
+      [38] checkcast #31
         + Class [org/json/JSONArray]
       [41] areturn
-      [42] aconst_null
-      [43] areturn
+      [42] aload_0 v0
+      [43] iconst_1
+      [44] putfield #34
+        + Fieldref [de/codenauts/hockeyapp/l.b I]
+      [47] aconst_null
+      [48] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 1):
@@ -9633,33 +9705,33 @@ Methods (count = 11):
         + String [User-Agent]
       [3] ldc #5
         + String [Hockey/Android]
-      [5] invokevirtual #59
+      [5] invokevirtual #61
         + Methodref [java/net/HttpURLConnection.addRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
       [8] aload_1 v1
       [9] ldc #2
         + String [Authorization]
-      [11] new #27
+      [11] new #28
         + Class [java/lang/StringBuilder]
       [14] dup
       [15] ldc #3
         + String [Basic ]
-      [17] invokespecial #56
+      [17] invokespecial #58
         + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [20] aload_0 v0
-      [21] getfield #34
-        + Fieldref [de/codenauts/hockeyapp/l.c Ljava/lang/String;]
-      [24] invokevirtual #57
+      [21] getfield #36
+        + Fieldref [de/codenauts/hockeyapp/l.d Ljava/lang/String;]
+      [24] invokevirtual #59
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [27] invokevirtual #58
+      [27] invokevirtual #60
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [30] invokevirtual #66
+      [30] invokevirtual #68
         + Methodref [java/net/HttpURLConnection.setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
       [33] aload_1 v1
       [34] ldc #10
         + String [connection]
       [36] ldc #9
         + String [close]
-      [38] invokevirtual #66
+      [38] invokevirtual #68
         + Methodref [java/net/HttpURLConnection.setRequestProperty (Ljava/lang/String;Ljava/lang/String;)V]
       [41] return
       Code attribute exceptions (count = 0):
@@ -9668,31 +9740,34 @@ Methods (count = 11):
     Access flags: 0x2
       = private void d()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 27, locals = 1, stack = 2):
+    + Code attribute instructions (code length = 31, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #35
-        + Fieldref [de/codenauts/hockeyapp/l.d Ljava/lang/String;]
-      [4] ifnonnull +11 (target=15)
+      [1] getfield #37
+        + Fieldref [de/codenauts/hockeyapp/l.e Ljava/lang/String;]
+      [4] ifnonnull +15 (target=19)
       [7] aload_0 v0
-      [8] getfield #33
-        + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
-      [11] invokevirtual #37
-        + Methodref [de/codenauts/hockeyapp/MainActivity.a ()V]
-      [14] return
-      [15] aload_0 v0
-      [16] getfield #33
-        + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
+      [8] getfield #35
+        + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
+      [11] aload_0 v0
+      [12] getfield #34
+        + Fieldref [de/codenauts/hockeyapp/l.b I]
+      [15] invokevirtual #39
+        + Methodref [de/codenauts/hockeyapp/MainActivity.a (I)V]
+      [18] return
       [19] aload_0 v0
       [20] getfield #35
-        + Fieldref [de/codenauts/hockeyapp/l.d Ljava/lang/String;]
-      [23] invokevirtual #38
+        + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
+      [23] aload_0 v0
+      [24] getfield #37
+        + Fieldref [de/codenauts/hockeyapp/l.e Ljava/lang/String;]
+      [27] invokevirtual #40
         + Methodref [de/codenauts/hockeyapp/MainActivity.a (Ljava/lang/String;)V]
-      [26] return
+      [30] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):
-        - [15] Var: ..., Stack: (empty)
-        - [26] Var: ..., Stack: (empty)
+        - [19] Var: ..., Stack: (empty)
+        - [30] Var: ..., Stack: (empty)
   + Method:       onPostExecute(Ljava/lang/Object;)V
     Access flags: 0x1014
       = protected final synthetic void onPostExecute(java.lang.Object)
@@ -9700,31 +9775,31 @@ Methods (count = 11):
     + Code attribute instructions (code length = 40, locals = 3, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] checkcast #26
+      [2] checkcast #27
         + Class [java/lang/String]
       [5] astore_2 v2
       [6] dup
       [7] astore_1 v1
       [8] aload_2 v2
-      [9] putfield #35
-        + Fieldref [de/codenauts/hockeyapp/l.d Ljava/lang/String;]
+      [9] putfield #37
+        + Fieldref [de/codenauts/hockeyapp/l.e Ljava/lang/String;]
       [12] aload_1 v1
-      [13] getfield #33
-        + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
+      [13] getfield #35
+        + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
       [16] ifnull +13 (target=29)
       [19] aload_1 v1
-      [20] getfield #33
-        + Fieldref [de/codenauts/hockeyapp/l.b Lde/codenauts/hockeyapp/MainActivity;]
-      [23] invokevirtual #39
+      [20] getfield #35
+        + Fieldref [de/codenauts/hockeyapp/l.c Lde/codenauts/hockeyapp/MainActivity;]
+      [23] invokevirtual #41
         + Methodref [de/codenauts/hockeyapp/MainActivity.isFinishing ()Z]
       [26] ifeq +9 (target=35)
       [29] aload_1 v1
       [30] iconst_1
-      [31] putfield #32
+      [31] putfield #33
         + Fieldref [de/codenauts/hockeyapp/l.a Z]
       [34] return
       [35] aload_1 v1
-      [36] invokespecial #46
+      [36] invokespecial #48
         + Methodref [de/codenauts/hockeyapp/l.d ()V]
       [39] return
       Code attribute exceptions (count = 0):
@@ -9735,7 +9810,7 @@ Methods (count = 11):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 2, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #44
+      [1] invokespecial #46
         + Methodref [de/codenauts/hockeyapp/l.b ()Ljava/lang/String;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -9754,7 +9829,7 @@ _____________________________________________________________________
 Interfaces (count = 1):
   + Class [android/widget/AdapterView$OnItemClickListener]
 
-Constant Pool (count = 460):
+Constant Pool (count = 465):
   + Integer [2130903045]
   + Integer [2130903046]
   + Integer [2131165192]
@@ -9767,14 +9842,15 @@ Constant Pool (count = 460):
   + Integer [2131230726]
   + Integer [2131230727]
   + Integer [2131230728]
-  + Integer [2131230731]
+  + Integer [2131230737]
+  + Integer [2131230738]
+  + Integer [2131230739]
   + Integer [2131361792]
   + String []
   + String [0873e2b98ad046a92c170a243a8515f6]
   + String [APIToken]
   + String [Android]
   + String [Cancel]
-  + String [Connection failed. Please try again or check your credentials.]
   + String [HockeyApp]
   + String [No apps found.]
   + String [Send]
@@ -9870,14 +9946,16 @@ Constant Pool (count = 460):
   + Methodref [android/widget/ProgressBar.setVisibility (I)V]
   + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
   + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
+  + Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
   + Methodref [android/widget/Toast.show ()V]
-  + Methodref [de/codenauts/hockeyapp/MainActivity.a (I)V]
+  + Methodref [de/codenauts/hockeyapp/MainActivity.a ()Ljava/lang/String;]
   + Methodref [de/codenauts/hockeyapp/MainActivity.a (Landroid/os/Bundle;)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.a (Ljava/lang/Boolean;)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.a (Lorg/json/JSONArray;)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.b (Ljava/lang/String;)V]
-  + Methodref [de/codenauts/hockeyapp/MainActivity.c ()Ljava/lang/String;]
+  + Methodref [de/codenauts/hockeyapp/MainActivity.c (I)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.c (Ljava/lang/String;)V]
+  + Methodref [de/codenauts/hockeyapp/MainActivity.d (I)Ljava/lang/String;]
   + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
   + Methodref [de/codenauts/hockeyapp/MainActivity.findViewById (I)Landroid/view/View;]
   + Methodref [de/codenauts/hockeyapp/MainActivity.getLastNonConfigurationInstance ()Ljava/lang/Object;]
@@ -9939,8 +10017,8 @@ Constant Pool (count = 460):
   + NameAndType [<init> (Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;)V]
   + NameAndType [<init> (Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [a ()Ljava/lang/String;]
   + NameAndType [a ()V]
-  + NameAndType [a (I)V]
   + NameAndType [a (Landroid/app/Activity;)Lde/codenauts/hockeyapp/a/a;]
   + NameAndType [a (Landroid/app/Activity;)V]
   + NameAndType [a (Landroid/app/Activity;Ljava/lang/String;Lnet/hockeyapp/android/o;)V]
@@ -9954,14 +10032,15 @@ Constant Pool (count = 460):
   + NameAndType [b ()V]
   + NameAndType [b (Ljava/lang/String;)V]
   + NameAndType [b Landroid/app/AlertDialog;]
-  + NameAndType [c ()Ljava/lang/String;]
   + NameAndType [c ()V]
+  + NameAndType [c (I)V]
   + NameAndType [c (Ljava/lang/String;)V]
   + NameAndType [c Lde/codenauts/hockeyapp/c;]
   + NameAndType [cancel (Z)Z]
   + NameAndType [commit ()Z]
   + NameAndType [create ()Landroid/app/AlertDialog;]
   + NameAndType [d ()V]
+  + NameAndType [d (I)Ljava/lang/String;]
   + NameAndType [d (Ljava/lang/String;)V]
   + NameAndType [d Lde/codenauts/hockeyapp/d;]
   + NameAndType [e Lde/codenauts/hockeyapp/b;]
@@ -9991,6 +10070,7 @@ Constant Pool (count = 460):
   + NameAndType [inflate (ILandroid/view/ViewGroup;Z)Landroid/view/View;]
   + NameAndType [length ()I]
   + NameAndType [makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
+  + NameAndType [makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
   + NameAndType [onCreate (Landroid/os/Bundle;)V]
   + NameAndType [onCreateOptionsMenu (Landroid/view/Menu;)Z]
   + NameAndType [onResume ()V]
@@ -10041,6 +10121,7 @@ Constant Pool (count = 460):
   + Utf8 [(Landroid/app/Activity;Ljava/util/ArrayList;)V]
   + Utf8 [(Landroid/content/Context;)V]
   + Utf8 [(Landroid/content/Context;II)Landroid/widget/Toast;]
+  + Utf8 [(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
   + Utf8 [(Landroid/content/Context;Ljava/lang/Class;)V]
   + Utf8 [(Landroid/content/Context;Ljava/lang/String;)V]
   + Utf8 [(Landroid/content/Intent;)V]
@@ -10085,7 +10166,6 @@ Constant Pool (count = 460):
   + Utf8 [Android]
   + Utf8 [Cancel]
   + Utf8 [Code]
-  + Utf8 [Connection failed. Please try again or check your credentials.]
   + Utf8 [HockeyApp]
   + Utf8 [I]
   + Utf8 [Landroid/app/AlertDialog;]
@@ -10244,20 +10324,20 @@ Fields (count = 9):
     Access flags: 0x2
       = private android.view.View i
 
-Methods (count = 26):
+Methods (count = 27):
   - Method:       <init>()V
     Access flags: 0x1
       = public MainActivity()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 13, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] invokespecial #90
+      [1] invokespecial #91
         + Methodref [android/app/Activity.<init> ()V]
       [4] aload_0 v0
       [5] aload_0 v0
-      [6] invokestatic #134
+      [6] invokestatic #137
         + Methodref [de/codenauts/hockeyapp/a/a.a (Landroid/app/Activity;)Lde/codenauts/hockeyapp/a/a;]
-      [9] putfield #81
+      [9] putfield #82
         + Fieldref [de/codenauts/hockeyapp/MainActivity.a Lde/codenauts/hockeyapp/a/a;]
       [12] return
       Code attribute exceptions (count = 0):
@@ -10269,45 +10349,45 @@ Methods (count = 26):
     + Code attribute instructions (code length = 56, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #91
+      [2] invokespecial #92
         + Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] ldc #2
         + Integer [2130903046]
-      [8] invokevirtual #130
+      [8] invokevirtual #133
         + Methodref [de/codenauts/hockeyapp/MainActivity.setContentView (I)V]
       [11] aload_0 v0
       [12] aconst_null
-      [13] invokevirtual #131
+      [13] invokevirtual #134
         + Methodref [de/codenauts/hockeyapp/MainActivity.setTitle (Ljava/lang/CharSequence;)V]
       [16] aload_0 v0
-      [17] getfield #81
+      [17] getfield #82
         + Fieldref [de/codenauts/hockeyapp/MainActivity.a Lde/codenauts/hockeyapp/a/a;]
-      [20] invokevirtual #135
+      [20] invokevirtual #138
         + Methodref [de/codenauts/hockeyapp/a/a.b ()V]
       [23] aload_0 v0
-      [24] getfield #81
+      [24] getfield #82
         + Fieldref [de/codenauts/hockeyapp/MainActivity.a Lde/codenauts/hockeyapp/a/a;]
-      [27] invokevirtual #136
+      [27] invokevirtual #139
         + Methodref [de/codenauts/hockeyapp/a/a.d ()V]
-      [30] ldc #29
+      [30] ldc #30
         + String [http.keepAlive]
-      [32] ldc #28
+      [32] ldc #29
         + String [false]
-      [34] invokestatic #156
+      [34] invokestatic #159
         + Methodref [java/lang/System.setProperty (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
       [37] pop
       [38] aload_1 v1
       [39] ifnonnull +11 (target=50)
       [42] aload_0 v0
       [43] iconst_0
-      [44] invokestatic #154
+      [44] invokestatic #157
         + Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
-      [47] invokespecial #119
+      [47] invokespecial #121
         + Methodref [de/codenauts/hockeyapp/MainActivity.a (Ljava/lang/Boolean;)V]
       [50] aload_0 v0
       [51] aload_1 v1
-      [52] invokespecial #118
+      [52] invokespecial #120
         + Methodref [de/codenauts/hockeyapp/MainActivity.a (Landroid/os/Bundle;)V]
       [55] return
       Code attribute exceptions (count = 0):
@@ -10320,16 +10400,16 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 16, locals = 2, stack = 6):
       [0] aload_0 v0
-      [1] ldc #16
+      [1] ldc #18
         + String [0873e2b98ad046a92c170a243a8515f6]
-      [3] new #67
+      [3] new #68
         + Class [de/codenauts/hockeyapp/m]
       [6] dup
       [7] aload_0 v0
       [8] aload_1 v1
-      [9] invokespecial #151
+      [9] invokespecial #154
         + Methodref [de/codenauts/hockeyapp/m.<init> (Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/Boolean;)V]
-      [12] invokestatic #160
+      [12] invokestatic #163
         + Methodref [net/hockeyapp/android/n.a (Landroid/app/Activity;Ljava/lang/String;Lnet/hockeyapp/android/o;)V]
       [15] return
       Code attribute exceptions (count = 0):
@@ -10341,16 +10421,16 @@ Methods (count = 26):
     + Code attribute instructions (code length = 18, locals = 2, stack = 3):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #92
+      [2] invokespecial #93
         + Methodref [android/app/Activity.onCreateOptionsMenu (Landroid/view/Menu;)Z]
       [5] pop
       [6] aload_0 v0
-      [7] invokevirtual #127
+      [7] invokevirtual #130
         + Methodref [de/codenauts/hockeyapp/MainActivity.getMenuInflater ()Landroid/view/MenuInflater;]
-      [10] ldc #14
+      [10] ldc #16
         + Integer [2131361792]
       [12] aload_1 v1
-      [13] invokevirtual #107
+      [13] invokevirtual #108
         + Methodref [android/view/MenuInflater.inflate (ILandroid/view/Menu;)V]
       [16] iconst_1
       [17] ireturn
@@ -10362,40 +10442,40 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 62, locals = 3, stack = 2):
       [0] aload_1 v1
-      [1] iconst_1
-      [2] invokeinterface #172
+      [1] iconst_2
+      [2] invokeinterface #175
         + InterfaceMethodref [android/view/Menu.getItem (I)Landroid/view/MenuItem;]
       [7] astore_2 v2
       [8] aload_1 v1
-      [9] iconst_2
-      [10] invokeinterface #172
+      [9] iconst_3
+      [10] invokeinterface #175
         + InterfaceMethodref [android/view/Menu.getItem (I)Landroid/view/MenuItem;]
       [15] astore_1 v1
       [16] aload_0 v0
-      [17] invokespecial #122
-        + Methodref [de/codenauts/hockeyapp/MainActivity.c ()Ljava/lang/String;]
+      [17] invokespecial #119
+        + Methodref [de/codenauts/hockeyapp/MainActivity.a ()Ljava/lang/String;]
       [20] ifnonnull +23 (target=43)
       [23] aload_2 v2
       [24] iconst_0
-      [25] invokeinterface #174
+      [25] invokeinterface #177
         + InterfaceMethodref [android/view/MenuItem.setEnabled (Z)Landroid/view/MenuItem;]
       [30] pop
       [31] aload_1 v1
-      [32] ldc #25
+      [32] ldc #26
         + String [Sign in]
-      [34] invokeinterface #175
+      [34] invokeinterface #178
         + InterfaceMethodref [android/view/MenuItem.setTitle (Ljava/lang/CharSequence;)Landroid/view/MenuItem;]
       [39] pop
       [40] goto +20 (target=60)
       [43] aload_2 v2
       [44] iconst_1
-      [45] invokeinterface #174
+      [45] invokeinterface #177
         + InterfaceMethodref [android/view/MenuItem.setEnabled (Z)Landroid/view/MenuItem;]
       [50] pop
       [51] aload_1 v1
-      [52] ldc #26
+      [52] ldc #27
         + String [Sign out]
-      [54] invokeinterface #175
+      [54] invokeinterface #178
         + InterfaceMethodref [android/view/MenuItem.setTitle (Ljava/lang/CharSequence;)Landroid/view/MenuItem;]
       [59] pop
       [60] iconst_1
@@ -10411,7 +10491,7 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 183, locals = 3, stack = 4):
       [0] aload_1 v1
-      [1] invokeinterface #173
+      [1] invokeinterface #176
         + InterfaceMethodref [android/view/MenuItem.getItemId ()I]
       [6] dup
       [7] istore_1 v1
@@ -10420,9 +10500,9 @@ Methods (count = 26):
       [10] ificmpne +14 (target=24)
       [13] aload_0 v0
       [14] iconst_1
-      [15] invokestatic #154
+      [15] invokestatic #157
         + Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
-      [18] invokespecial #119
+      [18] invokespecial #121
         + Methodref [de/codenauts/hockeyapp/MainActivity.a (Ljava/lang/Boolean;)V]
       [21] goto +160 (target=181)
       [24] iload_1 v1
@@ -10431,18 +10511,18 @@ Methods (count = 26):
       [27] ificmpne +24 (target=51)
       [30] aload_0 v0
       [31] astore_2 v2
-      [32] new #43
+      [32] new #44
         + Class [android/content/Intent]
       [35] dup
       [36] aload_2 v2
-      [37] ldc #58
+      [37] ldc #59
         + Class [de/codenauts/hockeyapp/AboutActivity]
-      [39] invokespecial #101
+      [39] invokespecial #102
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [42] astore_1 v1
       [43] aload_2 v2
       [44] aload_1 v1
-      [45] invokevirtual #133
+      [45] invokevirtual #136
         + Methodref [de/codenauts/hockeyapp/MainActivity.startActivity (Landroid/content/Intent;)V]
       [48] goto +133 (target=181)
       [51] iload_1 v1
@@ -10450,61 +10530,61 @@ Methods (count = 26):
       [55] ificmpne +24 (target=79)
       [58] aload_0 v0
       [59] astore_2 v2
-      [60] new #43
+      [60] new #44
         + Class [android/content/Intent]
       [63] dup
       [64] aload_2 v2
-      [65] ldc #60
+      [65] ldc #61
         + Class [de/codenauts/hockeyapp/DebugActivity]
-      [67] invokespecial #101
+      [67] invokespecial #102
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [70] astore_1 v1
       [71] aload_2 v2
       [72] aload_1 v1
-      [73] invokevirtual #133
+      [73] invokevirtual #136
         + Methodref [de/codenauts/hockeyapp/MainActivity.startActivity (Landroid/content/Intent;)V]
       [76] goto +105 (target=181)
       [79] aload_0 v0
       [80] dup
       [81] astore_2 v2
-      [82] getfield #84
+      [82] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [85] ifnull +24 (target=109)
       [88] aload_2 v2
-      [89] getfield #84
+      [89] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [92] iconst_1
-      [93] invokevirtual #147
+      [93] invokevirtual #150
         + Methodref [de/codenauts/hockeyapp/d.cancel (Z)Z]
       [96] pop
       [97] aload_2 v2
-      [98] getfield #84
+      [98] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
-      [101] invokevirtual #145
+      [101] invokevirtual #148
         + Methodref [de/codenauts/hockeyapp/d.a ()V]
       [104] aload_2 v2
       [105] aconst_null
-      [106] putfield #84
+      [106] putfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [109] aload_2 v2
-      [110] getfield #85
+      [110] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [113] ifnull +24 (target=137)
       [116] aload_2 v2
-      [117] getfield #85
+      [117] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [120] iconst_1
-      [121] invokevirtual #140
+      [121] invokevirtual #143
         + Methodref [de/codenauts/hockeyapp/b.cancel (Z)Z]
       [124] pop
       [125] aload_2 v2
-      [126] getfield #85
+      [126] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
-      [129] invokevirtual #139
+      [129] invokevirtual #142
         + Methodref [de/codenauts/hockeyapp/b.c ()V]
       [132] aload_2 v2
       [133] aconst_null
-      [134] putfield #85
+      [134] putfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [137] iload_1 v1
       [138] ldc #8
@@ -10512,33 +10592,33 @@ Methods (count = 26):
       [140] ificmpne +21 (target=161)
       [143] aload_0 v0
       [144] aconst_null
-      [145] invokespecial #123
+      [145] invokespecial #125
         + Methodref [de/codenauts/hockeyapp/MainActivity.c (Ljava/lang/String;)V]
       [148] aload_0 v0
       [149] aload_0 v0
-      [150] invokevirtual #128
+      [150] invokevirtual #131
         + Methodref [de/codenauts/hockeyapp/MainActivity.getResources ()Landroid/content/res/Resources;]
       [153] ldc #10
         + Integer [2131230726]
-      [155] invokevirtual #103
+      [155] invokevirtual #104
         + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
-      [158] invokespecial #124
+      [158] invokespecial #127
         + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
       [161] aload_0 v0
       [162] ldc #4
         + Integer [2131165199]
-      [164] invokevirtual #125
+      [164] invokevirtual #128
         + Methodref [de/codenauts/hockeyapp/MainActivity.findViewById (I)Landroid/view/View;]
       [167] iconst_4
-      [168] invokevirtual #109
+      [168] invokevirtual #110
         + Methodref [android/view/View.setVisibility (I)V]
       [171] aload_0 v0
       [172] aconst_null
-      [173] putfield #86
+      [173] putfield #87
         + Fieldref [de/codenauts/hockeyapp/MainActivity.f Lorg/json/JSONArray;]
       [176] aload_0 v0
       [177] aconst_null
-      [178] invokespecial #118
+      [178] invokespecial #120
         + Methodref [de/codenauts/hockeyapp/MainActivity.a (Landroid/os/Bundle;)V]
       [181] iconst_1
       [182] ireturn
@@ -10558,37 +10638,37 @@ Methods (count = 26):
       [0] aload_1 v1
       [1] ifnull +38 (target=39)
       [4] aload_1 v1
-      [5] ldc #27
+      [5] ldc #28
         + String [apps]
-      [7] invokevirtual #104
+      [7] invokevirtual #105
         + Methodref [android/os/Bundle.getString (Ljava/lang/String;)Ljava/lang/String;]
       [10] astore_2 v2
       [11] aload_0 v0
-      [12] new #78
+      [12] new #79
         + Class [org/json/JSONArray]
       [15] dup
       [16] aload_2 v2
-      [17] invokespecial #161
+      [17] invokespecial #164
         + Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
-      [20] putfield #86
+      [20] putfield #87
         + Fieldref [de/codenauts/hockeyapp/MainActivity.f Lorg/json/JSONArray;]
       [23] aload_0 v0
       [24] aload_0 v0
-      [25] getfield #86
+      [25] getfield #87
         + Fieldref [de/codenauts/hockeyapp/MainActivity.f Lorg/json/JSONArray;]
-      [28] invokevirtual #120
+      [28] invokevirtual #122
         + Methodref [de/codenauts/hockeyapp/MainActivity.a (Lorg/json/JSONArray;)V]
       [31] goto +8 (target=39)
       [34] pop
       [35] goto +4 (target=39)
       [38] pop
       [39] aload_0 v0
-      [40] getfield #86
+      [40] getfield #87
         + Fieldref [de/codenauts/hockeyapp/MainActivity.f Lorg/json/JSONArray;]
       [43] ifnonnull +27 (target=70)
       [46] aload_0 v0
-      [47] invokespecial #122
-        + Methodref [de/codenauts/hockeyapp/MainActivity.c ()Ljava/lang/String;]
+      [47] invokespecial #119
+        + Methodref [de/codenauts/hockeyapp/MainActivity.a ()Ljava/lang/String;]
       [50] dup
       [51] astore_2 v2
       [52] ifnonnull +13 (target=65)
@@ -10596,12 +10676,12 @@ Methods (count = 26):
       [56] ifnonnull +14 (target=70)
       [59] aload_0 v0
       [60] iconst_1
-      [61] invokevirtual #132
+      [61] invokevirtual #135
         + Methodref [de/codenauts/hockeyapp/MainActivity.showDialog (I)V]
       [64] return
       [65] aload_0 v0
       [66] aload_2 v2
-      [67] invokespecial #121
+      [67] invokespecial #123
         + Methodref [de/codenauts/hockeyapp/MainActivity.b (Ljava/lang/String;)V]
       [70] return
       Code attribute exceptions (count = 2):
@@ -10623,29 +10703,29 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 32, locals = 2, stack = 5):
       [0] aload_0 v0
-      [1] new #65
+      [1] new #66
         + Class [de/codenauts/hockeyapp/d]
       [4] dup
       [5] aload_0 v0
       [6] aload_1 v1
-      [7] invokespecial #144
+      [7] invokespecial #147
         + Methodref [de/codenauts/hockeyapp/d.<init> (Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;)V]
-      [10] putfield #84
+      [10] putfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [13] aload_0 v0
-      [14] getfield #84
+      [14] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [17] iconst_0
-      [18] anewarray #73
+      [18] anewarray #74
         + Class [java/lang/String]
-      [21] invokevirtual #148
+      [21] invokevirtual #151
         + Methodref [de/codenauts/hockeyapp/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [24] pop
       [25] aload_0 v0
       [26] ldc #12
         + Integer [2131230728]
-      [28] invokespecial #117
-        + Methodref [de/codenauts/hockeyapp/MainActivity.a (I)V]
+      [28] invokespecial #124
+        + Methodref [de/codenauts/hockeyapp/MainActivity.c (I)V]
       [31] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -10662,69 +10742,69 @@ Methods (count = 26):
         default: offset = 101, target = 104
       [20] aload_0 v0
       [21] astore_1 v1
-      [22] new #41
+      [22] new #42
         + Class [android/app/AlertDialog$Builder]
       [25] dup
       [26] aload_1 v1
-      [27] invokespecial #96
+      [27] invokespecial #97
         + Methodref [android/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V]
       [30] dup
       [31] astore_2 v2
-      [32] ldc #24
+      [32] ldc #25
         + String [Sign In]
-      [34] invokevirtual #100
+      [34] invokevirtual #101
         + Methodref [android/app/AlertDialog$Builder.setTitle (Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;]
       [37] pop
       [38] aload_2 v2
-      [39] ldc #23
+      [39] ldc #24
         + String [Send]
-      [41] new #68
+      [41] new #69
         + Class [de/codenauts/hockeyapp/n]
       [44] dup
       [45] aload_1 v1
-      [46] invokespecial #152
+      [46] invokespecial #155
         + Methodref [de/codenauts/hockeyapp/n.<init> (Lde/codenauts/hockeyapp/MainActivity;)V]
-      [49] invokevirtual #99
+      [49] invokevirtual #100
         + Methodref [android/app/AlertDialog$Builder.setPositiveButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [52] pop
       [53] aload_2 v2
-      [54] ldc #19
+      [54] ldc #21
         + String [Cancel]
-      [56] new #69
+      [56] new #70
         + Class [de/codenauts/hockeyapp/o]
       [59] dup
       [60] aload_1 v1
-      [61] invokespecial #153
+      [61] invokespecial #156
         + Methodref [de/codenauts/hockeyapp/o.<init> (Lde/codenauts/hockeyapp/MainActivity;)V]
-      [64] invokevirtual #98
+      [64] invokevirtual #99
         + Methodref [android/app/AlertDialog$Builder.setNegativeButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [67] pop
       [68] aload_1 v1
       [69] aload_2 v2
-      [70] invokevirtual #97
+      [70] invokevirtual #98
         + Methodref [android/app/AlertDialog$Builder.create ()Landroid/app/AlertDialog;]
-      [73] putfield #82
+      [73] putfield #83
         + Fieldref [de/codenauts/hockeyapp/MainActivity.b Landroid/app/AlertDialog;]
       [76] aload_1 v1
-      [77] getfield #82
+      [77] getfield #83
         + Fieldref [de/codenauts/hockeyapp/MainActivity.b Landroid/app/AlertDialog;]
-      [80] invokevirtual #94
+      [80] invokevirtual #95
         + Methodref [android/app/AlertDialog.getLayoutInflater ()Landroid/view/LayoutInflater;]
       [83] ldc #1
         + Integer [2130903045]
       [85] aconst_null
       [86] iconst_0
-      [87] invokevirtual #106
+      [87] invokevirtual #107
         + Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;Z)Landroid/view/View;]
       [90] astore_2 v2
       [91] aload_1 v1
-      [92] getfield #82
+      [92] getfield #83
         + Fieldref [de/codenauts/hockeyapp/MainActivity.b Landroid/app/AlertDialog;]
       [95] aload_2 v2
-      [96] invokevirtual #95
+      [96] invokevirtual #96
         + Methodref [android/app/AlertDialog.setView (Landroid/view/View;)V]
       [99] aload_1 v1
-      [100] getfield #82
+      [100] getfield #83
         + Fieldref [de/codenauts/hockeyapp/MainActivity.b Landroid/app/AlertDialog;]
       [103] astore_2 v2
       [104] aload_2 v2
@@ -10740,78 +10820,78 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 108, locals = 2, stack = 2):
       [0] aload_0 v0
-      [1] invokespecial #93
+      [1] invokespecial #94
         + Methodref [android/app/Activity.onResume ()V]
       [4] aload_0 v0
-      [5] ldc #16
+      [5] ldc #18
         + String [0873e2b98ad046a92c170a243a8515f6]
-      [7] invokestatic #159
+      [7] invokestatic #162
         + Methodref [net/hockeyapp/android/b.a (Landroid/content/Context;Ljava/lang/String;)V]
       [10] aload_0 v0
-      [11] invokevirtual #126
+      [11] invokevirtual #129
         + Methodref [de/codenauts/hockeyapp/MainActivity.getLastNonConfigurationInstance ()Ljava/lang/Object;]
       [14] dup
       [15] astore_1 v1
-      [16] instanceof #66
+      [16] instanceof #67
         + Class [de/codenauts/hockeyapp/l]
       [19] ifeq +27 (target=46)
       [22] aload_0 v0
       [23] aload_1 v1
-      [24] checkcast #66
+      [24] checkcast #67
         + Class [de/codenauts/hockeyapp/l]
-      [27] putfield #87
+      [27] putfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [30] aload_0 v0
-      [31] getfield #87
+      [31] getfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [34] ifnull +73 (target=107)
       [37] aload_0 v0
-      [38] getfield #87
+      [38] getfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [41] aload_0 v0
-      [42] invokevirtual #150
+      [42] invokevirtual #153
         + Methodref [de/codenauts/hockeyapp/l.a (Lde/codenauts/hockeyapp/MainActivity;)V]
       [45] return
       [46] aload_1 v1
-      [47] instanceof #65
+      [47] instanceof #66
         + Class [de/codenauts/hockeyapp/d]
       [50] ifeq +27 (target=77)
       [53] aload_0 v0
       [54] aload_1 v1
-      [55] checkcast #65
+      [55] checkcast #66
         + Class [de/codenauts/hockeyapp/d]
-      [58] putfield #84
+      [58] putfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [61] aload_0 v0
-      [62] getfield #84
+      [62] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [65] ifnull +42 (target=107)
       [68] aload_0 v0
-      [69] getfield #84
+      [69] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [72] aload_0 v0
-      [73] invokevirtual #146
+      [73] invokevirtual #149
         + Methodref [de/codenauts/hockeyapp/d.a (Lde/codenauts/hockeyapp/MainActivity;)V]
       [76] return
       [77] aload_1 v1
-      [78] instanceof #63
+      [78] instanceof #64
         + Class [de/codenauts/hockeyapp/b]
       [81] ifeq +26 (target=107)
       [84] aload_0 v0
       [85] aload_1 v1
-      [86] checkcast #63
+      [86] checkcast #64
         + Class [de/codenauts/hockeyapp/b]
-      [89] putfield #85
+      [89] putfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [92] aload_0 v0
-      [93] getfield #85
+      [93] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [96] ifnull +11 (target=107)
       [99] aload_0 v0
-      [100] getfield #85
+      [100] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [103] aload_0 v0
-      [104] invokevirtual #138
+      [104] invokevirtual #141
         + Methodref [de/codenauts/hockeyapp/b.a (Landroid/app/Activity;)V]
       [107] return
       Code attribute exceptions (count = 0):
@@ -10828,18 +10908,18 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 21, locals = 2, stack = 3):
       [0] aload_0 v0
-      [1] getfield #86
+      [1] getfield #87
         + Fieldref [de/codenauts/hockeyapp/MainActivity.f Lorg/json/JSONArray;]
       [4] ifnull +16 (target=20)
       [7] aload_1 v1
-      [8] ldc #27
+      [8] ldc #28
         + String [apps]
       [10] aload_0 v0
-      [11] getfield #86
+      [11] getfield #87
         + Fieldref [de/codenauts/hockeyapp/MainActivity.f Lorg/json/JSONArray;]
-      [14] invokevirtual #164
+      [14] invokevirtual #167
         + Methodref [org/json/JSONArray.toString ()Ljava/lang/String;]
-      [17] invokevirtual #105
+      [17] invokevirtual #106
         + Methodref [android/os/Bundle.putString (Ljava/lang/String;Ljava/lang/String;)V]
       [20] return
       Code attribute exceptions (count = 0):
@@ -10852,42 +10932,42 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 59, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #87
+      [1] getfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [4] ifnull +15 (target=19)
       [7] aload_0 v0
-      [8] getfield #87
+      [8] getfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
-      [11] invokevirtual #149
+      [11] invokevirtual #152
         + Methodref [de/codenauts/hockeyapp/l.a ()V]
       [14] aload_0 v0
-      [15] getfield #87
+      [15] getfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [18] areturn
       [19] aload_0 v0
-      [20] getfield #84
+      [20] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [23] ifnull +15 (target=38)
       [26] aload_0 v0
-      [27] getfield #84
+      [27] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
-      [30] invokevirtual #145
+      [30] invokevirtual #148
         + Methodref [de/codenauts/hockeyapp/d.a ()V]
       [33] aload_0 v0
-      [34] getfield #84
+      [34] getfield #85
         + Fieldref [de/codenauts/hockeyapp/MainActivity.d Lde/codenauts/hockeyapp/d;]
       [37] areturn
       [38] aload_0 v0
-      [39] getfield #85
+      [39] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [42] ifnull +15 (target=57)
       [45] aload_0 v0
-      [46] getfield #85
+      [46] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
-      [49] invokevirtual #139
+      [49] invokevirtual #142
         + Methodref [de/codenauts/hockeyapp/b.c ()V]
       [52] aload_0 v0
-      [53] getfield #85
+      [53] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [56] areturn
       [57] aconst_null
@@ -10898,21 +10978,21 @@ Methods (count = 26):
         - [19] Var: ..., Stack: (empty)
         - [38] Var: ..., Stack: (empty)
         - [57] Var: ..., Stack: (empty)
-  + Method:       c()Ljava/lang/String;
+  + Method:       a()Ljava/lang/String;
     Access flags: 0x2
-      = private java.lang.String c()
+      = private java.lang.String a()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 16, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] ldc #21
+      [1] ldc #22
         + String [HockeyApp]
       [3] iconst_0
-      [4] invokevirtual #129
+      [4] invokevirtual #132
         + Methodref [de/codenauts/hockeyapp/MainActivity.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
-      [7] ldc #17
+      [7] ldc #19
         + String [APIToken]
       [9] aconst_null
-      [10] invokeinterface #169
+      [10] invokeinterface #172
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
       [15] areturn
       Code attribute exceptions (count = 0):
@@ -10923,23 +11003,23 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 31, locals = 3, stack = 3):
       [0] aload_0 v0
-      [1] ldc #21
+      [1] ldc #22
         + String [HockeyApp]
       [3] iconst_0
-      [4] invokevirtual #129
+      [4] invokevirtual #132
         + Methodref [de/codenauts/hockeyapp/MainActivity.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
-      [7] invokeinterface #168
+      [7] invokeinterface #171
         + InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
       [12] dup
       [13] astore_2 v2
-      [14] ldc #17
+      [14] ldc #19
         + String [APIToken]
       [16] aload_1 v1
-      [17] invokeinterface #171
+      [17] invokeinterface #174
         + InterfaceMethodref [android/content/SharedPreferences$Editor.putString (Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;]
       [22] pop
       [23] aload_2 v2
-      [24] invokeinterface #170
+      [24] invokeinterface #173
         + InterfaceMethodref [android/content/SharedPreferences$Editor.commit ()Z]
       [29] pop
       [30] return
@@ -10953,29 +11033,29 @@ Methods (count = 26):
       [0] aload_0 v0
       [1] ldc #5
         + Integer [2131165200]
-      [3] invokevirtual #125
+      [3] invokevirtual #128
         + Methodref [de/codenauts/hockeyapp/MainActivity.findViewById (I)Landroid/view/View;]
-      [6] checkcast #56
+      [6] checkcast #57
         + Class [android/widget/TextView]
       [9] aload_1 v1
-      [10] invokevirtual #114
+      [10] invokevirtual #115
         + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [13] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       a(I)V
+  + Method:       c(I)V
     Access flags: 0x2
-      = private void a(int)
+      = private void c(int)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 13, locals = 2, stack = 3):
       [0] aload_0 v0
       [1] aload_0 v0
-      [2] invokevirtual #128
+      [2] invokevirtual #131
         + Methodref [de/codenauts/hockeyapp/MainActivity.getResources ()Landroid/content/res/Resources;]
       [5] iload_1 v1
-      [6] invokevirtual #103
+      [6] invokevirtual #104
         + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
-      [9] invokespecial #124
+      [9] invokespecial #127
         + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
       [12] return
       Code attribute exceptions (count = 0):
@@ -10987,66 +11067,115 @@ Methods (count = 26):
     + Code attribute instructions (code length = 16, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aconst_null
-      [2] putfield #87
+      [2] putfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [5] aload_0 v0
       [6] aload_1 v1
-      [7] invokespecial #123
+      [7] invokespecial #125
         + Methodref [de/codenauts/hockeyapp/MainActivity.c (Ljava/lang/String;)V]
       [10] aload_0 v0
       [11] aload_1 v1
-      [12] invokespecial #121
+      [12] invokespecial #123
         + Methodref [de/codenauts/hockeyapp/MainActivity.b (Ljava/lang/String;)V]
       [15] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       a()V
+  + Method:       a(I)V
     Access flags: 0x11
-      = public final void a()
+      = public final void a(int)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 34, locals = 1, stack = 3):
+    + Code attribute instructions (code length = 37, locals = 2, stack = 3):
       [0] aload_0 v0
       [1] aconst_null
-      [2] putfield #87
+      [2] putfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [5] aload_0 v0
-      [6] ldc #13
-        + Integer [2131230731]
-      [8] iconst_1
-      [9] invokestatic #115
-        + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
-      [12] invokevirtual #116
+      [6] aload_0 v0
+      [7] iload_1 v1
+      [8] invokespecial #126
+        + Methodref [de/codenauts/hockeyapp/MainActivity.d (I)Ljava/lang/String;]
+      [11] iconst_1
+      [12] invokestatic #117
+        + Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+      [15] invokevirtual #118
         + Methodref [android/widget/Toast.show ()V]
-      [15] aload_0 v0
-      [16] iconst_1
-      [17] invokevirtual #132
+      [18] aload_0 v0
+      [19] iconst_1
+      [20] invokevirtual #135
         + Methodref [de/codenauts/hockeyapp/MainActivity.showDialog (I)V]
-      [20] aload_0 v0
-      [21] aload_0 v0
-      [22] invokevirtual #128
+      [23] aload_0 v0
+      [24] aload_0 v0
+      [25] invokevirtual #131
         + Methodref [de/codenauts/hockeyapp/MainActivity.getResources ()Landroid/content/res/Resources;]
-      [25] ldc #10
+      [28] ldc #10
         + Integer [2131230726]
-      [27] invokevirtual #103
+      [30] invokevirtual #104
         + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
-      [30] invokespecial #124
+      [33] invokespecial #127
         + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
-      [33] return
+      [36] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       b()V
+  + Method:       b(I)V
     Access flags: 0x11
-      = public final void b()
+      = public final void b(int)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 7, locals = 1, stack = 2):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 3):
       [0] aload_0 v0
-      [1] ldc #20
-        + String [Connection failed. Please try again or check your credentials.]
-      [3] invokespecial #124
+      [1] aload_0 v0
+      [2] iload_1 v1
+      [3] invokespecial #126
+        + Methodref [de/codenauts/hockeyapp/MainActivity.d (I)Ljava/lang/String;]
+      [6] invokespecial #127
         + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
-      [6] return
+      [9] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
+  + Method:       d(I)Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String d(int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 62, locals = 2, stack = 2):
+      [0] iload_1 v1
+      [1] tableswitch (2 offsets, default=49) (target=50)
+        1: offset = 23, target = 24
+        2: offset = 36, target = 37
+        default: offset = 49, target = 50
+      [24] aload_0 v0
+      [25] invokevirtual #131
+        + Methodref [de/codenauts/hockeyapp/MainActivity.getResources ()Landroid/content/res/Resources;]
+      [28] ldc #13
+        + Integer [2131230737]
+      [30] invokevirtual #104
+        + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
+      [33] astore_1 v1
+      [34] goto +26 (target=60)
+      [37] aload_0 v0
+      [38] invokevirtual #131
+        + Methodref [de/codenauts/hockeyapp/MainActivity.getResources ()Landroid/content/res/Resources;]
+      [41] ldc #14
+        + Integer [2131230738]
+      [43] invokevirtual #104
+        + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
+      [46] astore_1 v1
+      [47] goto +13 (target=60)
+      [50] aload_0 v0
+      [51] invokevirtual #131
+        + Methodref [de/codenauts/hockeyapp/MainActivity.getResources ()Landroid/content/res/Resources;]
+      [54] ldc #15
+        + Integer [2131230739]
+      [56] invokevirtual #104
+        + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
+      [59] astore_1 v1
+      [60] aload_1 v1
+      [61] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 4):
+        - [24] Var: ...[a:java/lang/String], Stack: (empty)
+        - [37] Var: ..., Stack: (empty)
+        - [50] Var: ..., Stack: (empty)
+        - [60] Var: ..., Stack: (empty)
   + Method:       a(Lorg/json/JSONArray;)V
     Access flags: 0x11
       = public final void a(org.json.JSONArray)
@@ -11054,22 +11183,22 @@ Methods (count = 26):
     + Code attribute instructions (code length = 194, locals = 6, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #86
+      [2] putfield #87
         + Fieldref [de/codenauts/hockeyapp/MainActivity.f Lorg/json/JSONArray;]
       [5] aload_1 v1
-      [6] invokevirtual #163
+      [6] invokevirtual #166
         + Methodref [org/json/JSONArray.length ()I]
       [9] ifne +10 (target=19)
       [12] aload_0 v0
-      [13] ldc #22
+      [13] ldc #23
         + String [No apps found.]
-      [15] invokespecial #124
+      [15] invokespecial #127
         + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
       [18] return
-      [19] new #75
+      [19] new #76
         + Class [java/util/ArrayList]
       [22] dup
-      [23] invokespecial #157
+      [23] invokespecial #160
         + Methodref [java/util/ArrayList.<init> ()V]
       [26] astore_2 v2
       [27] iconst_0
@@ -11079,48 +11208,48 @@ Methods (count = 26):
       [32] goto +84 (target=116)
       [35] aload_1 v1
       [36] iload v4
-      [38] invokevirtual #162
+      [38] invokevirtual #165
         + Methodref [org/json/JSONArray.getJSONObject (I)Lorg/json/JSONObject;]
       [41] dup
       [42] astore v5
-      [44] ldc #33
+      [44] ldc #34
         + String [platform]
-      [46] invokevirtual #167
+      [46] invokevirtual #170
         + Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
       [49] ifeq +64 (target=113)
       [52] aload v5
-      [54] ldc #33
+      [54] ldc #34
         + String [platform]
-      [56] invokevirtual #166
+      [56] invokevirtual #169
         + Methodref [org/json/JSONObject.getString (Ljava/lang/String;)Ljava/lang/String;]
-      [59] ldc #18
+      [59] ldc #20
         + String [Android]
-      [61] invokevirtual #155
+      [61] invokevirtual #158
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [64] ifeq +49 (target=113)
       [67] aload v5
-      [69] ldc #35
+      [69] ldc #36
         + String [release_type]
-      [71] invokevirtual #167
+      [71] invokevirtual #170
         + Methodref [org/json/JSONObject.has (Ljava/lang/String;)Z]
       [74] ifeq +39 (target=113)
       [77] aload v5
-      [79] ldc #35
+      [79] ldc #36
         + String [release_type]
-      [81] invokevirtual #165
+      [81] invokevirtual #168
         + Methodref [org/json/JSONObject.getInt (Ljava/lang/String;)I]
       [84] ifeq +14 (target=98)
       [87] aload v5
-      [89] ldc #35
+      [89] ldc #36
         + String [release_type]
-      [91] invokevirtual #165
+      [91] invokevirtual #168
         + Methodref [org/json/JSONObject.getInt (Ljava/lang/String;)I]
       [94] iconst_2
       [95] ificmpne +18 (target=113)
       [98] iinc v3, 1
       [101] aload_2 v2
       [102] aload v5
-      [104] invokevirtual #158
+      [104] invokevirtual #161
         + Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [107] pop
       [108] goto +5 (target=113)
@@ -11128,57 +11257,57 @@ Methods (count = 26):
       [113] iinc v4, 1
       [116] iload v4
       [118] aload_1 v1
-      [119] invokevirtual #163
+      [119] invokevirtual #166
         + Methodref [org/json/JSONArray.length ()I]
       [122] ificmplt -87 (target=35)
       [125] aload_0 v0
       [126] ldc #4
         + Integer [2131165199]
-      [128] invokevirtual #125
+      [128] invokevirtual #128
         + Methodref [de/codenauts/hockeyapp/MainActivity.findViewById (I)Landroid/view/View;]
-      [131] checkcast #53
+      [131] checkcast #54
         + Class [android/widget/AdapterView]
       [134] astore v4
       [136] iload_3 v3
       [137] ifne +16 (target=153)
       [140] aload v4
       [142] iconst_4
-      [143] invokevirtual #112
+      [143] invokevirtual #113
         + Methodref [android/widget/AdapterView.setVisibility (I)V]
       [146] aload_0 v0
-      [147] ldc #22
+      [147] ldc #23
         + String [No apps found.]
-      [149] invokespecial #124
+      [149] invokespecial #127
         + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
       [152] return
       [153] aload_0 v0
-      [154] new #64
+      [154] new #65
         + Class [de/codenauts/hockeyapp/c]
       [157] dup
       [158] aload_0 v0
       [159] aload_2 v2
-      [160] invokespecial #142
+      [160] invokespecial #145
         + Methodref [de/codenauts/hockeyapp/c.<init> (Landroid/app/Activity;Ljava/util/ArrayList;)V]
-      [163] putfield #83
+      [163] putfield #84
         + Fieldref [de/codenauts/hockeyapp/MainActivity.c Lde/codenauts/hockeyapp/c;]
       [166] aload v4
       [168] iconst_0
-      [169] invokevirtual #112
+      [169] invokevirtual #113
         + Methodref [android/widget/AdapterView.setVisibility (I)V]
       [172] aload v4
       [174] aload_0 v0
-      [175] getfield #83
+      [175] getfield #84
         + Fieldref [de/codenauts/hockeyapp/MainActivity.c Lde/codenauts/hockeyapp/c;]
-      [178] invokevirtual #110
+      [178] invokevirtual #111
         + Methodref [android/widget/AdapterView.setAdapter (Landroid/widget/Adapter;)V]
       [181] aload v4
       [183] aload_0 v0
-      [184] invokevirtual #111
+      [184] invokevirtual #112
         + Methodref [android/widget/AdapterView.setOnItemClickListener (Landroid/widget/AdapterView$OnItemClickListener;)V]
       [187] aload_0 v0
-      [188] ldc #15
+      [188] ldc #17
         + String []
-      [190] invokespecial #124
+      [190] invokespecial #127
         + Methodref [de/codenauts/hockeyapp/MainActivity.d (Ljava/lang/String;)V]
       [193] return
       Code attribute exceptions (count = 1):
@@ -11201,104 +11330,104 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 132, locals = 6, stack = 7):
       [0] aload_0 v0
-      [1] getfield #89
+      [1] getfield #90
         + Fieldref [de/codenauts/hockeyapp/MainActivity.i Landroid/view/View;]
       [4] ifnull +21 (target=25)
       [7] aload_0 v0
-      [8] getfield #89
+      [8] getfield #90
         + Fieldref [de/codenauts/hockeyapp/MainActivity.i Landroid/view/View;]
       [11] ldc #3
         + Integer [2131165192]
-      [13] invokevirtual #108
+      [13] invokevirtual #109
         + Methodref [android/view/View.findViewById (I)Landroid/view/View;]
-      [16] checkcast #55
+      [16] checkcast #56
         + Class [android/widget/ProgressBar]
       [19] aconst_null
       [20] astore_1 v1
       [21] iconst_4
-      [22] invokevirtual #113
+      [22] invokevirtual #114
         + Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [25] aload_0 v0
-      [26] getfield #85
+      [26] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [29] ifnull +17 (target=46)
       [32] aload_0 v0
-      [33] getfield #85
+      [33] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [36] iconst_1
-      [37] invokevirtual #140
+      [37] invokevirtual #143
         + Methodref [de/codenauts/hockeyapp/b.cancel (Z)Z]
       [40] pop
       [41] aload_0 v0
       [42] aconst_null
-      [43] putfield #85
+      [43] putfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [46] aload_0 v0
       [47] iload_3 v3
-      [48] putfield #88
+      [48] putfield #89
         + Fieldref [de/codenauts/hockeyapp/MainActivity.h I]
       [51] aload_0 v0
       [52] aload_2 v2
-      [53] putfield #89
+      [53] putfield #90
         + Fieldref [de/codenauts/hockeyapp/MainActivity.i Landroid/view/View;]
       [56] aload_0 v0
-      [57] getfield #89
+      [57] getfield #90
         + Fieldref [de/codenauts/hockeyapp/MainActivity.i Landroid/view/View;]
       [60] ldc #3
         + Integer [2131165192]
-      [62] invokevirtual #108
+      [62] invokevirtual #109
         + Methodref [android/view/View.findViewById (I)Landroid/view/View;]
-      [65] checkcast #55
+      [65] checkcast #56
         + Class [android/widget/ProgressBar]
       [68] dup
       [69] astore_1 v1
       [70] iconst_0
-      [71] invokevirtual #113
+      [71] invokevirtual #114
         + Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [74] aload_0 v0
-      [75] getfield #83
+      [75] getfield #84
         + Fieldref [de/codenauts/hockeyapp/MainActivity.c Lde/codenauts/hockeyapp/c;]
       [78] iload_3 v3
-      [79] invokevirtual #143
+      [79] invokevirtual #146
         + Methodref [de/codenauts/hockeyapp/c.getItem (I)Ljava/lang/Object;]
-      [82] checkcast #80
+      [82] checkcast #81
         + Class [org/json/JSONObject]
       [85] astore_2 v2
       [86] aload_2 v2
-      [87] ldc #34
+      [87] ldc #35
         + String [public_identifier]
-      [89] invokevirtual #166
+      [89] invokevirtual #169
         + Methodref [org/json/JSONObject.getString (Ljava/lang/String;)Ljava/lang/String;]
       [92] astore_2 v2
       [93] aload_0 v0
-      [94] new #63
+      [94] new #64
         + Class [de/codenauts/hockeyapp/b]
       [97] dup
       [98] aload_0 v0
-      [99] ldc #30
+      [99] ldc #31
         + String [https://rink.hockeyapp.net/]
       [101] aload_2 v2
       [102] aload_0 v0
-      [103] invokespecial #122
-        + Methodref [de/codenauts/hockeyapp/MainActivity.c ()Ljava/lang/String;]
-      [106] invokespecial #137
+      [103] invokespecial #119
+        + Methodref [de/codenauts/hockeyapp/MainActivity.a ()Ljava/lang/String;]
+      [106] invokespecial #140
         + Methodref [de/codenauts/hockeyapp/b.<init> (Lde/codenauts/hockeyapp/MainActivity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V]
-      [109] putfield #85
+      [109] putfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [112] aload_0 v0
-      [113] getfield #85
+      [113] getfield #86
         + Fieldref [de/codenauts/hockeyapp/MainActivity.e Lde/codenauts/hockeyapp/b;]
       [116] iconst_0
-      [117] anewarray #73
+      [117] anewarray #74
         + Class [java/lang/String]
-      [120] invokevirtual #141
+      [120] invokevirtual #144
         + Methodref [de/codenauts/hockeyapp/b.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [123] pop
       [124] return
       [125] pop
       [126] aload_1 v1
       [127] iconst_4
-      [128] invokevirtual #113
+      [128] invokevirtual #114
         + Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [131] return
       Code attribute exceptions (count = 1):
@@ -11316,97 +11445,97 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 140, locals = 6, stack = 4):
       [0] aload_0 v0
-      [1] getfield #89
+      [1] getfield #90
         + Fieldref [de/codenauts/hockeyapp/MainActivity.i Landroid/view/View;]
       [4] ifnull +19 (target=23)
       [7] aload_0 v0
-      [8] getfield #89
+      [8] getfield #90
         + Fieldref [de/codenauts/hockeyapp/MainActivity.i Landroid/view/View;]
       [11] ldc #3
         + Integer [2131165192]
-      [13] invokevirtual #108
+      [13] invokevirtual #109
         + Methodref [android/view/View.findViewById (I)Landroid/view/View;]
-      [16] checkcast #55
+      [16] checkcast #56
         + Class [android/widget/ProgressBar]
       [19] iconst_4
-      [20] invokevirtual #113
+      [20] invokevirtual #114
         + Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [23] aload_1 v1
       [24] ifnull +105 (target=129)
       [27] aload_0 v0
-      [28] getfield #83
+      [28] getfield #84
         + Fieldref [de/codenauts/hockeyapp/MainActivity.c Lde/codenauts/hockeyapp/c;]
       [31] aload_0 v0
-      [32] getfield #88
+      [32] getfield #89
         + Fieldref [de/codenauts/hockeyapp/MainActivity.h I]
-      [35] invokevirtual #143
+      [35] invokevirtual #146
         + Methodref [de/codenauts/hockeyapp/c.getItem (I)Ljava/lang/Object;]
-      [38] checkcast #80
+      [38] checkcast #81
         + Class [org/json/JSONObject]
       [41] astore_3 v3
       [42] aload_3 v3
-      [43] ldc #34
+      [43] ldc #35
         + String [public_identifier]
-      [45] invokevirtual #166
+      [45] invokevirtual #169
         + Methodref [org/json/JSONObject.getString (Ljava/lang/String;)Ljava/lang/String;]
       [48] astore v4
       [50] aload_3 v3
-      [51] ldc #36
+      [51] ldc #37
         + String [title]
-      [53] invokevirtual #166
+      [53] invokevirtual #169
         + Methodref [org/json/JSONObject.getString (Ljava/lang/String;)Ljava/lang/String;]
       [56] astore_3 v3
-      [57] new #43
+      [57] new #44
         + Class [android/content/Intent]
       [60] dup
       [61] aload_0 v0
-      [62] ldc #59
+      [62] ldc #60
         + Class [de/codenauts/hockeyapp/AppActivity]
-      [64] invokespecial #101
+      [64] invokespecial #102
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [67] dup
       [68] astore v5
-      [70] ldc #31
+      [70] ldc #32
         + String [identifier]
       [72] aload v4
-      [74] invokevirtual #102
+      [74] invokevirtual #103
         + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
       [77] pop
       [78] aload v5
-      [80] ldc #36
+      [80] ldc #37
         + String [title]
       [82] aload_3 v3
-      [83] invokevirtual #102
+      [83] invokevirtual #103
         + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
       [86] pop
       [87] aload v5
-      [89] ldc #32
+      [89] ldc #33
         + String [json]
       [91] aload_1 v1
-      [92] invokevirtual #164
+      [92] invokevirtual #167
         + Methodref [org/json/JSONArray.toString ()Ljava/lang/String;]
-      [95] invokevirtual #102
+      [95] invokevirtual #103
         + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
       [98] pop
       [99] aload v5
-      [101] ldc #38
+      [101] ldc #39
         + String [url]
       [103] aload_2 v2
-      [104] invokevirtual #102
+      [104] invokevirtual #103
         + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
       [107] pop
       [108] aload v5
-      [110] ldc #37
+      [110] ldc #38
         + String [token]
       [112] aload_0 v0
-      [113] invokespecial #122
-        + Methodref [de/codenauts/hockeyapp/MainActivity.c ()Ljava/lang/String;]
-      [116] invokevirtual #102
+      [113] invokespecial #119
+        + Methodref [de/codenauts/hockeyapp/MainActivity.a ()Ljava/lang/String;]
+      [116] invokevirtual #103
         + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
       [119] pop
       [120] aload_0 v0
       [121] aload v5
-      [123] invokevirtual #133
+      [123] invokevirtual #136
         + Methodref [de/codenauts/hockeyapp/MainActivity.startActivity (Landroid/content/Intent;)V]
       [126] return
       [127] pop
@@ -11415,9 +11544,9 @@ Methods (count = 26):
       [130] ldc #9
         + Integer [2131230724]
       [132] iconst_1
-      [133] invokestatic #115
+      [133] invokestatic #116
         + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
-      [136] invokevirtual #116
+      [136] invokevirtual #118
         + Methodref [android/widget/Toast.show ()V]
       [139] return
       Code attribute exceptions (count = 1):
@@ -11436,7 +11565,7 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #82
+      [1] getfield #83
         + Fieldref [de/codenauts/hockeyapp/MainActivity.b Landroid/app/AlertDialog;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -11448,7 +11577,7 @@ Methods (count = 26):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #87
+      [2] putfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -11459,7 +11588,7 @@ Methods (count = 26):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #87
+      [1] getfield #88
         + Fieldref [de/codenauts/hockeyapp/MainActivity.g Lde/codenauts/hockeyapp/l;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -11472,8 +11601,8 @@ Methods (count = 26):
       [0] aload_0 v0
       [1] ldc #11
         + Integer [2131230727]
-      [3] invokespecial #117
-        + Methodref [de/codenauts/hockeyapp/MainActivity.a (I)V]
+      [3] invokespecial #124
+        + Methodref [de/codenauts/hockeyapp/MainActivity.c (I)V]
       [6] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
