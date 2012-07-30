@@ -140,6 +140,9 @@ containing a value of this type.
         public static final int menu_logout=0x7f08000e;
         public static final int menu_refresh=0x7f08000f;
         public static final int menu_update=0x7f080010;
+        public static final int status_login_failure=0x7f080011;
+        public static final int status_network_failure=0x7f080012;
+        public static final int status_unknown_failure=0x7f080013;
     }
     public static final class style {
         public static final int ActionBar_HockeyApp=0x7f090007;

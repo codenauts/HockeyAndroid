@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 
 public class AppsTask extends AsyncTask<String, String, JSONArray> {
   private boolean finished;
+  private int status = OnlineHelper.STATUS_UNKNOWN_ERROR;
   private JSONArray apps;
   private MainActivity activity;
   private String token;
@@ -39,15 +40,17 @@ public class AppsTask extends AsyncTask<String, String, JSONArray> {
   @Override
   protected JSONArray doInBackground(String... params) {
     try {
-      return getTokens();
+      return getApps();
+    }
+    catch (IOException e) {
+      status = OnlineHelper.STATUS_NETWORK_ERROR;
     }
     catch (Exception e) {
-      e.printStackTrace();
     }
     return null;
   }
   
-  private JSONArray getTokens() throws IOException, JSONException {
+  private JSONArray getApps() throws IOException, JSONException {
     URL url = new URL(OnlineHelper.BASE_URL + OnlineHelper.APPS_ACTION);
     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 
@@ -59,6 +62,7 @@ public class AppsTask extends AsyncTask<String, String, JSONArray> {
       return parseJSONFromString(jsonString);
     }
     else {
+      status = OnlineHelper.STATUS_LOGIN_ERROR;
       return null;
     }
   }
@@ -69,6 +73,7 @@ public class AppsTask extends AsyncTask<String, String, JSONArray> {
       return (JSONArray)json.get("apps");
     }
     else {
+      status = OnlineHelper.STATUS_LOGIN_ERROR;
       return null;
     }
   }
@@ -91,7 +96,7 @@ public class AppsTask extends AsyncTask<String, String, JSONArray> {
 
   private void handleResult() {
     if (this.apps == null) {
-      activity.didFailToReceiveApps();
+      activity.didFailToReceiveApps(status);
     }
     else {
       activity.didReceiveApps(this.apps);

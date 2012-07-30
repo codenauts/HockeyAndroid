@@ -99,8 +99,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
   
   @Override
   public boolean onPrepareOptionsMenu(Menu menu) {
-    MenuItem refreshItem = menu.getItem(1);
-    MenuItem logoutItem = menu.getItem(2);
+    MenuItem refreshItem = menu.getItem(2);
+    MenuItem logoutItem = menu.getItem(3);
     
     if (getAPIToken() == null) {
       refreshItem.setEnabled(false);
@@ -331,15 +331,31 @@ public class MainActivity extends Activity implements OnItemClickListener {
   }
 
   @SuppressWarnings("deprecation")
-  public void loginFailed() {
+  public void loginFailed(int status) {
     loginTask = null;
-    Toast.makeText(this, R.string.login_view_failed_toast, Toast.LENGTH_LONG).show();
+    Toast.makeText(this, getMessageForStatus(status), Toast.LENGTH_LONG).show();
     showDialog(DIALOG_LOGIN);
     setStatus(getResources().getString(R.string.main_view_signed_out_label));
   }
 
-  public void didFailToReceiveApps() {
-    setStatus("Connection failed. Please try again or check your credentials.");
+  public void didFailToReceiveApps(int status) {
+    setStatus(getMessageForStatus(status));
+  }
+
+  private String getMessageForStatus(int status) {
+    String message = null;
+    switch (status) {
+    case OnlineHelper.STATUS_LOGIN_ERROR:
+      message = getResources().getString(R.string.status_login_failure);
+      break;
+    case OnlineHelper.STATUS_NETWORK_ERROR:
+      message = getResources().getString(R.string.status_network_failure);
+      break;
+    default:
+      message = getResources().getString(R.string.status_unknown_failure);
+      break;
+    }
+    return message;
   }
 
   @SuppressWarnings("unchecked")

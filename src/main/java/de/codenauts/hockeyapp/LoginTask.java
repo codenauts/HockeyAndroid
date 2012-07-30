@@ -13,6 +13,7 @@ import android.os.AsyncTask;
 
 public class LoginTask extends AsyncTask<String, String, String> {
   private boolean finished;
+  private int status = OnlineHelper.STATUS_UNKNOWN_ERROR;
   private MainActivity activity;
   private String credentials;
   private String token;
@@ -42,6 +43,9 @@ public class LoginTask extends AsyncTask<String, String, String> {
     try {
       JSONArray tokens = getTokens();
       return findToken(tokens, true);
+    }
+    catch (IOException e) {
+      status = OnlineHelper.STATUS_NETWORK_ERROR;
     }
     catch (Exception e) {
       e.printStackTrace();
@@ -106,6 +110,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
       return parseJSONFromString(jsonString);
     }
     else {
+      status = OnlineHelper.STATUS_LOGIN_ERROR;
       return null;
     }
   }
@@ -116,6 +121,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
       return (JSONArray)json.get("tokens");
     }
     else {
+      status = OnlineHelper.STATUS_LOGIN_ERROR;
       return null;
     }
   }
@@ -139,7 +145,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
 
   private void handleResult() {
     if (this.token == null) {
-      activity.loginFailed();
+      activity.loginFailed(status);
     }
     else {
       activity.loginWasSuccesful(this.token);

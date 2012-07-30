@@ -8,8 +8,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 
 public class OnlineHelper {
+  final static public int STATUS_NO_ERROR = 0;
+  final static public int STATUS_LOGIN_ERROR = 1;
+  final static public int STATUS_NETWORK_ERROR = 2;
+  final static public int STATUS_UNKNOWN_ERROR = 3;
+
   final static public String BASE_URL = "https://rink.hockeyapp.net/api/2/";
-  final static public String AUTH_ACTION = "auth_tokens";
+  final static public String AUTH_ACTION = "auth_tokens?format=json";
   final static public String APPS_ACTION = "apps?format=json";
 
   public static String getStringFromConnection(HttpURLConnection connection) throws IOException {

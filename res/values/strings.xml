@@ -23,4 +23,8 @@
     <string name="menu_logout">Logout</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_update">Check for Updates</string>
+    
+    <string name="status_login_failure">Login failed. Please check your credentials and try again.</string>
+    <string name="status_network_failure">Connection failed. Please check your network settings and try again.</string>
+    <string name="status_unknown_failure">Unknown error. Please try again or contact support.</string>
 </resources>
