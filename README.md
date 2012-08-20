@@ -18,6 +18,13 @@ If you have a problem, a question or a suggestion, please let us know via email 
 
 ## RELEASE NOTES
 
+### Version 1.3 (250) - 21/Aug/2012
+
+* Added support for versions restricted to tags
+* Added about screen
+* Changed layout of detail view to use a single web view to improve scrolling and performance
+* Updated to newest HockeySDK + minor bug fixes
+
 ### Version 1.2 (226) - 10/May/2012
 
 * Added support for alpha apps
