@@ -7,6 +7,7 @@ import net.hockeyapp.android.R;
 import net.hockeyapp.android.UpdateActivity;
 import net.hockeyapp.android.UpdateManager;
 import net.hockeyapp.android.UpdateManagerListener;
+import net.hockeyapp.android.internal.ExceptionHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -118,7 +119,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
   public boolean onOptionsItemSelected(MenuItem item) {
     int id = item.getItemId();
     if (id == R.id.menu_update) {
-      checkForUpdates(true);
+      ExceptionHandler.saveException(new Exception("This is a message"), null);
+      //checkForUpdates(true);
     }
     else if (id == R.id.menu_about) {
       startAboutActivity();

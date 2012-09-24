@@ -2,14 +2,19 @@ package de.codenauts.hockeyapp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+
+import net.hockeyapp.android.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
+import android.provider.Settings;
 
 public class LoginTask extends AsyncTask<String, String, String> {
   private boolean finished;
@@ -99,7 +104,7 @@ public class LoginTask extends AsyncTask<String, String, String> {
   }
 
   private JSONArray getTokens() throws IOException, JSONException {
-    URL url = new URL(OnlineHelper.BASE_URL + OnlineHelper.AUTH_ACTION);
+    URL url = new URL(getURLString());
     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 
     addCredentialsToConnection(connection);
@@ -112,6 +117,34 @@ public class LoginTask extends AsyncTask<String, String, String> {
     else {
       status = OnlineHelper.STATUS_LOGIN_ERROR;
       return null;
+    }
+  }
+  
+  private String getURLString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append(OnlineHelper.BASE_URL);
+    builder.append(OnlineHelper.AUTH_ACTION);
+
+    String deviceIdentifier = Settings.Secure.getString(activity.getContentResolver(), Settings.Secure.ANDROID_ID);
+    if (deviceIdentifier != null) {
+      builder.append("&udid=" + encodeParam(Settings.Secure.getString(activity.getContentResolver(), Settings.Secure.ANDROID_ID)));
+    }
+    
+    builder.append("&os=Android");
+    builder.append("&os_version=" + encodeParam(Constants.ANDROID_VERSION));
+    builder.append("&device=" + encodeParam(Constants.PHONE_MODEL));
+    builder.append("&oem=" + encodeParam(Constants.PHONE_MANUFACTURER));
+    
+    return builder.toString();
+  }
+  
+  private String encodeParam(String param) {
+    try {
+      return URLEncoder.encode(param, "UTF-8");
+    }
+    catch (UnsupportedEncodingException e) {
+      // UTF-8 should be available, so just in case
+      return "";
     }
   }
 
