@@ -67,6 +67,16 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     loadApps(savedInstanceState);
   }
+  
+  @Override
+  public void onDestroy() {
+    clearFileCache();
+    super.onDestroy();
+  }
+
+  private void clearFileCache() {
+    new FileCache(this).clear();
+  }
 
   private void checkForUpdates(final Boolean notify) {
     UpdateManager.register(this, "0873e2b98ad046a92c170a243a8515f6", new UpdateManagerListener() {
@@ -119,8 +129,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
   public boolean onOptionsItemSelected(MenuItem item) {
     int id = item.getItemId();
     if (id == R.id.menu_update) {
-      ExceptionHandler.saveException(new Exception("This is a message"), null);
-      //checkForUpdates(true);
+      checkForUpdates(true);
     }
     else if (id == R.id.menu_about) {
       startAboutActivity();
@@ -130,6 +139,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
     else {
       stopRunningTasks();
+      clearFileCache();
       
       if (id == R.id.menu_logout) {
         setAPIToken(null);
