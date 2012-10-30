@@ -80,6 +80,16 @@ public class MainActivity extends Activity implements OnItemClickListener {
     initializeFacebookSDK(savedInstanceState);
     loadApps(savedInstanceState);
   }
+  
+  @Override
+  public void onDestroy() {
+    clearFileCache();
+    super.onDestroy();
+  }
+
+  private void clearFileCache() {
+    new FileCache(this).clear();
+  }
 
   private void initializeFacebookSDK(Bundle savedInstanceState) {
     Session session = Session.getActiveSession();
@@ -166,8 +176,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
   public boolean onOptionsItemSelected(MenuItem item) {
     int id = item.getItemId();
     if (id == R.id.menu_update) {
-      ExceptionHandler.saveException(new Exception("This is a message"), null);
-      //checkForUpdates(true);
+      checkForUpdates(true);
     }
     else if (id == R.id.menu_about) {
       startAboutActivity();
@@ -177,6 +186,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
     else {
       stopRunningTasks();
+      clearFileCache();
       
       if (id == R.id.menu_logout) {
         setAPIToken(null);
