@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package net.hockeyapp.android;
+package com.facebook.android;
 
 public final class R {
     public static final class anim {

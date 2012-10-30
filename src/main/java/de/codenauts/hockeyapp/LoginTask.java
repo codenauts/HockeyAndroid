@@ -22,12 +22,18 @@ public class LoginTask extends AsyncTask<String, String, String> {
   private MainActivity activity;
   private String credentials;
   private String token;
+  private String accessToken;
   
   public LoginTask(MainActivity activity, String email, String password) {
     this.activity = activity;
     this.credentials = Base64.encodeBytes((email + ":" + password).getBytes()).trim();
     this.finished = false;
     this.token = null;
+  }
+
+  public LoginTask(MainActivity activity, String accessToken) {
+    this.activity = activity;
+    this.accessToken = accessToken;
   }
 
   public void attach(MainActivity activity) {
@@ -161,8 +167,13 @@ public class LoginTask extends AsyncTask<String, String, String> {
 
   private void addCredentialsToConnection(HttpURLConnection connection) {
     connection.addRequestProperty("User-Agent", "Hockey/Android");
-    connection.setRequestProperty("Authorization", "Basic " + this.credentials);
-    connection.setRequestProperty("connection", "close");
+    if (accessToken != null) {
+      connection.setRequestProperty("X-FacebookAccessToken", this.accessToken);
+    }
+    else {
+      connection.setRequestProperty("Authorization", "Basic " + this.credentials);
+      connection.setRequestProperty("connection", "close");
+    }
   }
 
   @Override

@@ -33,13 +33,24 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.Session;
+import com.facebook.SessionState;
+
 import de.codenauts.hockeyapp.util.ActivityHelper;
 
 public class MainActivity extends Activity implements OnItemClickListener {
   final static int DIALOG_LOGIN = 1;
+  final static int DIALOG_LOGIN_SELECT = 2;
   final static int DEBUG_MENU_ID = 0x1001;
 
   final ActivityHelper activityHelper = ActivityHelper.createInstance(this);
+  
+  private enum LoginType {
+    NONE,
+    HOCKEY_APP,
+    FACEBOOK
+  };
 
   private AlertDialog alert;
   private AppsAdapter appsAdapter;
@@ -47,25 +58,61 @@ public class MainActivity extends Activity implements OnItemClickListener {
   private AppInfoTask appTask;
   private JSONArray apps;
   private LoginTask loginTask;
+  private LoginType selectedLoginType = LoginType.NONE;
   private int selectedAppIndex;
   private View selectedAppView;
+  private Session.StatusCallback statusCallback = new SessionStatusCallback();
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.main_view);
-    setTitle(null);
+    setTitle("HockeyApp");
     
-    activityHelper.setupActionBar(null, Color.BLACK);
-    activityHelper.hideTitle();
+    activityHelper.setupActionBar(getTitle(), Color.BLACK);
     
     System.setProperty("http.keepAlive", "false");
     if (savedInstanceState == null) {
       checkForUpdates(false);
     }
 
+    initializeFacebookSDK(savedInstanceState);
     loadApps(savedInstanceState);
+  }
+
+  private void initializeFacebookSDK(Bundle savedInstanceState) {
+    Session session = Session.getActiveSession();
+    if (session == null) {
+      if (savedInstanceState != null) {
+        session = Session.restoreSession(this, null, statusCallback, savedInstanceState);
+      }
+      if (session == null) {
+        session = new Session(this);
+      }
+      Session.setActiveSession(session);
+      if (session.getState().equals(SessionState.CREATED_TOKEN_LOADED)) {
+        session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+      }
+    }
+  }
+
+  @Override
+  public void onStart() {
+    super.onStart();
+    Session.getActiveSession().addCallback(statusCallback);
+  }
+  
+  @Override
+  public void onStop() {
+    super.onStop();
+    Session.getActiveSession().removeCallback(statusCallback);
+  }
+  
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
   }
 
   private void checkForUpdates(final Boolean notify) {
@@ -172,7 +219,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @SuppressWarnings("deprecation")
   private void loadApps(Bundle savedInstanceState) {
-    
     if (savedInstanceState != null) {
       String json = savedInstanceState.getString("apps");
       try {
@@ -189,7 +235,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
       String token = getAPIToken();
       if (token == null) {
         if (savedInstanceState == null) {
-          showDialog(DIALOG_LOGIN);
+          showDialog(DIALOG_LOGIN_SELECT);
         }
       }
       else {
@@ -204,12 +250,15 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     setStatus(R.string.main_view_searching_apps_label);
   }
-
+  
   protected Dialog onCreateDialog(int id) {
     Dialog dialog = null;
     switch (id) {
     case DIALOG_LOGIN:
       dialog = createLoginDialog();
+      break;
+    case DIALOG_LOGIN_SELECT:
+      dialog = createLoginSelectDialog();
       break;
     }
 
@@ -250,10 +299,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @Override
   protected void onSaveInstanceState (Bundle outState) {
+    Session session = Session.getActiveSession();
+    Session.saveSession(session, outState);
+
     if (this.apps != null) {
       outState.putString("apps", this.apps.toString());
     }
-;  }
+  }
 
   @Override
   public Object onRetainNonConfigurationInstance() {
@@ -272,6 +324,37 @@ public class MainActivity extends Activity implements OnItemClickListener {
     else {
       return null;
     }
+  }
+
+  private Dialog createLoginSelectDialog() {
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    builder.setTitle("Sign In");
+    
+    builder.setItems(R.array.login_options, new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int which) {
+        switch (which) {
+        case 0:
+          selectedLoginType = LoginType.HOCKEY_APP;
+          showDialog(DIALOG_LOGIN);
+          break;
+        case 1: {
+          selectedLoginType = LoginType.FACEBOOK;
+          Session session = Session.getActiveSession();
+          if (!session.isOpened() && !session.isClosed()) {
+              session.openForRead(new Session.OpenRequest(MainActivity.this).setCallback(statusCallback));
+          } 
+          else {
+              Session.openActiveSession(MainActivity.this, true, statusCallback);
+          }
+          break;
+        }
+        default:
+          break;
+        }
+      }
+    });
+    
+    return builder.create();
   }
 
   private Dialog createLoginDialog() {
@@ -336,7 +419,12 @@ public class MainActivity extends Activity implements OnItemClickListener {
   public void loginFailed(int status) {
     loginTask = null;
     Toast.makeText(this, getMessageForStatus(status), Toast.LENGTH_LONG).show();
-    showDialog(DIALOG_LOGIN);
+    if (selectedLoginType == LoginType.HOCKEY_APP) {
+      showDialog(DIALOG_LOGIN);
+    }
+    else {
+      showDialog(DIALOG_LOGIN_SELECT);
+    }
     setStatus(getResources().getString(R.string.main_view_signed_out_label));
   }
 
@@ -362,6 +450,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
   @SuppressWarnings("unchecked")
   public void didReceiveApps(JSONArray apps) {
+    Session.getActiveSession().removeCallback(statusCallback);
+
     this.apps = apps;
     
     if (apps.length() == 0) {
@@ -455,6 +545,20 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
     else {
       Toast.makeText(this, R.string.main_view_no_app_info_label, Toast.LENGTH_LONG).show();
+    }
+  }
+
+  private class SessionStatusCallback implements Session.StatusCallback {
+    @Override
+    public void call(Session session, SessionState state, Exception exception) {
+      if (state == SessionState.OPENED) {
+        String accessToken = session.getAccessToken();
+      
+        loginTask = new LoginTask(MainActivity.this, accessToken);
+        loginTask.execute();
+        
+        setStatus(R.string.main_view_searching_apps_label);
+      }
     }
   }
 }

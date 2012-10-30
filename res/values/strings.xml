@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HockeyApp</string>
+    <string name="applicationId">275778322489220</string>
     
     <string name="accessibility_download_button">Download and Install App</string>
     <string name="accessibility_style_view"></string>
@@ -27,4 +28,10 @@
     <string name="status_login_failure">Login failed. Please check your credentials and try again.</string>
     <string name="status_network_failure">Connection failed. Please check your network settings and try again.</string>
     <string name="status_unknown_failure">Unknown error. Please try again or contact support.</string>
+    
+    <string-array name="login_options">
+        <item>HockeyApp Account</item>
+        <item>Facebook Connect</item>
+        <item>Cancel</item>
+    </string-array>
 </resources>
