@@ -19,11 +19,10 @@ public class AboutActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.web_view);
-    setTitle(null);
+    setTitle("About");
     
-    activityHelper.setupActionBar(null, Color.BLACK);
+    activityHelper.setupActionBar(getTitle(), Color.BLACK);
     activityHelper.setupHomeAsUp();
-    activityHelper.hideTitle();
     
     loadAppInfo();
   }
@@ -32,7 +31,6 @@ public class AboutActivity extends Activity {
     StringBuilder builder = new StringBuilder();
     builder.append("<html><head><style type='text/css'>h1 { font-size: 110%; }\ndd { padding-bottom: 10px; }\nbody { padding: 10px }</style></head></body>");
     
-    builder.append("<h1>About</h1>");
     builder.append("<dl>");
     builder.append("<dt>Package:</dt>");
     builder.append("<dd>" + getPackageName() + "</dd>");

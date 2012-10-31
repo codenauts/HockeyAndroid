@@ -22,12 +22,10 @@ public class AppActivity extends UpdateActivity {
     imageLoader = new ImageLoader(getApplicationContext());
 
     super.onCreate(savedInstanceState);
+    setTitle("App Details");
 
-    setTitle(null);
-
-    activityHelper.setupActionBar(null, Color.BLACK);
+    activityHelper.setupActionBar(getTitle(), Color.BLACK);
     activityHelper.setupHomeAsUp();
-    activityHelper.hideTitle();
   }
 
   protected void configureView() {

@@ -144,7 +144,7 @@ public class ActivityHelper {
     if (UIUtils.isHoneycomb()) {
       ActionBar actionBar = activity.getActionBar();
       actionBar.setDisplayHomeAsUpEnabled(true);
-      actionBar.setDisplayShowTitleEnabled(false);
+      actionBar.setDisplayShowTitleEnabled(true);
     }
   }
   

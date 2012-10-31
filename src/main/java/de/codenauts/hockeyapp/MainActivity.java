@@ -7,7 +7,6 @@ import net.hockeyapp.android.R;
 import net.hockeyapp.android.UpdateActivity;
 import net.hockeyapp.android.UpdateManager;
 import net.hockeyapp.android.UpdateManagerListener;
-import net.hockeyapp.android.internal.ExceptionHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -561,7 +560,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
   private class SessionStatusCallback implements Session.StatusCallback {
     @Override
     public void call(Session session, SessionState state, Exception exception) {
-      if (state == SessionState.OPENED) {
+      if ((state == SessionState.OPENED) && (selectedLoginType == LoginType.FACEBOOK)) {
         String accessToken = session.getAccessToken();
       
         loginTask = new LoginTask(MainActivity.this, accessToken);
