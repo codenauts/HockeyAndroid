@@ -31,6 +31,7 @@ public class AboutActivity extends Activity {
     StringBuilder builder = new StringBuilder();
     builder.append("<html><head><style type='text/css'>h1 { font-size: 110%; }\ndd { padding-bottom: 10px; }\nbody { padding: 10px }</style></head></body>");
     
+    builder.append("<h1>Version Data</h1>");
     builder.append("<dl>");
     builder.append("<dt>Package:</dt>");
     builder.append("<dd>" + getPackageName() + "</dd>");

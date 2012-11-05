@@ -340,6 +340,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     builder.setTitle("Sign In");
     
     builder.setItems(R.array.login_options, new DialogInterface.OnClickListener() {
+      @SuppressWarnings("deprecation")
       public void onClick(DialogInterface dialog, int which) {
         switch (which) {
         case 0:

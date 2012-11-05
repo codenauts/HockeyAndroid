@@ -3,20 +3,28 @@ package de.codenauts.hockeyapp;
 import net.hockeyapp.android.UpdateActivity;
 import net.hockeyapp.android.internal.DownloadFileListener;
 import net.hockeyapp.android.internal.UpdateView;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import de.codenauts.hockeyapp.util.ActivityHelper;
 
 public class AppActivity extends UpdateActivity {
-  final ActivityHelper activityHelper = ActivityHelper.createInstance(this);
+  private final static int RESTORE_DIALOG = 0;
+
+  private final ActivityHelper activityHelper = ActivityHelper.createInstance(this);
 
   private ImageLoader imageLoader;
+  private String versionURL;
 
   public void onCreate(Bundle savedInstanceState) {
     imageLoader = new ImageLoader(getApplicationContext());
@@ -28,14 +36,37 @@ public class AppActivity extends UpdateActivity {
     activityHelper.setupHomeAsUp();
   }
 
+  @SuppressWarnings("deprecation")
+  @Override
+  protected Dialog onCreateDialog(int id) {
+    if (id == RESTORE_DIALOG) {
+      AlertDialog.Builder builder = new AlertDialog.Builder(this);
+      AlertDialog alert = builder.create();
+      builder.setTitle("Restore Old Version").setMessage("Please note that installing an old version might lead to data loss or other side effects. Are you sure?").setPositiveButton("Restore", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+          startDownloadTask(versionURL);
+        }
+      }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+        }
+      });
+      alert = builder.create();
+      return alert;
+    }
+    else {
+      return super.onCreateDialog(id);
+    }
+  }
+
   protected void configureView() {
     super.configureView();
 
+    final String identifier = getIntent().getStringExtra("identifier");
+    final String apiURL = "https://rink.hockeyapp.net/api/2/apps/" + identifier;
+
     ImageView iconView = (ImageView)findViewById(AppView.ICON_VIEW_ID);
     try {
-      String identifier = getIntent().getStringExtra("identifier");
-      String url = "https://rink.hockeyapp.net/api/2/apps/" + identifier + "?format=png";
-      imageLoader.displayImage(url, this, iconView);
+      imageLoader.displayImage(apiURL + "?format=png", this, iconView);
     }
     catch (Exception e) {
       iconView.setImageBitmap(null);
@@ -46,6 +77,22 @@ public class AppActivity extends UpdateActivity {
 
     Button downloadButton = (Button)findViewById(UpdateView.UPDATE_BUTTON_ID);
     downloadButton.setText("Download");
+    
+    WebView webView = (WebView)findViewById(UpdateView.WEB_VIEW_ID);
+    webView.setWebViewClient(new WebViewClient() {
+      @SuppressWarnings("deprecation")
+      public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        if (url != null) {
+          if (url.startsWith("restore:")) {
+            versionURL = apiURL + "/app_versions/" + url.replace("restore:", "") + "?format=apk"; 
+            showDialog(RESTORE_DIALOG);
+            return true;
+          }
+        }
+        
+        return false; 
+      }
+    });
   }
 
   @Override
@@ -63,6 +110,10 @@ public class AppActivity extends UpdateActivity {
 
   public int getCurrentVersionCode() {
     return -1;
+  }
+
+  protected String getReleaseNotes() {
+    return versionHelper.getReleaseNotes(true);
   }
 
   public ViewGroup getLayoutView() {

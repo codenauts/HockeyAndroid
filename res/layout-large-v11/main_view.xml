@@ -9,7 +9,7 @@
     
     <RelativeLayout 
         android:id="@+id/content_view"
-        android:background="@color/background_lightgray_alpha"
+        android:background="@color/background_lightgray"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:tag="bottom"

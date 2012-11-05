@@ -2,8 +2,13 @@ package de.codenauts.hockeyapp;
 
 import net.hockeyapp.android.internal.UpdateView;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -83,17 +88,33 @@ public class AppView extends UpdateView {
   }
   
   private void changeParamsForUpdateButton(RelativeLayout headerView) {
+    Button updateButton = (Button)headerView.findViewById(UPDATE_BUTTON_ID);
+    updateButton.setBackgroundDrawable(getCustomButtonSelector());
+
+    int margin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float)20.0, getResources().getDisplayMetrics());
+    int offset = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float)5.0, getResources().getDisplayMetrics());
+    int width = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float)112.0, getResources().getDisplayMetrics());
+    int height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float)40.0, getResources().getDisplayMetrics());
+    
+    LayoutParams params = new LayoutParams(width, height);
     if (layoutHorizontally) {
-      TextView updateButton = (TextView)headerView.findViewById(UPDATE_BUTTON_ID);
-  
-      int margin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float)20.0, getResources().getDisplayMetrics());
-      int width = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float)120.0, getResources().getDisplayMetrics());
-      
-      LayoutParams params = new LayoutParams(width, LayoutParams.WRAP_CONTENT);
-      params.setMargins(margin, margin, margin, margin);
+      params.setMargins(margin, margin + offset, margin, margin);
       params.addRule(RelativeLayout.ALIGN_PARENT_TOP, TRUE);
       params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);
-      updateButton.setLayoutParams(params);
     }
+    else {
+      params.setMargins(margin, margin, margin, margin);
+      params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);
+      params.addRule(RelativeLayout.BELOW, VERSION_LABEL_ID);
+    }
+    updateButton.setLayoutParams(params);
+  }
+
+  private Drawable getCustomButtonSelector() {
+    StateListDrawable drawable = new StateListDrawable();
+    drawable.addState(new int[] {-android.R.attr.state_pressed}, new ColorDrawable(Color.parseColor("#007aaf")));
+    drawable.addState(new int[] {-android.R.attr.state_pressed, android.R.attr.state_focused}, new ColorDrawable(Color.parseColor("#0099c3")));
+    drawable.addState(new int[] {android.R.attr.state_pressed}, new ColorDrawable(Color.parseColor("#77bbdd")));
+    return drawable;
   }
 }

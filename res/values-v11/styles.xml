@@ -15,6 +15,6 @@
   -->
 
 <resources>
-    <style name="Theme.HockeyApp" parent="android:style/Theme.Holo.Light">
+    <style name="Theme.HockeyApp" parent="android:style/Theme.Holo">
     </style>
 </resources>

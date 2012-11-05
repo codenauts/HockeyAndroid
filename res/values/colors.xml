@@ -1,7 +1,9 @@
 <resources>
-    <color name="background_white">#ffffff</color>
-    <color name="background_lightgray">#cccccc</color>
+    <color name="background_black">#000</color>
+    <color name="background_white">#fff</color>
+    <color name="background_lightgray">#ccc</color>
     <color name="background_lightgray_alpha">#66cccccc</color>
     <color name="background_gray">#a8a8a8</color>
     <color name="background_gray_alpha">#66a8a8a8</color>
+    <color name="background_lightgray">#e8e8e8</color>
 </resources>

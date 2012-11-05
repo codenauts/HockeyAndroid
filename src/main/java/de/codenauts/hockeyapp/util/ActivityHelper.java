@@ -162,13 +162,6 @@ public class ActivityHelper {
     if (color == 0) {
       return;
     }
-
-    final View colorstrip = activity.findViewById(R.id.colorstrip);
-    if (colorstrip == null) {
-      return;
-    }
-
-    colorstrip.setBackgroundColor(color);
   }
 
   /**
@@ -210,7 +203,7 @@ public class ActivityHelper {
         new ViewGroup.LayoutParams(2, ViewGroup.LayoutParams.MATCH_PARENT));
 
     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-    layoutParams.setMargins(10, 0, 0, 0);
+    layoutParams.setMargins(10, 3, 0, 3);
 
     // Create the button
     ImageButton actionButton = new ImageButton(activity, null,
