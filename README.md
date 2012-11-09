@@ -18,11 +18,16 @@ If you have a problem, a question or a suggestion, please let us know via email 
 
 ## RELEASE NOTES
 
-### Version 1.3 (250) - 21/Aug/2012
+### Version 1.5 (250) - 09/Nov/2012
 
+* Added Facebook Connect (requires that you use Facebook on the HockeyApp homepage)
+* Added restore of older versions
 * Added support for versions restricted to tags
 * Added about screen
+* New dark holo design
+* New icon and logo
 * Changed layout of detail view to use a single web view to improve scrolling and performance
+* Fix cache invalidation for icons
 * Updated to newest HockeySDK + minor bug fixes
 
 ### Version 1.2 (226) - 10/May/2012
