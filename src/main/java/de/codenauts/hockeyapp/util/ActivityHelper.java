@@ -126,7 +126,7 @@ public class ActivityHelper {
     };
 
     // Add Home button
-    addActionButtonCompat(R.drawable.icon, R.string.app_name, homeClickListener, true);
+    addActionButtonCompat(R.drawable.logo, R.string.app_name, homeClickListener, true);
 
     if (title != null) {
       // Add title text

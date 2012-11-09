@@ -256,9 +256,10 @@ containing a value of this type.
         public static final int dummy_icon=0x7f020024;
         public static final int icon=0x7f020025;
         public static final int list_selector=0x7f020026;
-        public static final int logo_header=0x7f020027;
-        public static final int progress_bar=0x7f020028;
-        public static final int shadow_top=0x7f020029;
+        public static final int logo=0x7f020027;
+        public static final int logo_header=0x7f020028;
+        public static final int progress_bar=0x7f020029;
+        public static final int shadow_top=0x7f02002a;
     }
     public static final class id {
         public static final int actionbar_compat=0x7f050003;
